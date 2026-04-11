@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // CONFIGURACIÓN SUPABASE
 // ============================================================
 const SUPABASE_URL = 'https://daaiqgwumsswbknxdfeu.supabase.co';
@@ -71,6 +71,12 @@ function checkAuthSession() {
     const saved = localStorage.getItem('adminUser');
     if (saved) {
         currentUser = JSON.parse(saved);
+        if (currentUser.rol !== 'admin') {
+            // Sesión guardada de un usuario no-admin: limpiar y no dar acceso
+            localStorage.removeItem('adminUser');
+            currentUser = null;
+            return;
+        }
         document.getElementById('current-username').textContent = currentUser.username;
         showDashboard();
     }
@@ -123,6 +129,8 @@ function setupAuthForms() {
 
             if (error || !data) throw new Error('Usuario o contraseña incorrectos');
 
+            if (data.rol !== 'admin') throw new Error('Acceso denegado: no tienes permisos de administrador.');
+
             currentUser = data;
             localStorage.setItem('adminUser', JSON.stringify(currentUser));
             document.getElementById('current-username').textContent = currentUser.username;
@@ -151,7 +159,7 @@ function setupAuthForms() {
             const hashed = await hashConSHA256(phone);
             const { data, error } = await supabaseClient
                 .from('usuarios')
-                .insert([{ username: phone, password: hashed, rol: 'admin' }])
+                .insert([{ username: phone, password: hashed, rol: 'usuario' }])
                 .select('*')
                 .single();
 
