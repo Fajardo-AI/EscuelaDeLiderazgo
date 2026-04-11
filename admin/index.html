@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -88,88 +88,6 @@
 <body class="text-gray-800">
 
     <!-- ===================== AUTH OVERLAY ===================== -->
-    <div id="auth-overlay" class="active">
-        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl mx-4 flex flex-col md:flex-row overflow-hidden">
-            
-            <!-- Left: Branding -->
-            <div class="md:w-5/12 flex flex-col items-center justify-center p-8 bg-gray-900 text-white">
-                <div class="w-20 h-20 rounded-full bg-red-900 flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-landmark text-4xl"></i>
-                </div>
-                <h2 class="text-xl font-bold tracking-tighter uppercase text-center mb-1">VANGUARDIA Y DESARROLLO</h2>
-                <p class="text-xs text-gray-400 text-center mb-6">Panel de Administraci�n</p>
-                <a href="../index.html" class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full text-xs font-bold transition text-white">
-                    <i class="fa-solid fa-arrow-left"></i> Volver a la App
-                </a>
-            </div>
-
-            <!-- Right: Forms -->
-            <div class="md:w-7/12 p-8">
-                <!-- Tabs -->
-                <div class="flex border-b mb-6">
-                    <button id="tab-login" class="flex-1 pb-3 font-bold text-sm text-critico border-b-2 border-critico" onclick="switchAuthTab('login')">
-                        <i class="fa-solid fa-lock mr-1"></i> Ingresar
-                    </button>
-                    <button id="tab-register" class="flex-1 pb-3 font-bold text-sm text-gray-400 border-b-2 border-transparent hover:text-gray-600" onclick="switchAuthTab('register')">
-                        <i class="fa-solid fa-user-plus mr-1"></i> Registrarse
-                    </button>
-                </div>
-
-                <!-- LOGIN -->
-                <form id="login-form" class="space-y-4">
-                    <p class="text-xs text-gray-500 bg-gray-50 p-3 rounded border-l-4 border-yellow-400">
-                        <i class="fa-solid fa-circle-info text-yellow-500"></i> Ingresa con el n�mero de tel�fono que usaste al registrarte.
-                    </p>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Usuario / Tel�fono</label>
-                        <div class="relative">
-                            <i class="fa-solid fa-user absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                            <input type="text" id="login-username" required
-                                class="w-full pl-9 pr-3 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-red-800 focus:ring-1 focus:ring-red-800 transition"
-                                placeholder="Ej: 3001234567">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Contrase�a</label>
-                        <div class="relative">
-                            <i class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                            <input type="password" id="login-password" required
-                                class="w-full pl-9 pr-3 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-red-800 focus:ring-1 focus:ring-red-800 transition"
-                                placeholder="Tu n�mero de tel�fono">
-                        </div>
-                    </div>
-                    <div id="login-error" class="text-red-600 text-xs font-bold min-h-[18px]"></div>
-                    <button type="submit" id="btn-login"
-                        class="w-full bg-critico hover:bg-red-900 text-white font-bold py-2.5 rounded-lg transition text-sm uppercase tracking-wide">
-                        Acceder al Panel
-                    </button>
-                </form>
-
-                <!-- REGISTRO -->
-                <form id="register-form" class="space-y-4 hidden">
-                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-xs text-blue-800">
-                        <i class="fa-solid fa-shield-halved text-blue-600"></i>
-                        Tu n�mero de tel�fono funcionar� como <strong>usuario y contrase�a</strong>. Se encripta autom�ticamente para mayor seguridad.
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-600 uppercase mb-1">N�mero de Celular</label>
-                        <div class="relative">
-                            <i class="fa-solid fa-phone absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                            <input type="tel" id="reg-phone" required
-                                class="w-full pl-9 pr-3 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-red-800 focus:ring-1 focus:ring-red-800 transition"
-                                placeholder="Ej: 3001234567" pattern="[0-9]{8,15}">
-                        </div>
-                    </div>
-                    <div id="register-error" class="text-red-600 text-xs font-bold min-h-[18px]"></div>
-                    <button type="submit" id="btn-register"
-                        class="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-2.5 rounded-lg transition text-sm uppercase tracking-wide">
-                        <i class="fa-solid fa-lock mr-1"></i> Crear Acceso Seguro
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <!-- ===================== MAIN APP ===================== -->
     <div id="app-container" class="hidden flex-col h-screen">
 
@@ -180,7 +98,7 @@
                     <i class="fa-solid fa-landmark text-2xl hidden md:block"></i>
                     <div>
                         <h1 class="text-lg font-bold tracking-tighter uppercase leading-none">VANGUARDIA Y DESARROLLO</h1>
-                        <p class="text-[10px] opacity-70">Panel de Administraci�n</p>
+                        <p class="text-[10px] opacity-70">Panel de Administración</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
@@ -210,7 +128,7 @@
                         <i class="fa-solid fa-book-open w-4 text-center"></i> Biblioteca PDFs
                     </button>
                     <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 text-sm font-bold text-gray-500 rounded-lg text-left transition hover:bg-gray-50 border-l-4 border-transparent" data-target="modulos-section">
-                        <i class="fa-solid fa-layer-group w-4 text-center"></i> M�dulos
+                        <i class="fa-solid fa-layer-group w-4 text-center"></i> Módulos
                     </button>
                     <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 text-sm font-bold text-gray-500 rounded-lg text-left transition hover:bg-gray-50 border-l-4 border-transparent" data-target="contenidos-section">
                         <i class="fa-solid fa-file-video w-4 text-center"></i> Video / Podcast
@@ -230,7 +148,7 @@
                     <i class="fa-solid fa-book-open text-base"></i><span>Biblioteca</span>
                 </button>
                 <button class="nav-btn flex flex-col items-center text-xs gap-0.5" data-target="modulos-section">
-                    <i class="fa-solid fa-layer-group text-base"></i><span>M�dulos</span>
+                    <i class="fa-solid fa-layer-group text-base"></i><span>Módulos</span>
                 </button>
                 <button class="nav-btn flex flex-col items-center text-xs gap-0.5" data-target="contenidos-section">
                     <i class="fa-solid fa-video text-base"></i><span>Multimedia</span>
@@ -262,16 +180,16 @@
                             <h3 class="text-4xl font-black text-gray-800 mt-1" id="total-podcasts">0</h3>
                         </div>
                         <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-gray-800">
-                            <p class="text-xs font-bold text-gray-400 uppercase">M�dulos</p>
+                            <p class="text-xs font-bold text-gray-400 uppercase">Módulos</p>
                             <h3 class="text-4xl font-black text-gray-800 mt-1" id="total-modulos">0</h3>
                         </div>
                     </div>
                     <div class="bg-white rounded-xl shadow-sm p-5 border">
                         <p class="font-bold text-sm mb-2"><i class="fa-solid fa-circle-info text-blue-500 mr-1"></i> Centro de control</p>
-                        <p class="text-xs text-gray-500">Desde este panel puedes gestionar todos los contenidos que aparecen en la Biblioteca p�blica de la plataforma. Los cambios son inmediatos.</p>
+                        <p class="text-xs text-gray-500">Desde este panel puedes gestionar todos los contenidos que aparecen en la Biblioteca póblica de la plataforma. Los cambios son inmediatos.</p>
                         <ul class="mt-3 space-y-1.5 text-xs text-gray-600">
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-book-open text-critico mt-0.5"></i> <strong>Biblioteca PDFs:</strong> Sube, edita, busca y elimina documentos PDF que aparecen en la secci�n Biblioteca.</li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-layer-group text-blue-500 mt-0.5"></i> <strong>M�dulos:</strong> Crea las categor�as tem�ticas que agrupan el contenido.</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-book-open text-critico mt-0.5"></i> <strong>Biblioteca PDFs:</strong> Sube, edita, busca y elimina documentos PDF que aparecen en la sección Biblioteca.</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-layer-group text-blue-500 mt-0.5"></i> <strong>Módulos:</strong> Crea las categoróas temóticas que agrupan el contenido.</li>
                             <li class="flex items-start gap-2"><i class="fa-solid fa-video text-purple-500 mt-0.5"></i> <strong>Video / Podcast:</strong> Gestiona contenido multimedia con enlaces externos.</li>
                         </ul>
                     </div>
@@ -280,7 +198,7 @@
                 <!-- BIBLIOTECA PDFs -->
                 <section id="biblioteca-section" class="content-section">
                     <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-book-open text-critico"></i> Gesti�n de Biblioteca (PDFs)
+                        <i class="fa-solid fa-book-open text-critico"></i> Gestión de Biblioteca (PDFs)
                     </h2>
 
                     <div class="grid xl:grid-cols-5 gap-5">
@@ -292,22 +210,22 @@
                                 </h3>
                                 <form id="pdf-form" class="space-y-3">
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-600 mb-1">T�tulo del documento *</label>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Tótulo del documento *</label>
                                         <input type="text" id="pdf-titulo" required
                                             class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none focus:ring-1 focus:ring-red-200"
-                                            placeholder="Ej: Sobre los m�todos de direcci�n">
+                                            placeholder="Ej: Sobre los mótodos de dirección">
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-600 mb-1">Descripci�n</label>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Descripción</label>
                                         <textarea id="pdf-desc" rows="2"
                                             class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none resize-none"
-                                            placeholder="Breve descripci�n del documento..."></textarea>
+                                            placeholder="Breve descripción del documento..."></textarea>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-600 mb-1">M�dulo *</label>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Módulo *</label>
                                         <select id="pdf-modulo" required
                                             class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none bg-white">
-                                            <option value="">Selecciona m�dulo...</option>
+                                            <option value="">Selecciona módulo...</option>
                                         </select>
                                     </div>
                                     <div>
@@ -315,7 +233,7 @@
                                         <div class="upload-zone" id="drop-zone">
                                             <input type="file" id="pdf-file" accept="application/pdf" required>
                                             <i class="fa-solid fa-file-pdf text-3xl text-gray-300 mb-2"></i>
-                                            <p class="text-xs font-bold text-gray-400 file-label">Arrastra el PDF aqu� o haz clic</p>
+                                            <p class="text-xs font-bold text-gray-400 file-label">Arrastra el PDF aquó o haz clic</p>
                                             <p class="text-[10px] text-gray-300 mt-1">Solo archivos .pdf</p>
                                         </div>
                                     </div>
@@ -340,7 +258,7 @@
                         <!-- Lista PDFs -->
                         <div class="xl:col-span-3">
                             <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
-                                <!-- Barra de b�squeda y filtro -->
+                                <!-- Barra de bósqueda y filtro -->
                                 <div class="p-4 border-b bg-gray-50 flex flex-wrap gap-2 items-center">
                                     <h3 class="font-bold text-sm uppercase flex-1 flex items-center gap-2">
                                         <i class="fa-regular fa-folder-open text-critico"></i> Lista de PDFs
@@ -367,7 +285,7 @@
                                         <thead class="text-[10px] text-gray-400 uppercase bg-gray-50 border-b">
                                             <tr>
                                                 <th class="px-4 py-2 text-left">Documento</th>
-                                                <th class="px-4 py-2 text-left hidden sm:table-cell">M�dulo</th>
+                                                <th class="px-4 py-2 text-left hidden sm:table-cell">Módulo</th>
                                                 <th class="px-4 py-2 text-left hidden md:table-cell">Fecha</th>
                                                 <th class="px-4 py-2 text-right">Acciones</th>
                                             </tr>
@@ -382,31 +300,31 @@
                     </div>
                 </section>
 
-                <!-- M�DULOS -->
+                <!-- MóDULOS -->
                 <section id="modulos-section" class="content-section">
                     <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-layer-group text-critico"></i> Gesti�n de M�dulos
+                        <i class="fa-solid fa-layer-group text-critico"></i> Gestión de Módulos
                     </h2>
                     <div class="grid md:grid-cols-3 gap-5">
                         <div class="md:col-span-1">
                             <div class="bg-white rounded-xl shadow-sm border p-5">
-                                <h3 class="font-bold text-sm uppercase pb-2 mb-4 border-b">Nuevo M�dulo</h3>
+                                <h3 class="font-bold text-sm uppercase pb-2 mb-4 border-b">Nuevo Módulo</h3>
                                 <form id="modulo-form" class="space-y-3">
                                     <div>
                                         <label class="block text-xs font-bold text-gray-600 mb-1">Nombre *</label>
                                         <input type="text" id="mod-nombre" required
                                             class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none"
-                                            placeholder="Ej: M�dulo A � Liderazgo">
+                                            placeholder="Ej: Módulo A ó Liderazgo">
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-600 mb-1">Descripci�n</label>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Descripción</label>
                                         <textarea id="mod-desc" rows="2"
                                             class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none resize-none"
-                                            placeholder="Descripci�n breve..."></textarea>
+                                            placeholder="Descripción breve..."></textarea>
                                     </div>
                                     <button type="submit"
                                         class="w-full bg-gray-900 text-white font-bold py-2 rounded-lg text-sm hover:bg-gray-700 transition">
-                                        Crear M�dulo
+                                        Crear Módulo
                                     </button>
                                 </form>
                             </div>
@@ -414,15 +332,15 @@
                         <div class="md:col-span-2">
                             <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
                                 <div class="p-4 bg-gray-50 border-b">
-                                    <h3 class="font-bold text-sm uppercase"><i class="fa-solid fa-list mr-2"></i>M�dulos Existentes</h3>
+                                    <h3 class="font-bold text-sm uppercase"><i class="fa-solid fa-list mr-2"></i>Módulos Existentes</h3>
                                 </div>
                                 <table class="w-full text-sm" id="modulos-table">
                                     <thead class="text-[10px] text-gray-400 uppercase bg-gray-50 border-b">
                                         <tr>
                                             <th class="px-4 py-2 text-left">ID</th>
                                             <th class="px-4 py-2 text-left">Nombre</th>
-                                            <th class="px-4 py-2 text-left">Descripci�n</th>
-                                            <th class="px-4 py-2 text-right">Acci�n</th>
+                                            <th class="px-4 py-2 text-left">Descripción</th>
+                                            <th class="px-4 py-2 text-right">Acción</th>
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-100"></tbody>
@@ -435,7 +353,7 @@
                 <!-- VIDEO / PODCAST -->
                 <section id="contenidos-section" class="content-section">
                     <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-video text-critico"></i> Gesti�n Video / Podcast
+                        <i class="fa-solid fa-video text-critico"></i> Gestión Video / Podcast
                     </h2>
                     <div class="grid xl:grid-cols-5 gap-5">
                         <div class="xl:col-span-2">
@@ -460,21 +378,21 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-600 mb-1">T�tulo *</label>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Tótulo *</label>
                                         <input type="text" id="cont-titulo" required
                                             class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none"
-                                            placeholder="T�tulo del recurso">
+                                            placeholder="Tótulo del recurso">
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-600 mb-1">Descripci�n</label>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Descripción</label>
                                         <textarea id="cont-desc" rows="2"
                                             class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none resize-none"></textarea>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-600 mb-1">M�dulo *</label>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Módulo *</label>
                                         <select id="cont-modulo" required
                                             class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none bg-white">
-                                            <option value="">Selecciona m�dulo...</option>
+                                            <option value="">Selecciona módulo...</option>
                                         </select>
                                     </div>
                                     <div>
@@ -501,8 +419,8 @@
                                     <thead class="text-[10px] text-gray-400 uppercase bg-gray-50 border-b">
                                         <tr>
                                             <th class="px-4 py-2 text-left">Tipo</th>
-                                            <th class="px-4 py-2 text-left">T�tulo</th>
-                                            <th class="px-4 py-2 text-left hidden sm:table-cell">M�dulo</th>
+                                            <th class="px-4 py-2 text-left">Tótulo</th>
+                                            <th class="px-4 py-2 text-left hidden sm:table-cell">Módulo</th>
                                             <th class="px-4 py-2 text-right">Acciones</th>
                                         </tr>
                                     </thead>
@@ -521,6 +439,10 @@
 
                     <!-- Sub-tabs -->
                     <div class="flex gap-2 mb-5 border-b">
+                        <button onclick="switchModTab('mod-preguntas')" id="tab-preguntas"
+                            class="mod-tab px-4 py-2 text-sm font-bold border-b-2 border-transparent text-gray-400 -mb-[2px]">
+                            <i class="fa-solid fa-circle-question mr-1"></i> Preguntas óÁgora
+                        </button>
                         <button onclick="switchModTab('mod-resenas')" id="tab-resenas"
                             class="mod-tab px-4 py-2 text-sm font-bold border-b-2 border-critico text-critico -mb-[2px]">
                             <i class="fa-solid fa-pen-to-square mr-1"></i> Resenas
@@ -533,6 +455,59 @@
                             class="mod-tab px-4 py-2 text-sm font-bold border-b-2 border-transparent text-gray-400 -mb-[2px]">
                             <i class="fa-solid fa-comments mr-1"></i> Propuestas Muro
                         </button>
+                    </div>
+
+                    <!-- Vista Preguntas -->
+                    <div id="mod-preguntas" class="hidden">
+                        <div class="grid xl:grid-cols-5 gap-5">
+                            <div class="xl:col-span-2">
+                                <div class="bg-white rounded-xl shadow-sm border p-5">
+                                    <h3 class="font-bold text-sm uppercase pb-2 mb-4 border-b flex items-center gap-2">
+                                        <i class="fa-solid fa-plus text-critico"></i> Nueva Pregunta
+                                    </h3>
+                                    <form id="pregunta-form" class="space-y-3">
+                                        <div>
+                                            <label class="block text-xs font-bold text-gray-600 mb-1">Módulo *</label>
+                                            <select id="preg-modulo" required class="w-full p-2 border rounded-lg text-sm bg-white focus:outline-none focus:border-red-800"></select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-gray-600 mb-1">Tipo *</label>
+                                            <select id="preg-tipo" required class="w-full p-2 border rounded-lg text-sm bg-white focus:outline-none focus:border-red-800">
+                                                <option value="foco">Foco (Pregunta Abierta)</option>
+                                                <option value="nube">Nube (Pregunta Central)</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-gray-600 mb-1">Pregunta *</label>
+                                            <textarea id="preg-texto" required rows="3" class="w-full p-2 border rounded-lg text-sm focus:outline-none focus:border-red-800 resize-none" placeholder="óQuó causa nos une?"></textarea>
+                                        </div>
+                                        <button type="submit" id="btn-save-pregunta" class="w-full bg-critico hover:bg-red-900 text-white font-bold py-2.5 rounded-lg text-sm transition">
+                                            <i class="fa-solid fa-save"></i> Guardar Pregunta
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="xl:col-span-3">
+                                <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                                    <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                                        <h3 class="font-bold text-sm uppercase"><i class="fa-solid fa-list mr-2 text-critico"></i> Preguntas Existentes</h3>
+                                        <select id="filter-preg-modulo" class="p-1.5 text-xs border rounded-lg bg-white focus:outline-none">
+                                            <option value="all">Todos los Módulos</option>
+                                        </select>
+                                    </div>
+                                    <table class="w-full text-sm">
+                                        <thead class="text-[10px] text-gray-400 uppercase bg-gray-50 border-b">
+                                            <tr>
+                                                <th class="px-4 py-2 text-left">Módulo / Tipo</th>
+                                                <th class="px-4 py-2 text-left">Pregunta</th>
+                                                <th class="px-4 py-2 text-right">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="preguntas-tbody" class="divide-y divide-gray-100"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Vista Resenas -->
@@ -555,7 +530,7 @@
                         <div class="bg-white rounded-xl shadow-sm border p-5">
                             <div class="flex justify-between items-start mb-4">
                                 <div>
-                                    <h3 class="font-bold text-sm uppercase">Nube de Ideas del Foro Agora</h3>
+                                    <h3 class="font-bold text-sm uppercase">Nube de Ideas del Foro AÁgora</h3>
                                     <p class="text-xs text-gray-400 mt-0.5">Palabras enviadas por los participantes en el foro</p>
                                 </div>
                                 <button onclick="resetNube()" class="flex items-center gap-2 bg-red-50 hover:bg-red-100 text-critico font-bold text-xs px-4 py-2 rounded-lg transition border border-red-200">
@@ -592,7 +567,7 @@
         </div>
     </div>
 
-    <!-- ====== MODAL EDICI�N PDF ====== -->
+    <!-- ====== MODAL EDICIóN PDF ====== -->
     <div id="modal-edit-pdf" class="modal-overlay">
         <div class="bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 overflow-hidden">
             <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
@@ -606,17 +581,17 @@
             <form id="edit-pdf-form" class="p-5 space-y-3">
                 <input type="hidden" id="edit-pdf-id">
                 <div>
-                    <label class="block text-xs font-bold text-gray-600 mb-1">T�tulo *</label>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">Tótulo *</label>
                     <input type="text" id="edit-pdf-titulo" required
                         class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-gray-600 mb-1">Descripci�n</label>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">Descripción</label>
                     <textarea id="edit-pdf-desc" rows="2"
                         class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none resize-none"></textarea>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-gray-600 mb-1">M�dulo *</label>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">Módulo *</label>
                     <select id="edit-pdf-modulo" required
                         class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none bg-white">
                     </select>

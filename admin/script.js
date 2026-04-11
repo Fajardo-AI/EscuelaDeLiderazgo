@@ -1,5 +1,103 @@
-﻿// ============================================================
-// CONFIGURACI�N SUPABASE
+
+
+// ============================================================
+// SECCIóN: PREGUNTAS (FORO / óGORA)
+// ============================================================
+async function loadPreguntas() {
+    try {
+        const { data, error } = await supabaseClient
+            .from('preguntas_foro')
+            .select('*, modulos(nombre)')
+            .order('id', { ascending: false });
+        if (error) throw error;
+        preguntasForo = data || [];
+        renderPreguntasTable();
+    } catch (err) {
+        showToast('Error cargando preguntas: ' + err.message, 'error');
+    }
+}
+
+function setupPreguntaForm() {
+    const form = document.getElementById('pregunta-form');
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('btn-save-pregunta');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+        btn.disabled = true;
+
+        const id_modulo = document.getElementById('preg-modulo').value;
+        const tipo = document.getElementById('preg-tipo').value;
+        const pregunta = document.getElementById('preg-texto').value.trim();
+
+        try {
+            const { error } = await supabaseClient.from('preguntas_foro').insert([{
+                id_modulo, tipo, pregunta, activa: true
+            }]);
+            if (error) throw error;
+            showToast('Pregunta guardada', 'success');
+            e.target.reset();
+            await loadPreguntas();
+        } catch (err) {
+            showToast('Error: ' + err.message, 'error');
+        } finally {
+            btn.innerHTML = orig;
+            btn.disabled = false;
+        }
+    });
+}
+
+function renderPreguntasTable() {
+    const tbody = document.getElementById('preguntas-tbody');
+    if (!tbody) return;
+    const filterId = document.getElementById('filter-preg-modulo')?.value || 'all';
+
+    let filtrados = preguntasForo;
+    if (filterId !== 'all') filtrados = filtrados.filter(p => String(p.id_modulo) === filterId);
+
+    if (filtrados.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3" class="px-4 py-8 text-center text-gray-400 text-xs">No hay preguntas registradas.</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = '';
+    filtrados.forEach(p => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-gray-50 transition';
+        const modName = p.modulos?.nombre || 'General';
+        const tipoBadge = p.tipo === 'nube' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700';
+        tr.innerHTML = `
+            <td class="px-4 py-3 align-top">
+                <div class="font-bold text-xs text-gray-700">${modName}</div>
+                <div class="inline-block px-2 py-0.5 mt-1 rounded text-[10px] font-bold uppercase ${tipoBadge}">${p.tipo}</div>
+            </td>
+            <td class="px-4 py-3 text-sm text-gray-600">${p.pregunta}</td>
+            <td class="px-4 py-3 text-right align-top">
+                <button onclick="eliminarPregunta(${p.id})" class="text-red-500 hover:bg-red-50 p-1.5 rounded-lg transition" title="Eliminar">
+                    <i class="fa-solid fa-trash text-sm"></i>
+                </button>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+window.eliminarPregunta = async function(id) {
+    if (!confirm('óEliminar esta pregunta del foro?')) return;
+    try {
+        const { error } = await supabaseClient.from('preguntas_foro').delete().eq('id', id);
+        if (error) throw error;
+        showToast('Pregunta eliminada', 'success');
+        await loadPreguntas();
+    } catch (err) {
+        showToast('Error: ' + err.message, 'error');
+    }
+};
+
+
+// ============================================================
+// CONFIGURACIóN SUPABASE
 // ============================================================
 const SUPABASE_URL = 'https://daaiqgwumsswbknxdfeu.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable__L83VhIUpHNGakYyPSNWHA_R5nlmBFB';
@@ -12,6 +110,7 @@ let currentUser = null;
 let modulos = [];
 let pdfs = [];       // contenidos tipo 'pdf'
 let multimedia = []; // contenidos tipo 'video' o 'podcast'
+let preguntasForo = []; // DDBB preguntas
 
 // ============================================================
 // UTILIDADES
@@ -57,145 +156,45 @@ window.closeModal = function (id) {
 document.addEventListener('DOMContentLoaded', () => {
     checkAuthSession();
     setupNavigation();
-    setupAuthForms();
     setupPdfForm();
     setupContenidoForm();
     setupModuloForm();
+    setupPreguntaForm();
     setupEditPdfForm();
 });
 
 // ============================================================
-// AUTENTICACI�N
+// AUTENTICACIóN
 // ============================================================
 function checkAuthSession() {
-    const saved = localStorage.getItem('adminUser');
+    const saved = localStorage.getItem('vyd_user');
     if (saved) {
         currentUser = JSON.parse(saved);
         if (currentUser.rol !== 'admin') {
-            // Sesi�n guardada de un usuario no-admin: limpiar y no dar acceso
-            localStorage.removeItem('adminUser');
-            currentUser = null;
+            window.location.href = '../index.html';
             return;
         }
-        document.getElementById('current-username').textContent = currentUser.username;
+        document.getElementById('current-username').textContent = currentUser.nombre || currentUser.whatsapp || 'Admin';
         showDashboard();
+    } else {
+        window.location.href = '../index.html';
     }
 }
 
-window.switchAuthTab = function (tabName) {
-    const loginForm = document.getElementById('login-form');
-    const registerForm = document.getElementById('register-form');
-    const tabLogin = document.getElementById('tab-login');
-    const tabReg = document.getElementById('tab-register');
-
-    if (tabName === 'login') {
-        loginForm.classList.remove('hidden');
-        registerForm.classList.add('hidden');
-        tabLogin.classList.add('text-critico', 'border-critico');
-        tabLogin.classList.remove('text-gray-400', 'border-transparent');
-        tabReg.classList.remove('text-critico', 'border-critico');
-        tabReg.classList.add('text-gray-400', 'border-transparent');
-    } else {
-        loginForm.classList.add('hidden');
-        registerForm.classList.remove('hidden');
-        tabReg.classList.add('text-critico', 'border-critico');
-        tabReg.classList.remove('text-gray-400', 'border-transparent');
-        tabLogin.classList.remove('text-critico', 'border-critico');
-        tabLogin.classList.add('text-gray-400', 'border-transparent');
-    }
-};
+// Inicializar logout al no usar las otras formas
+setupAuthForms();
 
 function setupAuthForms() {
-    // LOGIN
-    document.getElementById('login-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = document.getElementById('btn-login');
-        const origText = btn.innerHTML;
-        btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Verificando...';
-        btn.disabled = true;
-        document.getElementById('login-error').textContent = '';
-
-        const username = document.getElementById('login-username').value.trim();
-        const password = document.getElementById('login-password').value;
-
-        try {
-            const hashed = await hashConSHA256(password);
-            const { data, error } = await supabaseClient
-                .from('usuarios')
-                .select('*')
-                .eq('username', username)
-                .eq('password', hashed)
-                .single();
-
-            if (error || !data) throw new Error('Usuario o contrase�a incorrectos');
-
-            if (data.rol !== 'admin') throw new Error('Acceso denegado: no tienes permisos de administrador.');
-
-            currentUser = data;
-            localStorage.setItem('adminUser', JSON.stringify(currentUser));
-            document.getElementById('current-username').textContent = currentUser.username;
-            showToast('�Bienvenido! Acceso concedido.', 'success');
-            showDashboard();
-        } catch (err) {
-            document.getElementById('login-error').textContent = err.message;
-        } finally {
-            btn.innerHTML = origText;
-            btn.disabled = false;
-        }
-    });
-
-    // REGISTRO
-    document.getElementById('register-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = document.getElementById('btn-register');
-        const origText = btn.innerHTML;
-        btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Registrando...';
-        btn.disabled = true;
-        document.getElementById('register-error').textContent = '';
-
-        const phone = document.getElementById('reg-phone').value.trim();
-
-        try {
-            const hashed = await hashConSHA256(phone);
-            const { data, error } = await supabaseClient
-                .from('usuarios')
-                .insert([{ username: phone, password: hashed, rol: 'usuario' }])
-                .select('*')
-                .single();
-
-            if (error) {
-                if (error.code === '23505') throw new Error('Este tel�fono ya est� registrado.');
-                throw new Error(`Error BD: ${error.message}`);
-            }
-
-            currentUser = data;
-            localStorage.setItem('adminUser', JSON.stringify(currentUser));
-            document.getElementById('current-username').textContent = currentUser.username;
-            showToast('�Registro exitoso! Bienvenido.', 'success');
-            showDashboard();
-        } catch (err) {
-            document.getElementById('register-error').textContent = err.message;
-        } finally {
-            btn.innerHTML = origText;
-            btn.disabled = false;
-        }
-    });
-
-    // LOGOUT
     document.getElementById('logout-btn').addEventListener('click', () => {
-        localStorage.removeItem('adminUser');
+        localStorage.removeItem('vyd_user');
         currentUser = null;
-        document.getElementById('app-container').style.display = 'none';
-        document.getElementById('app-container').classList.add('hidden');
-        const overlay = document.getElementById('auth-overlay');
-        overlay.classList.add('active');
-        switchAuthTab('login');
+        window.location.href = '../index.html';
     });
 }
 
+window.switchAuthTab = function() {};
+
 function showDashboard() {
-    const overlay = document.getElementById('auth-overlay');
-    overlay.classList.remove('active');
     const app = document.getElementById('app-container');
     app.classList.remove('hidden');
     app.style.display = 'flex';
@@ -203,7 +202,7 @@ function showDashboard() {
 }
 
 // ============================================================
-// NAVEGACI�N
+// NAVEGACIóN
 // ============================================================
 function setupNavigation() {
     const navBtns = document.querySelectorAll('.nav-btn');
@@ -232,6 +231,7 @@ function setupNavigation() {
 // ============================================================
 async function loadAll() {
     await loadModulos();
+    await loadPreguntas();
     await Promise.all([loadPdfs(), loadContenidos()]);
     updateStats();
 }
@@ -247,7 +247,7 @@ async function loadModulos() {
         renderModulosTable();
         populateModuloSelects();
     } catch (err) {
-        showToast('Error cargando m�dulos: ' + err.message, 'error');
+        showToast('Error cargando módulos: ' + err.message, 'error');
     }
 }
 
@@ -291,18 +291,21 @@ function updateStats() {
 }
 
 function populateModuloSelects() {
-    const ids = ['pdf-modulo', 'cont-modulo', 'edit-pdf-modulo', 'filter-pdf-modulo'];
+    const ids = ['pdf-modulo', 'cont-modulo', 'edit-pdf-modulo', 'filter-pdf-modulo', 'preg-modulo', 'filter-preg-modulo'];
     ids.forEach(id => {
         const el = document.getElementById(id);
         if (!el) return;
         const isFilter = id === 'filter-pdf-modulo';
         el.innerHTML = isFilter
             ? '<option value="all">Todos</option>'
-            : '<option value="">Selecciona m�dulo...</option>';
+            : '<option value="">Selecciona módulo...</option>';
         modulos.forEach(m => {
             el.innerHTML += `<option value="${m.id}">${m.nombre}</option>`;
         });
     });
+
+    const filterPreg = document.getElementById('filter-preg-modulo');
+    if (filterPreg) filterPreg.addEventListener('change', renderPreguntasTable);
 
     // Listener del filtro
     const filterEl = document.getElementById('filter-pdf-modulo');
@@ -316,7 +319,7 @@ function populateModuloSelects() {
 }
 
 // ============================================================
-// SECCI�N: BIBLIOTECA PDFs
+// SECCIóN: BIBLIOTECA PDFs
 // ============================================================
 
 // -- Subir PDF --
@@ -329,7 +332,7 @@ function setupPdfForm() {
             dropZone.querySelector('.file-label').textContent = fileInput.files[0].name;
             dropZone.classList.add('border-critico', 'bg-red-50');
         } else {
-            dropZone.querySelector('.file-label').textContent = 'Arrastra el PDF aqu� o haz clic';
+            dropZone.querySelector('.file-label').textContent = 'Arrastra el PDF aquó o haz clic';
             dropZone.classList.remove('border-critico', 'bg-red-50');
         }
     });
@@ -366,7 +369,7 @@ function setupPdfForm() {
 
             if (uploadErr) throw new Error('Error al subir archivo: ' + uploadErr.message);
 
-            // 2. Obtener URL p�blica
+            // 2. Obtener URL póblica
             const { data: urlData } = supabaseClient.storage.from('Biblioteca').getPublicUrl(fileName);
             const urlFinal = urlData.publicUrl;
 
@@ -385,7 +388,7 @@ function setupPdfForm() {
 
             showToast(`? "${titulo}" subido a la Biblioteca`, 'success');
             e.target.reset();
-            dropZone.querySelector('.file-label').textContent = 'Arrastra el PDF aqu� o haz clic';
+            dropZone.querySelector('.file-label').textContent = 'Arrastra el PDF aquó o haz clic';
             dropZone.classList.remove('border-critico', 'bg-red-50');
             wrap.classList.add('hidden');
             await loadPdfs();
@@ -438,7 +441,7 @@ function renderPdfTable() {
 
     tbody.innerHTML = '';
     filtrados.forEach(pdf => {
-        const modNombre = pdf.modulos?.nombre || '�';
+        const modNombre = pdf.modulos?.nombre || 'ó';
         const tr = document.createElement('tr');
         tr.className = 'hover:bg-gray-50 transition group';
         tr.innerHTML = `
@@ -447,7 +450,7 @@ function renderPdfTable() {
                     <i class="fa-solid fa-file-pdf text-red-500 text-lg mt-0.5 shrink-0"></i>
                     <div>
                         <p class="font-bold text-sm text-gray-800 leading-tight">${pdf.titulo}</p>
-                        <p class="text-[11px] text-gray-400 mt-0.5 line-clamp-1">${pdf.descripcion || '�'}</p>
+                        <p class="text-[11px] text-gray-400 mt-0.5 line-clamp-1">${pdf.descripcion || 'ó'}</p>
                     </div>
                 </div>
             </td>
@@ -484,9 +487,9 @@ window.abrirEditPdf = function (id) {
     document.getElementById('edit-pdf-titulo').value = pdf.titulo;
     document.getElementById('edit-pdf-desc').value = pdf.descripcion || '';
 
-    // Poblar select de m�dulos en el modal
+    // Poblar select de módulos en el modal
     const sel = document.getElementById('edit-pdf-modulo');
-    sel.innerHTML = '<option value="">Sin m�dulo</option>';
+    sel.innerHTML = '<option value="">Sin módulo</option>';
     modulos.forEach(m => {
         sel.innerHTML += `<option value="${m.id}" ${m.id == pdf.id_modulo ? 'selected' : ''}>${m.nombre}</option>`;
     });
@@ -530,7 +533,7 @@ function setupEditPdfForm() {
 
 // -- Eliminar PDF --
 window.eliminarPdf = async function (id) {
-    if (!confirm('�Seguro que quieres eliminar este PDF de la Biblioteca?')) return;
+    if (!confirm('óSeguro que quieres eliminar este PDF de la Biblioteca?')) return;
     try {
         const { error } = await supabaseClient.from('contenidos').delete().eq('id', id);
         if (error) throw error;
@@ -543,7 +546,7 @@ window.eliminarPdf = async function (id) {
 };
 
 // ============================================================
-// SECCI�N: M�DULOS
+// SECCIóN: MóDULOS
 // ============================================================
 function setupModuloForm() {
     document.getElementById('modulo-form').addEventListener('submit', async (e) => {
@@ -559,7 +562,7 @@ function setupModuloForm() {
         try {
             const { error } = await supabaseClient.from('modulos').insert([{ nombre, descripcion }]);
             if (error) throw error;
-            showToast('M�dulo creado', 'success');
+            showToast('Módulo creado', 'success');
             e.target.reset();
             await loadModulos();
         } catch (err) {
@@ -577,7 +580,7 @@ function renderModulosTable() {
     tbody.innerHTML = '';
 
     if (modulos.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="4" class="px-4 py-8 text-center text-gray-400 text-xs">No hay m�dulos creados.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="4" class="px-4 py-8 text-center text-gray-400 text-xs">No hay módulos creados.</td></tr>';
         return;
     }
 
@@ -587,7 +590,7 @@ function renderModulosTable() {
         tr.innerHTML = `
             <td class="px-4 py-3 text-xs font-mono text-gray-400">#${m.id}</td>
             <td class="px-4 py-3 font-bold text-sm">${m.nombre}</td>
-            <td class="px-4 py-3 text-xs text-gray-500">${m.descripcion || '�'}</td>
+            <td class="px-4 py-3 text-xs text-gray-500">${m.descripcion || 'ó'}</td>
             <td class="px-4 py-3 text-right">
                 <button onclick="eliminarModulo(${m.id})" class="text-red-500 hover:bg-red-50 p-1.5 rounded-lg transition" title="Eliminar">
                     <i class="fa-solid fa-trash text-sm"></i>
@@ -599,11 +602,11 @@ function renderModulosTable() {
 }
 
 window.eliminarModulo = async function (id) {
-    if (!confirm('�Eliminar este m�dulo? Los contenidos asociados quedar�n sin m�dulo.')) return;
+    if (!confirm('óEliminar este módulo? Los contenidos asociados quedarón sin módulo.')) return;
     try {
         const { error } = await supabaseClient.from('modulos').delete().eq('id', id);
         if (error) throw error;
-        showToast('M�dulo eliminado', 'success');
+        showToast('Módulo eliminado', 'success');
         await loadAll();
     } catch (err) {
         showToast('Error: ' + err.message, 'error');
@@ -611,7 +614,7 @@ window.eliminarModulo = async function (id) {
 };
 
 // ============================================================
-// SECCI�N: VIDEO / PODCAST
+// SECCIóN: VIDEO / PODCAST
 // ============================================================
 function setupContenidoForm() {
     document.getElementById('contenido-form').addEventListener('submit', async (e) => {
@@ -660,7 +663,7 @@ function renderContenidosTable() {
 
     tbody.innerHTML = '';
     filtrados.forEach(cont => {
-        const modNombre = cont.modulos?.nombre || '�';
+        const modNombre = cont.modulos?.nombre || 'ó';
         const isVideo = cont.tipo === 'video';
         const badge = isVideo
             ? 'bg-purple-100 text-purple-700'
@@ -698,7 +701,7 @@ function renderContenidosTable() {
 }
 
 window.eliminarContenido = async function (id) {
-    if (!confirm('�Eliminar este contenido multimedia?')) return;
+    if (!confirm('óEliminar este contenido multimedia?')) return;
     try {
         const { error } = await supabaseClient.from('contenidos').delete().eq('id', id);
         if (error) throw error;
@@ -714,8 +717,8 @@ window.eliminarContenido = async function (id) {
 // ============================================================
 
 window.switchModTab = function(tabId) {
-    var tabs = ['mod-resenas', 'mod-nube', 'mod-propuestas'];
-    var btns = ['tab-resenas', 'tab-nube', 'tab-propuestas'];
+    var tabs = ['mod-preguntas', 'mod-resenas', 'mod-nube', 'mod-propuestas'];
+    var btns = ['tab-preguntas', 'tab-resenas', 'tab-nube', 'tab-propuestas'];
     tabs.forEach(function(t) {
         var el = document.getElementById(t);
         if (el) el.classList.toggle('hidden', t !== tabId);

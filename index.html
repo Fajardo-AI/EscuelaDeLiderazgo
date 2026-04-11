@@ -1,269 +1,1532 @@
-﻿<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Vanguardia y Desarrollo | Escuela de Liderazgo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { 
-            --primary: #8b0000; 
-            --secondary: #1a1a1a; 
-            --gold: #b8860b;
-        }
-        .bg-critico { background-color: var(--primary); }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .card-soberana { border-left: 4px solid var(--primary); transition: all 0.2s ease; }
-        .card-soberana:hover { transform: translateX(4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .nube-palabra { transition: all 0.2s ease; cursor: pointer; }
-        .nube-palabra:hover { transform: scale(1.05); color: var(--primary); }
-        .comentario-critico { border-left: 2px solid var(--gold); background: #fef9e6; }
-        .toast-notify { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: #1a1a1a; color: white; padding: 8px 16px; border-radius: 999px; font-size: 12px; z-index: 1000; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
-    </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.bottom-0{bottom:0px}.bottom-2{bottom:0.5rem}.bottom-20{bottom:5rem}.right-4{right:1rem}.top-0{top:0px}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.flex{display:flex}.grid{display:grid}.aspect-video{aspect-ratio:16 / 9}.h-\[500px\]{height:500px}.max-h-\[500px\]{max-height:500px}.min-h-\[100px\]{min-height:100px}.w-full{width:100%}.max-w-4xl{max-width:56rem}.flex-1{flex:1 1 0%}.cursor-pointer{cursor:pointer}.list-disc{list-style-type:disc}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-l{border-top-left-radius:0.25rem;border-bottom-left-radius:0.25rem}.rounded-r{border-top-right-radius:0.25rem;border-bottom-right-radius:0.25rem}.rounded-t{border-top-left-radius:0.25rem;border-top-right-radius:0.25rem}.rounded-t-lg{border-top-left-radius:0.5rem;border-top-right-radius:0.5rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-dashed{border-style:dashed}.border-amber-600{--tw-border-opacity:1;border-color:rgb(217 119 6 / var(--tw-border-opacity, 1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-black\/20{background-color:rgb(0 0 0 / 0.2)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-red-700{--tw-bg-opacity:1;background-color:rgb(185 28 28 / var(--tw-bg-opacity, 1))}.bg-red-800{--tw-bg-opacity:1;background-color:rgb(153 27 27 / var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-yellow-100{--tw-bg-opacity:1;background-color:rgb(254 249 195 / var(--tw-bg-opacity, 1))}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.pb-20{padding-bottom:5rem}.pl-2{padding-left:0.5rem}.pl-5{padding-left:1.25rem}.pt-4{padding-top:1rem}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-light{font-weight:300}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.tracking-tighter{letter-spacing:-0.05em}.tracking-wide{letter-spacing:0.025em}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity, 1))}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.text-red-800{--tw-text-opacity:1;color:rgb(153 27 27 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.opacity-80{opacity:0.8}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-red-800:hover{--tw-bg-opacity:1;background-color:rgb(153 27 27 / var(--tw-bg-opacity, 1))}.group:hover .group-hover\:text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}</style></head>
-<body class="bg-gray-100 font-sans pb-20">
-
-    <header class="bg-critico text-white p-4 sticky top-0 z-50 shadow-lg">
-        <div class="flex justify-between items-center max-w-4xl mx-auto">
-            <div>
-                <h1 class="text-xl font-bold tracking-tighter uppercase">VANGUARDIA Y DESARROLLO</h1>
-                <p class="text-[10px] opacity-80">Escuela de Liderazgo | Del individuo al procomún</p>
-            </div>
-            <div class="flex items-center gap-3">
-                <div id="status-bar" class="text-xs bg-black/20 px-2 py-1 rounded hidden sm:block">Módulo A: Críticas: 0/2</div>
-                <a href="admin/index.html" class="text-xs bg-white text-red-800 px-3 py-1 rounded font-bold hover:bg-gray-200 transition shadow">
-                    <i class="fa-solid fa-lock"></i> Admin
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <main class="max-w-4xl mx-auto p-4 space-y-6">
-
-        <!-- BIBLIOTECA: Textos y videos con reseñas críticas -->
-        <section id="biblioteca" class="tab-content">
-            <h2 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fa-solid fa-landmark"></i> Biblioteca de Liderazgo</h2>
-            
-            <div class="mb-6 bg-amber-50 p-3 rounded border-l-4 border-amber-600 text-sm">
-                <i class="fa-solid fa-triangle-exclamation text-amber-700"></i> <strong>Praxis de formación:</strong> Cada recurso requiere una <strong>reseña crítica</strong> que conecte la teoría con la pregunta problematizadora. La reseña habilita el avance en el calendario de formación.
-            </div>
-
-            <!-- Filtros -->
-            <div class="mb-4 flex flex-wrap gap-2">
-                <div class="relative flex-1 min-w-[180px]">
-                    <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                    <input type="text" id="bib-search" placeholder="Buscar en la biblioteca..."
-                        class="w-full pl-9 pr-4 py-2 border rounded-lg text-sm focus:outline-none focus:border-red-800">
-                </div>
-                <select id="bib-filter" class="py-2 px-3 border rounded-lg text-sm bg-white focus:outline-none">
-                    <option value="all">Todos los tipos</option>
-                    <option value="pdf">Solo PDFs</option>
-                    <option value="video">Solo Videos</option>
-                    <option value="podcast">Solo Podcasts</option>
-                </select>
-            </div>
-
-            <div id="biblioteca-grid" class="grid gap-4">
-                <!-- Spinner de carga -->
-                <div id="bib-loading" class="text-center py-12 text-gray-400">
-                    <i class="fa-solid fa-circle-notch fa-spin text-3xl mb-2"></i>
-                    <p class="text-sm">Cargando biblioteca...</p>
-                </div>
-            </div>
-
-            <!-- Calendario formativo -->
-            <div class="mt-6 bg-white p-3 rounded shadow text-xs" id="calendario-alertas">
-                <p class="font-bold"><i class="fa-regular fa-calendar"></i> Ruta de formación autónoma:</p>
-                <ul class="list-disc pl-5 mt-1 text-gray-600">
-                    <li>📘 Reseñas pendientes: <span id="resenas-pendientes">0</span> textos/videos sin reseña</li>
-                    <li>⏳ Foro "Identidad colectiva" cierra en <span id="cuenta-foro">23</span> horas</li>
-                    <li>⚡ Para certificar módulo: realizar al menos 2 comentarios críticos en el Muro de Propuestas</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- FORO INTERACTIVO: Preguntas problematizadoras originales + nube de conceptos -->
-        <section id="foro" class="tab-content">
-            <h2 class="text-2xl font-bold mb-4 italic flex items-center gap-2"><i class="fa-solid fa-users-viewfinder"></i> Ágora: Preguntas Eje</h2>
-            
-            <div class="space-y-6">
-                <!-- Pregunta 1 -->
-                <div class="bg-white p-5 rounded-lg shadow">
-                    <p class="font-bold text-gray-800">🔍 <span class="bg-yellow-100 px-2">Foco 1:</span> ¿Por qué crees que muchas personas tienen buenas ideas, pero no logran convencer?</p>
-                    <div class="flex mt-2 gap-2">
-                        <input type="text" id="respuesta-foco1" placeholder="Tu respuesta breve..." class="flex-1 border p-2 rounded text-sm">
-                        <button onclick="responderForo('foco1', 'respuesta-foco1')" class="bg-red-700 text-white px-3 rounded text-sm">Enviar al colectivo</button>
-                    </div>
-                </div>
-
-                <div class="bg-white p-5 rounded-lg shadow">
-                    <p class="font-bold text-gray-800">🌍 <span class="bg-yellow-100 px-2">Foco 2:</span> ¿Por qué algunas causas logran movilizar gente y otras no?</p>
-                    <div class="flex mt-2 gap-2">
-                        <input type="text" id="respuesta-foco2" placeholder="Tu respuesta..." class="flex-1 border p-2 rounded text-sm">
-                        <button onclick="responderForo('foco2', 'respuesta-foco2')" class="bg-red-700 text-white px-3 rounded text-sm">Enviar</button>
-                    </div>
-                </div>
-
-                <!-- Pregunta Central ORIGINAL -->
-                <div class="bg-black text-white p-6 rounded-lg shadow-xl text-center">
-                    <p id="pregunta-activa" class="text-xl mb-4 font-light">"¿Qué causa nos une? ¿Cuál es nuestra identidad colectiva?"</p>
-                    <input type="text" id="input-foro" placeholder="Tu respuesta en una palabra o frase corta..." class="w-full p-2 text-black rounded mb-2">
-                    <button onclick="enviarForo()" class="bg-red-700 w-full py-2 rounded font-bold uppercase hover:bg-red-800 transition">Enviar → Nube de identidad</button>
-                </div>
-
-                <!-- NUBE DE PALABRAS (construcción colectiva) -->
-                <div class="bg-gray-50 p-4 rounded-lg">
-                    <p class="text-sm font-bold mb-2 uppercase tracking-wide">Identidad colectiva en construcción (nube dinámica)</p>
-                    <div id="nube-palabras" class="flex flex-wrap gap-2 justify-center items-center min-h-[100px]">
-                        <span class="nube-palabra text-lg font-semibold text-red-800">Soberanía</span>
-                        <span class="nube-palabra text-2xl text-red-700">Territorio</span>
-                        <span class="nube-palabra text-base">Autonomía</span>
-                        <span class="nube-palabra text-xl">Justicia</span>
-                        <span class="nube-palabra text-md">Procomún</span>
-                    </div>
-                    <p class="text-[10px] text-gray-400 mt-2 italic">Cada palabra nueva es un ladrillo de la causa común</p>
-                </div>
-            </div>
-
-            <!-- Preguntas Módulo B -->
-            <div class="mt-8 pt-4 border-t-2 border-dashed">
-                <h3 class="font-bold">📊 Diagnóstico del flujo de información (Módulo B)</h3>
-                <div class="grid md:grid-cols-2 gap-3 mt-2">
-                    <div class="bg-white p-3 rounded">
-                        <p class="text-sm font-bold">¿Cómo afecta un bajo flujo de información la capacidad de gestión y la identidad colectiva?</p>
-                        <textarea id="diagnostico-info" rows="2" class="w-full border text-sm mt-1 p-1 rounded" placeholder="Tu análisis..."></textarea>
-                        <button onclick="enviarDiagnostico()" class="text-xs bg-gray-800 text-white px-3 py-1 rounded mt-1">Publicar en muro</button>
-                    </div>
-                    <div class="bg-white p-3 rounded">
-                        <p class="text-sm font-bold">¿Qué conversaciones faltan en el territorio? ¿Qué silencios debemos romper?</p>
-                        <textarea id="conversaciones-faltantes" rows="2" class="w-full border text-sm mt-1 p-1 rounded" placeholder="Aportá tu diagnóstico..."></textarea>
-                        <button onclick="enviarConversacion()" class="text-xs bg-gray-800 text-white px-3 py-1 rounded mt-1">Aportar al debate</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MURO DE PROPUESTAS Y CRÍTICA (con comentarios críticos obligatorios) -->
-        <section id="actividades" class="tab-content active">
-            <h2 class="text-2xl font-bold mb-4">Muro de Propuestas y Crítica Colectiva</h2>
-            <div class="bg-white p-4 rounded-t-lg border-b">
-                <textarea id="propuesta-texto" placeholder="Carga aquí tu respuesta efectiva desde el liderazgo (propuesta, diagnóstico o declaración de intenciones)..." class="w-full border p-2 rounded" rows="3"></textarea>
-                <button onclick="subirPropuesta()" class="mt-2 bg-black text-white px-4 py-2 rounded text-sm"><i class="fa-regular fa-paper-plane"></i> Publicar Propuesta / Envío Colectivo</button>
-                <p class="text-[10px] text-gray-400 mt-1 italic">⚠️ Para certificar módulo: cada líder debe realizar al menos 2 comentarios críticos constructivos en propuestas ajenas.</p>
-            </div>
-            <div id="muro-actividades" class="space-y-4 mt-4 text-sm max-h-[500px] overflow-y-auto">
-                <!-- Ejemplo inicial de propuesta -->
-                <div class="bg-white p-4 rounded shadow border" data-propuesta-id="1">
-                    <p class="font-bold mb-2 text-xs uppercase text-gray-500">Propuesta de Integrante:</p>
-                    <p class="text-gray-700 italic border-l-4 border-gray-300 pl-2 mb-3">"Declaración de intenciones: Necesitamos un canal semanal de asamblea líquida para romper el silencio informativo."</p>
-                    <div class="comentario-critico p-2 rounded mt-2">
-                        <p class="text-[10px] uppercase font-bold text-amber-700">Comentario crítico (obligatorio para certificación):</p>
-                        <input type="text" placeholder="Aporta una crítica soberana constructiva (ej: 'Falta definir cómo se toman acuerdos, propongo rotación de vocerías')" class="text-xs w-full bg-transparent border-b outline-none p-1">
-                        <button onclick="agregarComentarioCritico(this)" class="text-[10px] bg-amber-100 px-2 py-0.5 rounded mt-1">Enviar crítica</button>
-                    </div>
-                    <div class="comentarios-lista mt-2 text-[11px] text-gray-500"></div>
-                </div>
-            </div>
-            <!-- Contador de comentarios para certificación -->
-            <div class="fixed bottom-20 right-4 bg-white p-2 rounded-full shadow-lg text-xs font-mono border" id="contador-certificacion">
-                🎓 Mis comentarios críticos: <span id="mis-comentarios-count">0</span> / 2
-            </div>
-        </section>
-
-        <!-- CHATBOT LiderazgoBot - sin referencias a "entrenado con" y saludo neutral -->
-        <section id="chatbot" class="tab-content">
-
-        <!-- Banner construccion -->
-        <div class="mb-4 bg-amber-50 border-l-4 border-amber-500 p-3 rounded-lg flex items-start gap-3">
-            <i class="fa-solid fa-triangle-exclamation text-amber-500 text-xl mt-0.5 shrink-0"></i>
-            <div class="text-sm">
-                <p class="font-bold text-amber-800">Asistente en Construccion</p>
-                <p class="text-amber-700 text-xs mt-0.5">Este bot esta siendo entrenado con informacion especifica sobre el proyecto politico de <strong>Sergio Fajardo</strong> y la Escuela de Liderazgo. Por ahora puede responder preguntas generales sobre los textos de la biblioteca y el programa de formacion. La version completa pronto estara disponible.</p>
-            </div>
-        </div>
-
-        <!-- Chat container -->
-        <div class="bg-white rounded-xl shadow-lg flex flex-col overflow-hidden border" style="height: 520px;">
-
-            <!-- Header bot -->
-            <div class="bg-gradient-to-r from-gray-900 to-red-900 text-white p-4 flex items-center gap-3 shrink-0">
-                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-                    <i class="fa-solid fa-robot text-lg"></i>
-                </div>
-                <div class="flex-1">
-                    <p class="font-bold text-sm">LiderazgoBot</p>
-                    <p class="text-[10px] opacity-70">Escuela Vanguardia y Desarrollo &bull; Asistente de Praxis</p>
-                </div>
-                <span class="text-[10px] bg-amber-500/80 px-2 py-0.5 rounded-full font-bold animate-pulse">En Construccion</span>
-            </div>
-
-            <!-- Sugerencias rapidas -->
-            <div id="chat-suggestions" class="px-4 pt-3 pb-1 flex flex-wrap gap-1.5 shrink-0 border-b bg-gray-50">
-                <p class="w-full text-[10px] text-gray-400 font-bold uppercase mb-0.5">Preguntas rapidas:</p>
-                <button onclick="preguntaSugerida('Que es la linea de masas?')" class="text-[11px] bg-white border rounded-full px-3 py-1 hover:bg-red-50 hover:border-red-300 hover:text-red-700 transition">Linea de masas</button>
-                <button onclick="preguntaSugerida('Como construir identidad colectiva?')" class="text-[11px] bg-white border rounded-full px-3 py-1 hover:bg-red-50 hover:border-red-300 hover:text-red-700 transition">Identidad colectiva</button>
-                <button onclick="preguntaSugerida('Que es la soberania tecnologica?')" class="text-[11px] bg-white border rounded-full px-3 py-1 hover:bg-red-50 hover:border-red-300 hover:text-red-700 transition">Soberania tecnologica</button>
-                <button onclick="preguntaSugerida('Como movilizar una causa?')" class="text-[11px] bg-white border rounded-full px-3 py-1 hover:bg-red-50 hover:border-red-300 hover:text-red-700 transition">Movilizar una causa</button>
-                <button onclick="preguntaSugerida('Que temas cubre la biblioteca?')" class="text-[11px] bg-white border rounded-full px-3 py-1 hover:bg-red-50 hover:border-red-300 hover:text-red-700 transition">Temas de la biblioteca</button>
-            </div>
-
-            <!-- Mensajes -->
-            <div id="chat-box" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
-
-            <!-- Input -->
-            <div class="p-3 border-t bg-gray-50 flex gap-2 shrink-0">
-                <input type="text" id="chat-input"
-                    class="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-800 focus:ring-1 focus:ring-red-200 bg-white"
-                    placeholder="Escribe tu pregunta..."
-                    onkeydown="if(event.key==='Enter') preguntarBot()">
-                <button onclick="preguntarBot()"
-                    class="bg-critico hover:bg-red-900 text-white px-4 py-2 rounded-lg font-bold text-sm transition flex items-center gap-1">
-                    <i class="fa-solid fa-paper-plane text-xs"></i>
-                </button>
-            </div>
-        </div>
-        </section>
-
-
-    </main>
-
-    <nav class="fixed bottom-0 w-full bg-white border-t flex justify-around p-2 text-gray-500 z-50">
-        <button onclick="showTab('biblioteca')" class="flex flex-col items-center"><i class="fa-solid fa-book"></i><span class="text-[10px]">Biblioteca</span></button>
-        <button onclick="showTab('foro')" class="flex flex-col items-center"><i class="fa-solid fa-users-viewfinder"></i><span class="text-[10px]">Foro Ágora</span></button>
-        <button onclick="showTab('actividades')" class="flex flex-col items-center"><i class="fa-solid fa-pen-to-square"></i><span class="text-[10px]">Muro Crítico</span></button>
-        <button onclick="showTab('chatbot')" class="flex flex-col items-center"><i class="fa-solid fa-robot"></i><span class="text-[10px]">Bot</span></button>
-    </nav>
-
-    <div id="toast" class="toast-notify"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <style>
+        :root {
+            --primary: #8b0000;
+            --primary-dark: #6b0000;
+            --primary-light: #a50000;
+            --secondary: #1a1a1a;
+            --gold: #b8860b;
+            --gold-light: #d4a017;
+            --gold-muted: #f5e6c8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--secondary);
+            min-height: 100vh;
+        }
+
+        /* ===== AUTH SCREEN ===== */
+        #auth-screen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 40%, #2a0a0a 100%);
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #auth-screen::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.15) 0%, transparent 60%);
+            animation: pulse-bg 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse-bg {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 440px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(184, 134, 11, 0.2);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            max-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Header de la tarjeta */
+        .card-header {
+            background: linear-gradient(135deg, var(--secondary) 0%, #2a0a0a 50%, var(--primary) 100%);
+            padding: 28px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .card-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .logo-ring {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(184, 134, 11, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+            position: relative;
+            box-shadow: 0 0 24px rgba(184, 134, 11, 0.3), inset 0 0 16px rgba(139, 0, 0, 0.2);
+        }
+
+        .logo-ring-inner {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-ring-inner i {
+            font-size: 22px;
+            color: var(--primary);
+        }
+
+        .card-header h1 {
+            font-size: 18px;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .card-header p {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 4px;
+            text-align: center;
+        }
+
+        /* Tabs */
+        .tab-bar {
+            display: flex;
+            border-bottom: 1px solid #f0f0f0;
+            background: #fafafa;
+            flex-shrink: 0;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 14px 8px;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: #9ca3af;
+            border-bottom: 2px solid transparent;
+            transition: all 0.25s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: white;
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: #4b5563;
+            background: #f5f5f5;
+        }
+
+        /* Scrollable body */
+        .card-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            background: #f9f7f5;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+
+        .card-body::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .card-body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .card-body::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        /* Forms */
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active-form {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 5px;
+        }
+
+        .form-label .req {
+            color: var(--primary);
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        .form-input {
+            width: 100%;
+            background: white;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 11px 14px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary);
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        .form-input.with-icon {
+            padding-left: 38px;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.08);
+        }
+
+        .form-input::placeholder {
+            color: #c4c4c4;
+        }
+
+        select.form-input {
+            cursor: pointer;
+            color: #374151;
+        }
+
+        select.form-input option[value=""][disabled] {
+            color: #9ca3af;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* Section headers */
+        .section-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ffe5e5;
+            margin-bottom: 16px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        /* Checkbox cards */
+        .checkbox-card {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+            margin-bottom: 8px;
+        }
+
+        .checkbox-card input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-card-body {
+            width: 100%;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 11px 13px;
+            font-size: 12px;
+            color: #4b5563;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: white;
+        }
+
+        .checkbox-card-body i {
+            margin-top: 1px;
+            color: #9ca3af;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        .checkbox-card input:checked+.checkbox-card-body {
+            border-color: var(--primary);
+            background: #fff5f5;
+            color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.06);
+        }
+
+        .checkbox-card input:checked+.checkbox-card-body i {
+            color: var(--primary);
+        }
+
+        /* Radio buttons */
+        .radio-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .radio-label {
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .radio-label input[type="radio"] {
+            display: none;
+        }
+
+        .radio-body {
+            width: 100%;
+            text-align: center;
+            padding: 9px 4px;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #9ca3af;
+            background: white;
+            transition: all 0.2s ease;
+        }
+
+        .radio-label input:checked+.radio-body {
+            border-color: var(--gold);
+            background: var(--gold-muted);
+            color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+        }
+
+        /* Password hint */
+        .hint-box {
+            background: #fffbf0;
+            border: 1px solid rgba(184, 134, 11, 0.3);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 11px;
+            color: #7a6212;
+            margin-top: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            line-height: 1.5;
+        }
+
+        .hint-box i {
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 16px rgba(139, 0, 0, 0.35);
+            transition: all 0.25s ease;
+            letter-spacing: 0.3px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+            transition: left 0.4s ease;
+        }
+
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(139, 0, 0, 0.45);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-gold {
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 16px rgba(184, 134, 11, 0.35);
+            transition: all 0.25s ease;
+            letter-spacing: 0.3px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gold::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: left 0.4s ease;
+        }
+
+        .btn-gold:hover::after {
+            left: 100%;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(184, 134, 11, 0.45);
+        }
+
+        .btn-gold:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary:disabled,
+        .btn-gold:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Spinner inside button */
+        .btn-spinner {
+            display: none;
+        }
+
+        .loading .btn-spinner {
+            display: inline-block;
+        }
+
+        .loading .btn-text {
+            display: none;
+        }
+
+        /* Footer links */
+        .auth-footer {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .auth-footer a {
+            font-size: 11px;
+            color: #9ca3af;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .auth-footer a:hover {
+            color: var(--primary);
+        }
+
+        .terms-text {
+            text-align: center;
+            font-size: 10px;
+            color: #b0b0b0;
+            margin-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        /* ===== TOAST ===== */
+        #toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            white-space: nowrap;
+            border: 1px solid rgba(184, 134, 11, 0.3);
+            pointer-events: none;
+        }
+
+        #toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ===== APP SCREEN ===== */
+        #app-screen {
+            display: none;
+        }
+
+        .bg-critico {
+            background-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card-soberana {
+            border-left: 4px solid var(--primary);
+            transition: all 0.2s ease;
+        }
+
+        .card-soberana:hover {
+            transform: translateX(4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nube-palabra {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nube-palabra:hover {
+            transform: scale(1.05);
+            color: var(--primary);
+        }
+
+        .comentario-critico {
+            border-left: 2px solid var(--gold);
+            background: #fef9e6;
+        }
+
+        .toast-notify {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1a1a;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 12px;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        /* Error state */
+        .form-input.error {
+            border-color: var(--primary);
+        }
+
+        .error-msg {
+            font-size: 11px;
+            color: var(--primary);
+            margin-top: 4px;
+            display: none;
+        }
+
+        .error-msg.show {
+            display: block;
+        }
+
+        /* Alert messages */
+        .alert-box {
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 12px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-box.alert-error {
+            background: #fff0f0;
+            border: 1px solid rgba(139, 0, 0, 0.2);
+            color: var(--primary);
+        }
+
+        .alert-box.alert-success {
+            background: #f0fff4;
+            border: 1px solid rgba(22, 163, 74, 0.3);
+            color: #15803d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- âââââââââââââââââââââââââââââââââââââââââââ
+     AUTH SCREEN
+âââââââââââââââââââââââââââââââââââââââââââ -->
+    <div id="auth-screen">
+        <div class="auth-card">
+
+            <!-- Header -->
+            <div class="card-header">
+                <div class="logo-ring">
+                    <div class="logo-ring-inner">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                </div>
+                <h1>Vanguardia y Desarrollo</h1>
+                <p>Escuela de Liderazgo</p>
+            </div>
+
+            <!-- Tab Bar -->
+            <div class="tab-bar">
+                <button id="tab-login" class="tab-btn active" onclick="switchTab('login')">
+                    <i class="fa-solid fa-right-to-bracket mr-1 text-xs"></i> Iniciar Sesión
+                </button>
+                <button id="tab-register" class="tab-btn" onclick="switchTab('register')">
+                    <i class="fa-solid fa-user-plus mr-1 text-xs"></i> Registrarse
+                </button>
+            </div>
+
+            <!-- Card Body -->
+            <div class="card-body">
+
+                <!-- ââââââ LOGIN FORM ââââââ -->
+                <form id="form-login" class="form-section active-form" onsubmit="iniciarSesión(event)">
+
+                    <div id="login-alert"></div>
+
+                    <div class="form-group">
+                        <label class="form-label">WhatsApp <span class="req">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <input type="tel" id="log-whatsapp" required placeholder="Ej: 3001234567"
+                                class="form-input with-icon">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Contraseña <span class="req">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="log-password" required
+                                placeholder="Tu año de nacimiento + tu edad" class="form-input with-icon">
+                        </div>
+                    </div>
+
+                    <button type="submit" id="btn-login" class="btn-primary">
+                        <span class="btn-text">Entrar a la Escuela &nbsp;<i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="btn-spinner"><i class="fa-solid fa-circle-notch fa-spin"></i> Verificando...</span>
+                    </button>
+
+                    <div class="auth-footer">
+                        <a href="https://wa.me/573209810546" target="_blank">
+                            <i class="fa-brands fa-whatsapp mr-1"></i>Â¿Olvidaste tu contraseña? Escríbenos
+                        </a>
+                    </div>
+                </form>
+
+                <!-- ââââââ REGISTER FORM ââââââ -->
+                <form id="form-register" class="form-section" onsubmit="registrarVoluntario(event)">
+
+                    <div id="register-alert"></div>
+
+                    <!-- Datos Personales -->
+                    <p class="section-title">
+                        <i class="fa-regular fa-id-card"></i> Datos Personales
+                    </p>
+
+                    <div class="form-group">
+                        <label class="form-label">Nombre Completo <span class="req">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="reg-nombre" required placeholder="Juan Pérez"
+                                class="form-input with-icon">
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label class="form-label">WhatsApp <span class="req">*</span></label>
+                            <input type="tel" id="reg-whatsapp" required placeholder="3001234567" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Edad <span class="req">*</span></label>
+                            <input type="number" id="reg-edad" required min="10" max="99" placeholder="Años"
+                                class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Departamento <span class="req">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <select id="select-departamento" required onchange="cargarCiudades()"
+                                class="form-input with-icon">
+                                <option value="" disabled selected>Selecciona un departamento...</option>
+                                <option>Amazonas</option>
+                                <option>Antioquia</option>
+                                <option>Arauca</option>
+                                <option>Atlántico</option>
+                                <option>Bogotá D.C.</option>
+                                <option>Bolívar</option>
+                                <option>Boyacá</option>
+                                <option>Caldas</option>
+                                <option>Caquetá</option>
+                                <option>Casanare</option>
+                                <option>Cauca</option>
+                                <option>Cesar</option>
+                                <option>Chocó</option>
+                                <option>Cundinamarca</option>
+                                <option>Córdoba</option>
+                                <option>Guainía</option>
+                                <option>Guaviare</option>
+                                <option>Huila</option>
+                                <option>La Guajira</option>
+                                <option>Magdalena</option>
+                                <option>Meta</option>
+                                <option>Nariño</option>
+                                <option>Norte de Santander</option>
+                                <option>Putumayo</option>
+                                <option>Quindío</option>
+                                <option>Risaralda</option>
+                                <option>San Andrés y Providencia</option>
+                                <option>Santander</option>
+                                <option>Sucre</option>
+                                <option>Tolima</option>
+                                <option>Valle del Cauca</option>
+                                <option>Vaupés</option>
+                                <option>Vichada</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label class="form-label">Ciudad <span class="req">*</span></label>
+                            <input type="text" id="input-ciudad" list="lista-ciudades" required
+                                placeholder="Escribe tu ciudad..." class="form-input">
+                            <datalist id="lista-ciudades"></datalist>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Sector / Barrio <span class="req">*</span></label>
+                            <input type="text" id="reg-sector" required placeholder="Ej: Cabecera" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Profesión <span class="req">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <input type="text" id="reg-profesion" required
+                                placeholder="Estudiante, Ingeniero, Comerciante..." class="form-input with-icon">
+                        </div>
+                    </div>
+
+                    <!-- Perfil de Voluntario -->
+                    <p class="section-title">
+                        <i class="fa-solid fa-flag"></i> Perfil de Voluntario
+                    </p>
+
+                    <div class="form-group">
+                        <label class="form-label">Bandera que más te motiva <span class="req">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-star"></i>
+                            <select id="reg-bandera" required class="form-input with-icon">
+                                <option value="" disabled selected>Selecciona una opción...</option>
+                                <option value="educacion">Educación y Ciencia</option>
+                                <option value="corrupcion">Lucha contra la corrupción y Transparencia</option>
+                                <option value="medioambiente">Medio Ambiente y Sostenibilidad</option>
+                                <option value="seguridad">Seguridad Ciudadana</option>
+                                <option value="cultura">Cultura y Deporte</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" style="margin-bottom:10px;">
+                            Íreas donde te gustaría aportar <span class="req">*</span>
+                            <span style="font-weight:400;text-transform:none;font-size:10px;color:#9ca3af;"> (puedes
+                                elegir varias)</span>
+                        </label>
+
+                        <label class="checkbox-card">
+                            <input type="checkbox" class="custom-checkbox" value="redes">
+                            <div class="checkbox-card-body">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                                <span><strong>Redes Sociales:</strong> Crear contenido, comentar, compartir.</span>
+                            </div>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" class="custom-checkbox" value="logistica">
+                            <div class="checkbox-card-body">
+                                <i class="fa-solid fa-truck-fast"></i>
+                                <span><strong>Logística:</strong> Organizar eventos, transporte, distribución.</span>
+                            </div>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" class="custom-checkbox" value="comunicacion">
+                            <div class="checkbox-card-body">
+                                <i class="fa-solid fa-bullhorn"></i>
+                                <span><strong>Comunicación:</strong> Escribir textos, hablar en público, diseño.</span>
+                            </div>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" class="custom-checkbox" value="datos">
+                            <div class="checkbox-card-body">
+                                <i class="fa-solid fa-chart-pie"></i>
+                                <span><strong>Datos / Sistemas:</strong> Excel, bases de datos, automatización.</span>
+                            </div>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" class="custom-checkbox" value="territorio">
+                            <div class="checkbox-card-body">
+                                <i class="fa-solid fa-shoe-prints"></i>
+                                <span><strong>Territorio:</strong> Puerta a puerta, diálogo con vecinos.</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Tiempo disponible semanal <span class="req">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-clock"></i>
+                            <select id="reg-tiempo" required class="form-input with-icon">
+                                <option value="" disabled selected>Selecciona una opción...</option>
+                                <option value="1-3">1 a 3 horas</option>
+                                <option value="4-7">4 a 7 horas</option>
+                                <option value="8-15">8 a 15 horas</option>
+                                <option value="15+">Más de 15 horas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" style="margin-bottom:10px;">
+                            Firmeza de apoyo <span class="req">*</span>
+                            <span style="font-weight:400;text-transform:none;font-size:10px;color:#9ca3af;"> (1 =
+                                explorando, 5 = totalmente comprometido/a)</span>
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="apoyo" value="1" required>
+                                <div class="radio-body">1</div>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="apoyo" value="2">
+                                <div class="radio-body">2</div>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="apoyo" value="3">
+                                <div class="radio-body">3</div>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="apoyo" value="4">
+                                <div class="radio-body">4</div>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="apoyo" value="5">
+                                <div class="radio-body">5</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Seguridad -->
+                    <p class="section-title" style="margin-top:20px;">
+                        <i class="fa-solid fa-key"></i> Seguridad
+                    </p>
+
+                    <div class="form-group">
+                        <label class="form-label">Contraseña <span class="req">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="reg-password" required placeholder="Ej: 200026"
+                                class="form-input with-icon">
+                        </div>
+                        <div class="hint-box">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>Para mayor facilidad, te recomendamos colocar <strong>tu año de nacimiento junto a tu
+                                    edad</strong>. Ej: si naciste en 2000 y tienes 26 años â
+                                <strong>200026</strong>.</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="btn-register" class="btn-gold">
+                        <span class="btn-text"><i class="fa-solid fa-check mr-2"></i>Crear mi cuenta de
+                            Voluntario</span>
+                        <span class="btn-spinner"><i class="fa-solid fa-circle-notch fa-spin"></i> Registrando...</span>
+                    </button>
+
+                    <p class="terms-text">
+                        Al registrarte aceptas el tratamiento de tus datos personales con fines de la campaña.
+                    </p>
+                </form>
+
+            </div><!-- /card-body -->
+        </div><!-- /auth-card -->
+    </div><!-- /auth-screen -->
+
+
+    <!-- âââââââââââââââââââââââââââââââââââââââââââ
+     APP SCREEN (se muestra tras login éxitoso)
+âââââââââââââââââââââââââââââââââââââââââââ -->
+    <div id="app-screen">
+
+        <style>
+            #app-screen {
+                background-color: #f3f4f6;
+                min-height: 100vh;
+                font-family: 'Inter', sans-serif;
+            }
+        </style>
+
+        <header class="bg-critico text-white p-4 sticky top-0 z-50 shadow-lg" style="background:var(--primary);">
+            <div style="max-width:896px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                    <h1 style="font-size:1.1rem;font-weight:900;letter-spacing:-0.02em;text-transform:uppercase;">
+                        VANGUARDIA Y DESARROLLO</h1>
+                    <p style="font-size:10px;opacity:0.75;">Escuela de Liderazgo | Del individuo al procomún</p>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <div id="status-bar"
+                        style="font-size:11px;background:rgba(0,0,0,0.2);padding:4px 10px;border-radius:6px;">Módulo:
+                        Críticas 0/2</div>
+                    <button onclick="cerrarSesión()"
+                        style="font-size:11px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:white;padding:5px 12px;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;">
+                        <i class="fa-solid fa-right-from-bracket"></i> Salir
+                    </button>
+                    <a href="admin/index.html"
+                        style="font-size:11px;background:white;color:var(--primary);padding:5px 12px;border-radius:8px;font-weight:700;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+                        <i class="fa-solid fa-lock"></i> Admin
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main style="max-width:896px;margin:0 auto;padding:16px;padding-bottom:80px;">
+
+            <!-- BIBLIOTECA -->
+            <section id="biblioteca" class="tab-content">
+                <h2
+                    style="font-size:1.3rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+                    <i class="fa-solid fa-landmark"></i> Biblioteca de Liderazgo</h2>
+                <div
+                    style="margin-bottom:20px;background:#fffbeb;padding:12px;border-radius:8px;border-left:4px solid var(--gold);font-size:13px;">
+                    <i class="fa-solid fa-triangle-exclamation" style="color:var(--gold);"></i> <strong>Praxis de
+                        formación:</strong> Cada recurso requiere una <strong>reseña crítica</strong> que conecte la
+                    teoría con la pregunta problematizadora.
+                </div>
+                <div style="margin-bottom:16px;display:flex;flex-wrap:wrap;gap:8px;">
+                    <div style="position:relative;flex:1;min-width:180px;">
+                        <i class="fa-solid fa-search"
+                            style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#9ca3af;font-size:13px;"></i>
+                        <input type="text" id="bib-search" placeholder="Buscar en la biblioteca..."
+                            style="width:100%;padding:9px 14px 9px 36px;border:1px solid #d1d5db;border-radius:8px;font-size:13px;outline:none;font-family:'Inter',sans-serif;">
+                    </div>
+                    <select id="bib-filter"
+                        style="padding:9px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:13px;background:white;font-family:'Inter',sans-serif;outline:none;">
+                        <option value="all">Todos los tipos</option>
+                        <option value="pdf">Solo PDFs</option>
+                        <option value="video">Solo Videos</option>
+                        <option value="podcast">Solo Podcasts</option>
+                    </select>
+                </div>
+                <div id="biblioteca-grid" style="display:grid;gap:16px;">
+                    <div style="text-align:center;padding:48px 0;color:#9ca3af;">
+                        <i class="fa-solid fa-circle-notch fa-spin"
+                            style="font-size:2rem;margin-bottom:8px;display:block;"></i>
+                        <p style="font-size:13px;">Cargando biblioteca...</p>
+                    </div>
+                </div>
+                <div style="margin-top:24px;background:white;padding:12px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.1);font-size:12px;"
+                    id="calendario-alertas">
+                    <p style="font-weight:700;"><i class="fa-regular fa-calendar"></i> Ruta de formación autónoma:</p>
+                    <ul style="list-style:disc;padding-left:20px;margin-top:6px;color:#4b5563;">
+                        <li>ð Reseñas pendientes: <span id="resenas-pendientes">0</span> textos/videos sin reseña</li>
+                        <li>â³ Foro "Identidad colectiva" cierra en <span id="cuenta-foro">23</span> horas</li>
+                        <li>â¡ Para certificar módulo: al menos 2 comentarios críticos en el Muro</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- FORO -->
+            <section id="foro" class="tab-content">
+                <div
+                    style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
+                    <h2
+                        style="font-size:1.3rem;font-weight:700;font-style:italic;display:flex;align-items:center;gap:8px;">
+                        <i class="fa-solid fa-users-viewfinder"></i> óÁgora: Preguntas Eje</h2>
+                    <select id="foro-modulo-filter"
+                        style="padding:8px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:12px;background:white;font-family:'Inter',sans-serif;outline:none;"
+                        onchange="renderForoDinamico()">
+                        <option value="all">Ver Todos los Módulos</option>
+                    </select>
+                </div>
+
+                <div id="foro-dinamico-container" style="display:flex;flex-direction:column;gap:20px;">
+                    <div style="text-align:center;padding:48px 0;color:#9ca3af;">
+                        <i class="fa-solid fa-circle-notch fa-spin"
+                            style="font-size:2rem;margin-bottom:8px;display:block;"></i>
+                        <p style="font-size:13px;">Cargando preguntas del óÁgora...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MURO -->
+            <section id="actividades" class="tab-content active">
+                <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:16px;">Muro de Propuestas y Crítica Colectiva
+                </h2>
+                <div style="background:white;padding:16px;border-radius:10px 10px 0 0;border-bottom:1px solid #e5e7eb;">
+                    <textarea id="propuesta-texto"
+                        placeholder="Carga aquí tu respuesta efectiva desde el liderazgo (propuesta, diagnóstico o declaración de intenciones)..."
+                        style="width:100%;border:1px solid #d1d5db;padding:10px;border-radius:8px;font-size:13px;font-family:'Inter',sans-serif;resize:vertical;"
+                        rows="3"></textarea>
+                    <button onclick="subirPropuesta()"
+                        style="margin-top:8px;background:#1a1a1a;color:white;padding:10px 18px;border-radius:8px;font-size:13px;border:none;cursor:pointer;font-family:'Inter',sans-serif;"><i
+                            class="fa-regular fa-paper-plane"></i> Publicar Propuesta</button>
+                    <p style="font-size:10px;color:#9ca3af;margin-top:6px;font-style:italic;">â ï¸ Para certificar módulo:
+                        al menos 2 comentarios críticos en propuestas ajenas.</p>
+                </div>
+                <div id="muro-actividades"
+                    style="display:flex;flex-direction:column;gap:16px;margin-top:16px;font-size:13px;max-height:500px;overflow-y:auto;">
+                    <div
+                        style="background:white;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.1);border:1px solid #e5e7eb;">
+                        <p
+                            style="font-weight:700;font-size:10px;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;">
+                            Propuesta de Integrante:</p>
+                        <p
+                            style="color:#374151;font-style:italic;border-left:4px solid #d1d5db;padding-left:10px;margin-bottom:12px;">
+                            "Declaración: Necesitamos un canal semanal de asamblea líquida para romper el silencio
+                            informativo."</p>
+                        <div class="comentario-critico" style="padding:10px;border-radius:6px;">
+                            <p
+                                style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px;">
+                                Comentario crítico (obligatorio para certificación):</p>
+                            <input type="text" placeholder="Aporta una crítica soberana constructiva..."
+                                style="font-size:12px;width:100%;background:transparent;border-bottom:1px solid #d1d5db;outline:none;padding:4px;font-family:'Inter',sans-serif;">
+                            <button onclick="agregarComentarioCritico(this)"
+                                style="font-size:10px;background:#fef9c3;padding:3px 10px;border-radius:6px;margin-top:6px;border:none;cursor:pointer;font-family:'Inter',sans-serif;color:#7a6212;font-weight:600;">Enviar
+                                crítica</button>
+                        </div>
+                        <div class="comentarios-lista" style="margin-top:8px;font-size:11px;color:#6b7280;"></div>
+                    </div>
+                </div>
+                <div style="position:fixed;bottom:80px;right:16px;background:white;padding:8px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,0.15);font-size:12px;font-family:monospace;border:1px solid #e5e7eb;"
+                    id="contador-certificación">
+                    ð Comentarios: <span id="mis-comentarios-count">0</span> / 2
+                </div>
+            </section>
+
+            <!-- CHATBOT -->
+            <section id="chatbot" class="tab-content">
+                <div
+                    style="margin-bottom:16px;background:#fffbeb;border-left:4px solid var(--gold);padding:12px;border-radius:8px;display:flex;align-items:flex-start;gap:12px;">
+                    <i class="fa-solid fa-triangle-exclamation"
+                        style="color:var(--gold);font-size:1.2rem;flex-shrink:0;margin-top:2px;"></i>
+                    <div style="font-size:12px;">
+                        <p style="font-weight:700;color:#7a6212;">Asistente en Construcción</p>
+                        <p style="color:#92400e;margin-top:2px;">Este bot está siendo entrenado con información
+                            específica sobre el proyecto político. Por ahora responde preguntas generales sobre los
+                            textos de la biblioteca.</p>
+                    </div>
+                </div>
+                <div
+                    style="background:white;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.1);display:flex;flex-direction:column;overflow:hidden;border:1px solid #e5e7eb;height:520px;">
+                    <div
+                        style="background:linear-gradient(135deg,#111,var(--primary));color:white;padding:16px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+                        <div
+                            style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div style="flex:1;">
+                            <p style="font-weight:700;font-size:14px;">LiderazgoBot</p>
+                            <p style="font-size:10px;opacity:0.7;">Escuela Vanguardia y Desarrollo â¢ Asistente de Praxis
+                            </p>
+                        </div>
+                        <span
+                            style="font-size:10px;background:rgba(184,134,11,0.7);padding:3px 10px;border-radius:999px;font-weight:700;animation:pulse 2s infinite;">En
+                            Construcción</span>
+                    </div>
+                    <div id="chat-suggestions"
+                        style="padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px;flex-shrink:0;border-bottom:1px solid #f0f0f0;background:#fafafa;">
+                        <p
+                            style="width:100%;font-size:10px;color:#9ca3af;font-weight:700;text-transform:uppercase;margin-bottom:2px;">
+                            Preguntas rápidas:</p>
+                        <button onclick="preguntaSugerida('Que es la linea de masas?')"
+                            style="font-size:11px;background:white;border:1px solid #e5e7eb;border-radius:999px;padding:4px 12px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;">Línea
+                            de masas</button>
+                        <button onclick="preguntaSugerida('Como construir identidad colectiva?')"
+                            style="font-size:11px;background:white;border:1px solid #e5e7eb;border-radius:999px;padding:4px 12px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;">Identidad
+                            colectiva</button>
+                        <button onclick="preguntaSugerida('Que es la soberania tecnologica?')"
+                            style="font-size:11px;background:white;border:1px solid #e5e7eb;border-radius:999px;padding:4px 12px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;">Soberanía
+                            tecnológica</button>
+                        <button onclick="preguntaSugerida('Como movilizar una causa?')"
+                            style="font-size:11px;background:white;border:1px solid #e5e7eb;border-radius:999px;padding:4px 12px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;">Movilizar
+                            una causa</button>
+                    </div>
+                    <div id="chat-box"
+                        style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;"></div>
+                    <div
+                        style="padding:12px;border-top:1px solid #f0f0f0;background:#fafafa;display:flex;gap:8px;flex-shrink:0;">
+                        <input type="text" id="chat-input"
+                            style="flex:1;border:1.5px solid #e5e7eb;border-radius:10px;padding:10px 14px;font-size:13px;font-family:'Inter',sans-serif;outline:none;background:white;"
+                            placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter') preguntarBot()">
+                        <button onclick="preguntarBot()"
+                            style="background:var(--primary);color:white;padding:10px 16px;border-radius:10px;font-size:14px;border:none;cursor:pointer;">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <nav
+            style="position:fixed;bottom:0;width:100%;background:white;border-top:1px solid #e5e7eb;display:flex;justify-content:space-around;padding:8px 0;z-index:50;">
+            <button onclick="showTab('biblioteca')"
+                style="display:flex;flex-direction:column;align-items:center;background:none;border:none;cursor:pointer;color:#6b7280;font-family:'Inter',sans-serif;font-size:11px;gap:2px;padding:4px 12px;border-radius:8px;transition:color 0.2s;"><i
+                    class="fa-solid fa-book" style="font-size:16px;"></i>Biblioteca</button>
+            <button onclick="showTab('foro')"
+                style="display:flex;flex-direction:column;align-items:center;background:none;border:none;cursor:pointer;color:#6b7280;font-family:'Inter',sans-serif;font-size:11px;gap:2px;padding:4px 12px;border-radius:8px;transition:color 0.2s;"><i
+                    class="fa-solid fa-users-viewfinder" style="font-size:16px;"></i>Foro ÍÁgora</button>
+            <button onclick="showTab('actividades')"
+                style="display:flex;flex-direction:column;align-items:center;background:none;border:none;cursor:pointer;color:#6b7280;font-family:'Inter',sans-serif;font-size:11px;gap:2px;padding:4px 12px;border-radius:8px;transition:color 0.2s;"><i
+                    class="fa-solid fa-pen-to-square" style="font-size:16px;"></i>Muro Crítico</button>
+            <button onclick="showTab('chatbot')"
+                style="display:flex;flex-direction:column;align-items:center;background:none;border:none;cursor:pointer;color:#6b7280;font-family:'Inter',sans-serif;font-size:11px;gap:2px;padding:4px 12px;border-radius:8px;transition:color 0.2s;"><i
+                    class="fa-solid fa-robot" style="font-size:16px;"></i>Bot</button>
+        </nav>
+
+        <div id="toast-app" class="toast-notify"></div>
+    </div><!-- /app-screen -->
+
+    <!-- Toast global auth -->
+    <div id="toast"></div>
+
     <script>
-        // ============ SUPABASE CONFIG ============
+        // âââââââââââââââ SUPABASE âââââââââââââââ
         const SUPA_URL = 'https://daaiqgwumsswbknxdfeu.supabase.co';
         const SUPA_KEY = 'sb_publishable__L83VhIUpHNGakYyPSNWHA_R5nlmBFB';
         const db = window.supabase.createClient(SUPA_URL, SUPA_KEY);
 
-        // ============ CARGAR BIBLIOTECA DINÁMICA ============
+        // âââââââââââââââ UTILIDADES âââââââââââââââ
+        async function hashPassword(password) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(password);
+            const hash = await crypto.subtle.digest('SHA-256', data);
+            return Array.from(new Uint8Array(hash))
+                .map(b => b.toString(16).padStart(2, '0'))
+                .join('');
+        }
+
+        // âââââââââââââââ TOAST âââââââââââââââ
+        function mostrarToast(msg, isAuth = false) {
+            const id = isAuth ? 'toast' : 'toast-app';
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.textContent = msg;
+            el.classList.add('show');
+            setTimeout(() => el.classList.remove('show'), 2800);
+        }
+
+        function showAlert(containerId, type, msg) {
+            const el = document.getElementById(containerId);
+            if (!el) return;
+            el.innerHTML = `<div class="alert-box alert-${type}"><i class="fa-solid fa-${type === 'error' ? 'circle-exclamation' : 'circle-check'}"></i><span>${msg}</span></div>`;
+        }
+
+        function clearAlert(containerId) {
+            const el = document.getElementById(containerId);
+            if (el) el.innerHTML = '';
+        }
+
+        // âââââââââââââââ AUTH TABS âââââââââââââââ
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.form-section').forEach(f => f.classList.remove('active-form'));
+            document.getElementById('tab-' + tab).classList.add('active');
+            document.getElementById('form-' + tab).classList.add('active-form');
+            clearAlert('login-alert');
+            clearAlert('register-alert');
+        }
+
+        // âââââââââââââââ CIUDADES âââââââââââââââ
+        const ciudadesPorDep = {
+            'Antioquia': ['Medellín', 'Bello', 'ItagÍ¼í', 'Envigado', 'Rionegro', 'Apartadó', 'Turbo', 'Caucasia', 'Caldas', 'Sabaneta'],
+            'Bogotá D.C.': ['Bogotá'],
+            'Valle del Cauca': ['Cali', 'Palmira', 'Buenaventura', 'Tuluá', 'Cartago', 'Buga'],
+            'Atlántico': ['Barranquilla', 'Soledad', 'Malambo', 'Sabanalarga'],
+            'Cundinamarca': ['Soacha', 'Fusagasugá', 'Girardot', 'Facatativá', 'Zipaquirá', 'Chía'],
+            'Bolívar': ['Cartagena', 'Magangué', 'El Carmen de Bolívar'],
+            'Santander': ['Bucaramanga', 'Floridablanca', 'Girón', 'Piedecuesta', 'Barrancabermeja'],
+            'Córdoba': ['Montería', 'Cereté', 'Sahagún', 'Lorica'],
+            'Nariño': ['Pasto', 'Tumaco', 'Ipiales', 'Túquerres'],
+            'Norte de Santander': ['Cúcuta', 'Ocaña', 'Pamplona', 'Villa del Rosario'],
+            'Tolima': ['Ibagué', 'Espinal', 'Melgar', 'Honda'],
+            'Huila': ['Neiva', 'Pitalito', 'Garzón', 'La Plata'],
+            'Caldas': ['Manizales', 'La Dorada', 'Riosucio', 'Chinchiná'],
+            'Risaralda': ['Pereira', 'Dosquebradas', 'Santa Rosa de Cabal'],
+            'Quindío': ['Armenia', 'Calarcá', 'Montenegro'],
+            'Meta': ['Villavicencio', 'Acacías', 'Granada'],
+            'Casanare': ['Yopal', 'Aguazul', 'Villanueva'],
+            'Cauca': ['Popayán', 'Santander de Quilichao', 'Puerto Tejada'],
+            'Cesar': ['Valledupar', 'Aguachica', 'Codazzi'],
+            'La Guajira': ['Riohacha', 'Maicao', 'Uribia'],
+            'Magdalena': ['Santa Marta', 'Ciénaga', 'Fundación'],
+            'Sucre': ['Sincelejo', 'Corozal', 'Sampués'],
+            'Boyacá': ['Tunja', 'Duitama', 'Sogamoso', 'Chiquinquirá'],
+            'Arauca': ['Arauca', 'Saravena', 'Tame'],
+            'Caquetá': ['Florencia', 'San Vicente del Caguán'],
+            'Putumayo': ['Mocoa', 'Puerto Asís', 'Orito'],
+            'Chocó': ['Quibdó', 'Istmina', 'Tumaco'],
+            'Guaviare': ['San José del Guaviare'],
+            'Vichada': ['Puerto Carreño'],
+            'Guainía': ['Inírida'],
+            'Vaupés': ['Mitú'],
+            'Amazonas': ['Leticia', 'Puerto Nariño'],
+            'San Andrés y Providencia': ['San Andrés', 'Providencia']
+        };
+
+        function cargarCiudades() {
+            const dep = document.getElementById('select-departamento').value;
+            const datalist = document.getElementById('lista-ciudades');
+            datalist.innerHTML = '';
+            const ciudades = ciudadesPorDep[dep] || [];
+            ciudades.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c;
+                datalist.appendChild(opt);
+            });
+            document.getElementById('input-ciudad').value = '';
+            document.getElementById('input-ciudad').placeholder = ciudades.length ? 'Escribe o elige...' : 'Escribe tu ciudad...';
+        }
+
+        // âââââââââââââââ LOGIN âââââââââââââââ
+        async function iniciarSesión(event) {
+            event.preventDefault();
+            clearAlert('login-alert');
+            const btn = document.getElementById('btn-login');
+            const wpp = document.getElementById('log-whatsapp').value.trim().replace(/\s/g, '');
+            const pwd = document.getElementById('log-password').value.trim();
+
+            if (!wpp || !pwd) {
+                showAlert('login-alert', 'error', 'Por favor completa todos los campos.');
+                return;
+            }
+
+            btn.classList.add('loading');
+            btn.disabled = true;
+
+            try {
+                const pwdHash = await hashPassword(pwd);
+
+                const { data, error } = await db
+                    .from('usuarios')
+                    .select('id, nombre, rol, password')
+                    .eq('whatsapp', wpp)
+                    .single();
+
+                if (error || !data) {
+                    showAlert('login-alert', 'error', 'No encontramos una cuenta con ese WhatsApp. Â¿Ya te registraste?');
+                    return;
+                }
+
+                if (data.password !== pwdHash) {
+                    showAlert('login-alert', 'error', 'Contraseña incorrecta. Recuerda: año de nacimiento + tu edad.');
+                    return;
+                }
+
+                // Guardar sesión
+                localStorage.setItem('vyd_user', JSON.stringify({
+                    id: data.id,
+                    nombre: data.nombre,
+                    rol: data.rol,
+                    whatsapp: wpp
+                }));
+
+                mostrarToast(`Â¡Bienvenido/a, ${data.nombre.split(' ')[0]}! ð`, true);
+                setTimeout(() => entrarApp(), 800);
+
+            } catch (err) {
+                showAlert('login-alert', 'error', 'Error de conexión. Intenta de nuevo.');
+                console.error(err);
+            } finally {
+                btn.classList.remove('loading');
+                btn.disabled = false;
+            }
+        }
+
+        // âââââââââââââââ REGISTRO âââââââââââââââ
+        async function registrarVoluntario(event) {
+            event.preventDefault();
+            clearAlert('register-alert');
+
+            const btn = document.getElementById('btn-register');
+            const nombre = document.getElementById('reg-nombre').value.trim();
+            const wpp = document.getElementById('reg-whatsapp').value.trim().replace(/\s/g, '');
+            const edad = document.getElementById('reg-edad').value;
+            const dep = document.getElementById('select-departamento').value;
+            const ciudad = document.getElementById('input-ciudad').value.trim();
+            const sector = document.getElementById('reg-sector').value.trim();
+            const profesion = document.getElementById('reg-profesion').value.trim();
+            const bandera = document.getElementById('reg-bandera').value;
+            const tiempo = document.getElementById('reg-tiempo').value;
+            const pwd = document.getElementById('reg-password').value.trim();
+            const apoyo = document.querySelector('input[name="apoyo"]:checked')?.value;
+
+            const areas = Array.from(document.querySelectorAll('.custom-checkbox:checked')).map(c => c.value);
+
+            // Validaciones
+            if (!nombre || !wpp || !edad || !dep || !ciudad || !sector || !profesion || !bandera || !tiempo || !pwd || !apoyo) {
+                showAlert('register-alert', 'error', 'Por favor completa todos los campos obligatorios.');
+                return;
+            }
+            if (areas.length === 0) {
+                showAlert('register-alert', 'error', 'Selecciona al menos un área donde puedes aportar.');
+                return;
+            }
+            if (wpp.length < 7) {
+                showAlert('register-alert', 'error', 'El número de WhatsApp no parece correcto.');
+                return;
+            }
+
+            btn.classList.add('loading');
+            btn.disabled = true;
+
+            try {
+                // Verificar si ya existe
+                const { data: exists } = await db
+                    .from('usuarios')
+                    .select('id')
+                    .eq('whatsapp', wpp)
+                    .maybeSingle();
+
+                if (exists) {
+                    showAlert('register-alert', 'error', 'Ya existe una cuenta con ese número. Usa "Iniciar Sesión".');
+                    return;
+                }
+
+                const pwdHash = await hashPassword(pwd);
+
+                const { data, error } = await db
+                    .from('usuarios')
+                    .insert([{
+                        username: wpp, nombre, whatsapp: wpp, edad: parseInt(edad),
+                        departamento: dep, ciudad, sector, profesion,
+                        bandera, areas: areas, tiempo_disponible: tiempo,
+                        firmeza_apoyo: parseInt(apoyo), password: pwdHash, rol: 'usuario'
+                    }])
+                    .select()
+                    .single();
+
+                if (error) throw error;
+
+                localStorage.setItem('vyd_user', JSON.stringify({
+                    id: data.id, nombre: data.nombre,
+                    rol: data.rol, whatsapp: wpp
+                }));
+
+                mostrarToast(`Â¡Registro éxitoso! Bienvenido/a ${nombre.split(' ')[0]} ð`, true);
+                setTimeout(() => entrarApp(), 900);
+
+            } catch (err) {
+                showAlert('register-alert', 'error', 'Error al registrar: ' + (err.message || 'Intenta de nuevo.'));
+                console.error(err);
+            } finally {
+                btn.classList.remove('loading');
+                btn.disabled = false;
+            }
+        }
+
+        // âââââââââââââââ ENTER/SALIR APP âââââââââââââââ
+        function entrarApp() {
+            document.getElementById('auth-screen').style.display = 'none';
+            document.getElementById('app-screen').style.display = 'block';
+            cargarBiblioteca();
+            cargarDatosForo();
+            cargarPropuestasMuro();
+            actualizarContadorUI();
+            initBot();
+        }
+
+        function cerrarSesión() {
+            localStorage.removeItem('vyd_user');
+            document.getElementById('auth-screen').style.display = 'flex';
+            document.getElementById('app-screen').style.display = 'none';
+        }
+
+        // âââââââââââââââ AUTO-LOGIN âââââââââââââââ
+        document.addEventListener('DOMContentLoaded', function () {
+            const saved = localStorage.getItem('vyd_user');
+            if (saved) {
+                try {
+                    const user = JSON.parse(saved);
+                    if (user && user.id) {
+                        entrarApp();
+                        return;
+                    }
+                } catch (e) { localStorage.removeItem('vyd_user'); }
+            }
+        });
+
+        // âââââââââââââââ APP FUNCTIONS âââââââââââââââ
         let bibPdfs = [];
         let resenasCompletadas = new Set();
         let contadorComentariosUsuario = 0;
 
         async function cargarBiblioteca() {
             const grid = document.getElementById('biblioteca-grid');
-            grid.innerHTML = '<div class="text-center py-12 text-gray-400"><i class="fa-solid fa-circle-notch fa-spin text-3xl mb-2"></i><p class="text-sm">Cargando biblioteca...</p></div>';
+            grid.innerHTML = '<div style="text-align:center;padding:48px 0;color:#9ca3af;"><i class="fa-solid fa-circle-notch fa-spin" style="font-size:2rem;display:block;margin-bottom:8px;"></i><p style="font-size:13px;">Cargando biblioteca...</p></div>';
             try {
-                const { data, error } = await db
-                    .from('contenidos')
-                    .select('*, modulos(nombre)')
-                    .order('fecha_subida', { ascending: false });
+                const { data, error } = await db.from('contenidos').select('*, modulos(nombre)').order('fecha_subida', { ascending: false });
                 if (error) throw error;
                 bibPdfs = data || [];
                 renderBiblioteca(bibPdfs);
                 actualizarContadorResenas();
             } catch (err) {
-                grid.innerHTML = '<div class="text-center py-8 text-gray-400 text-sm"><i class="fa-solid fa-triangle-exclamation text-2xl mb-2"></i><p>No se pudo cargar la biblioteca: ' + err.message + '</p></div>';
+                grid.innerHTML = '<div style="text-align:center;padding:32px 0;color:#9ca3af;font-size:13px;"><i class="fa-solid fa-triangle-exclamation" style="font-size:2rem;display:block;margin-bottom:8px;"></i>No se pudo cargar la biblioteca.</div>';
             }
         }
 
@@ -279,113 +1542,131 @@
             const grid = document.getElementById('biblioteca-grid');
             const searchQ = (document.getElementById('bib-search')?.value || '').toLowerCase().trim();
             const filterType = document.getElementById('bib-filter')?.value || 'all';
-
             let filtrados = items;
             if (filterType !== 'all') filtrados = filtrados.filter(i => i.tipo === filterType);
-            if (searchQ) {
-                filtrados = filtrados.filter(i =>
-                    i.titulo.toLowerCase().includes(searchQ) ||
-                    (i.descripcion && i.descripcion.toLowerCase().includes(searchQ)) ||
-                    (i.modulos && i.modulos.nombre.toLowerCase().includes(searchQ))
-                );
-            }
-
+            if (searchQ) filtrados = filtrados.filter(i =>
+                i.titulo.toLowerCase().includes(searchQ) ||
+                (i.descripcion && i.descripcion.toLowerCase().includes(searchQ))
+            );
             if (filtrados.length === 0) {
-                grid.innerHTML = '<div class="text-center py-10 text-gray-400"><i class="fa-solid fa-book-open text-4xl mb-3"></i><p class="text-sm">' + (searchQ || filterType !== 'all' ? 'No se encontraron contenidos.' : 'La biblioteca esta vacia. El administrador puede a�adir contenidos desde el panel admin.') + '</p></div>';
+                grid.innerHTML = '<div style="text-align:center;padding:40px 0;color:#9ca3af;font-size:13px;"><i class="fa-solid fa-book-open" style="font-size:2rem;display:block;margin-bottom:8px;"></i>No se encontraron contenidos.</div>';
                 return;
             }
-
-            grid.innerHTML = filtrados.map(function(item) {
-                var modNombre = (item.modulos && item.modulos.nombre) ? item.modulos.nombre : 'Sin modulo';
-                var desc = item.descripcion || '';
-                var recursoId = 'item-' + item.id;
-                var badgeClass = 'bg-red-50 text-red-700';
-                var badgeIcon = 'fa-file-pdf';
-                var badgeLabel = 'PDF';
+            grid.innerHTML = filtrados.map(function (item) {
+                var modNombre = (item.modulos && item.modulos.nombre) ? item.modulos.nombre : 'Sin módulo';
+                var badgeColor = item.tipo === 'video' ? '#7c3aed' : item.tipo === 'podcast' ? '#2563eb' : 'var(--primary)';
+                var badgeIcon = item.tipo === 'video' ? 'fa-video' : item.tipo === 'podcast' ? 'fa-podcast' : 'fa-file-pdf';
+                var badgeLabel = item.tipo === 'video' ? 'Video' : item.tipo === 'podcast' ? 'Podcast' : 'PDF';
                 var mediaHtml = '';
-
                 if (item.tipo === 'video') {
-                    badgeClass = 'bg-purple-50 text-purple-700';
-                    badgeIcon = 'fa-video';
-                    badgeLabel = 'Video';
                     var embedUrl = getEmbedUrl(item.url);
-                    if (embedUrl) {
-                        mediaHtml = '<div class="aspect-video mt-3 rounded-lg overflow-hidden bg-gray-200"><iframe src="' + embedUrl + '" class="w-full h-full" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>';
-                    } else {
-                        mediaHtml = '<a href="' + item.url + '" target="_blank" class="mt-3 flex items-center gap-2 text-purple-600 text-sm font-semibold underline hover:text-purple-800"><i class="fa-solid fa-external-link-alt"></i> Ver video</a>';
-                    }
+                    mediaHtml = embedUrl
+                        ? '<div style="aspect-ratio:16/9;margin-top:12px;border-radius:8px;overflow:hidden;background:#e5e7eb;"><iframe src="' + embedUrl + '" style="width:100%;height:100%;" frameborder="0" allowfullscreen></iframe></div>'
+                        : '<a href="' + item.url + '" target="_blank" style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;color:#7c3aed;font-size:13px;font-weight:600;text-decoration:underline;"><i class="fa-solid fa-external-link-alt"></i>Ver video</a>';
                 } else if (item.tipo === 'podcast') {
-                    badgeClass = 'bg-blue-50 text-blue-700';
-                    badgeIcon = 'fa-podcast';
-                    badgeLabel = 'Podcast';
-                    mediaHtml = '<a href="' + item.url + '" target="_blank" class="mt-3 flex items-center gap-2 text-blue-600 text-sm font-semibold underline hover:text-blue-800"><i class="fa-solid fa-headphones"></i> Escuchar podcast</a>';
+                    mediaHtml = '<a href="' + item.url + '" target="_blank" style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;color:#2563eb;font-size:13px;font-weight:600;text-decoration:underline;"><i class="fa-solid fa-headphones"></i>Escuchar podcast</a>';
                 } else {
-                    mediaHtml = '<a href="' + item.url + '" target="_blank" class="mt-3 flex items-center gap-1 text-blue-600 text-sm font-semibold underline hover:text-blue-800"><i class="fa-regular fa-file-pdf"></i> Abrir PDF</a>';
+                    mediaHtml = '<a href="' + item.url + '" target="_blank" style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-size:13px;font-weight:600;text-decoration:underline;"><i class="fa-regular fa-file-pdf"></i>Abrir PDF</a>';
                 }
-
-                return '<div class="bg-white p-4 rounded-lg shadow card-soberana" data-recurso="' + recursoId + '">' +
-                    '<div class="flex items-start justify-between gap-2 mb-1">' +
-                    '<span class="text-xs font-bold uppercase px-2 py-0.5 rounded ' + badgeClass + '"><i class="fa-solid ' + badgeIcon + ' mr-1"></i>' + modNombre + ' � ' + badgeLabel + '</span>' +
-                    '</div>' +
-                    '<h3 class="font-bold text-lg mt-2 leading-tight">' + item.titulo + '</h3>' +
-                    (desc ? '<p class="text-sm text-gray-600 mt-1">' + desc + '</p>' : '') +
+                return '<div class="card-soberana" style="background:white;padding:16px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.08);">' +
+                    '<span style="font-size:10px;font-weight:700;text-transform:uppercase;background:' + badgeColor + '15;color:' + badgeColor + ';padding:3px 10px;border-radius:999px;"><i class="fa-solid ' + badgeIcon + ' mr-1"></i>' + modNombre + ' Â· ' + badgeLabel + '</span>' +
+                    '<h3 style="font-size:15px;font-weight:700;margin-top:10px;line-height:1.3;">' + item.titulo + '</h3>' +
+                    (item.descripcion ? '<p style="font-size:13px;color:#6b7280;margin-top:4px;">' + item.descripcion + '</p>' : '') +
                     mediaHtml +
-                    '<div class="mt-3 pt-3 border-t border-gray-100">' +
-                    '<button onclick="abrirResena(\'' + recursoId + '\', \'' + item.titulo.replace(/'/g, "&#39;") + '\')" class="text-green-700 text-sm font-semibold underline flex items-center gap-1 hover:text-green-900"><i class="fa-regular fa-pen-to-square"></i> Cargar resena critica</button>' +
-                    '<div id="resenas-' + recursoId + '" class="mt-2 space-y-1 text-xs text-gray-600"></div>' +
+                    '<div style="margin-top:12px;padding-top:12px;border-top:1px solid #f0f0f0;display:flex;flex-wrap:wrap;gap:8px;">' +
+                    '<button onclick="toggleResenaForm(\'item-' + item.id + '\')" style="background:#f0fff4;color:#16a34a;font-size:12px;font-weight:600;border:1.5px solid #bbf7d0;border-radius:8px;padding:7px 14px;cursor:pointer;font-family:\'Inter\',sans-serif;display:inline-flex;align-items:center;gap:6px;"><i class="fa-regular fa-pen-to-square"></i>Dar mi reseóa</button>' +
+                    '<button onclick="verResenasLibro(\'item-' + item.id + '\', this)" style="background:#f3f4f6;color:#6b7280;font-size:12px;font-weight:600;border:1.5px solid #e5e7eb;border-radius:8px;padding:7px 14px;cursor:pointer;font-family:\'Inter\',sans-serif;display:inline-flex;align-items:center;gap:6px;"><i class="fa-regular fa-comments"></i>Ver reseóas</button>' +
                     '</div>' +
-                    '</div>';
+                    '<div id="resena-form-item-' + item.id + '" style="display:none;margin-top:12px;">' +
+                    '<textarea id="resena-txt-item-' + item.id + '" data-titulo="' + item.titulo.replace(/'/g, "&#39;") + '" placeholder="Escribe tu reseóa crótica (mónimo 20 caracteres)..." rows="3" style="width:100%;border:1.5px solid #d1d5db;border-radius:8px;padding:10px;font-size:13px;font-family:\'Inter\',sans-serif;outline:none;resize:vertical;transition:border-color 0.2s;box-sizing:border-box;"></textarea>' +
+                    '<div style="display:flex;gap:8px;margin-top:8px;">' +
+                    '<button onclick="enviarResenaLibro(\'item-' + item.id + '\')" style="background:#16a34a;color:white;padding:8px 16px;border-radius:8px;font-size:13px;border:none;cursor:pointer;font-weight:600;font-family:\'Inter\',sans-serif;">Enviar reseóa</button>' +
+                    '<button onclick="toggleResenaForm(\'item-' + item.id + '\', true)" style="background:#f3f4f6;color:#6b7280;padding:8px 12px;border-radius:8px;font-size:13px;border:none;cursor:pointer;font-family:\'Inter\',sans-serif;">Cancelar</button>' +
+                    '</div></div>' +
+                    '<div id="resenas-lista-item-' + item.id + '" style="display:none;margin-top:10px;"></div>' +
+                    '</div></div>';
             }).join('');
         }
-        // Busqueda y filtro en tiempo real
-        document.addEventListener('DOMContentLoaded', function() {
-            var searchInput = document.getElementById('bib-search');
-            var filterInput = document.getElementById('bib-filter');
-            if (searchInput) searchInput.addEventListener('input', function() { renderBiblioteca(bibPdfs); });
-            if (filterInput) filterInput.addEventListener('change', function() { renderBiblioteca(bibPdfs); });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var si = document.getElementById('bib-search');
+            var fi = document.getElementById('bib-filter');
+            if (si) si.addEventListener('input', function () { renderBiblioteca(bibPdfs); });
+            if (fi) fi.addEventListener('change', function () { renderBiblioteca(bibPdfs); });
         });
 
-        // ============ OTRAS FUNCIONES ============
         function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             if (tabId === 'biblioteca') cargarBiblioteca();
             actualizarContadorUI();
         }
 
-        function mostrarToast(msg) {
-            const toast = document.getElementById('toast');
-            toast.innerText = msg;
-            toast.style.opacity = '1';
-            setTimeout(() => toast.style.opacity = '0', 2500);
-        }
+        function descargarTexto(id, nombre) { mostrarToast('ð Descargando "' + nombre + '"'); }
 
-        function descargarTexto(id, nombre) {
-            mostrarToast(`📄 Descargando "${nombre}"`);
-        }
+        window.toggleResenaForm = function(recursoId, close) {
+            var form = document.getElementById('resena-form-' + recursoId);
+            if (!form) return;
+            form.style.display = (close || form.style.display === 'block') ? 'none' : 'block';
+        };
 
-        async function abrirResena(recursoId, titulo) {
-            var resena = prompt("Escribe tu resena critica de: " + titulo + " (minimo 20 caracteres)");
-            if (resena && resena.trim().length > 20) {
-                if (!resenasCompletadas.has(recursoId)) {
-                    db.from("resenas").insert([{ recurso_id: recursoId, recurso_titulo: titulo, texto: resena.trim() }]).then(function() {}).catch(function(e) { console.warn(e); });
-                    resenasCompletadas.add(recursoId);
-                    actualizarContadorResenas();
-                    var box = document.getElementById("resenas-" + recursoId);
-                    if (box) {
-                        var p = document.createElement("p");
-                        p.className = "bg-green-50 border-l-2 border-green-500 pl-2 py-1 rounded text-xs text-gray-700 mt-1 italic";
-                        p.innerHTML = "<i class=\"fa-solid fa-check text-green-600 mr-1\"></i>" + resena.trim();
-                        box.appendChild(p);
-                    }
-                    mostrarToast("Resena guardada exitosamente.");
-                } else {
-                    mostrarToast("Ya cargaste resena para este recurso.");
-                }
-            } else if (resena) {
-                mostrarToast("La resena debe tener al menos 20 caracteres.");
+        window.enviarResenaLibro = async function(recursoId) {
+            var textarea = document.getElementById('resena-txt-' + recursoId);
+            if (!textarea) return;
+            var titulo = textarea.getAttribute('data-titulo') || recursoId;
+            var resena = textarea.value.trim();
+            if (resena.length < 20) { mostrarToast('La reseóa debe tener al menos 20 caracteres.'); return; }
+            var btn = document.querySelector('#resena-form-' + recursoId + ' button');
+            var orig = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+            btn.disabled = true;
+            try {
+                var userLog = JSON.parse(localStorage.getItem('vyd_user') || '{}');
+                var { error } = await db.from('resenas').insert([{
+                    recurso_id: recursoId,
+                    recurso_titulo: titulo,
+                    texto: resena,
+                    usuario_nombre: userLog.nombre || 'Anónimo',
+                    usuario_whatsapp: userLog.whatsapp || null
+                }]);
+                if (error) throw error;
+                resenasCompletadas.add(recursoId);
+                actualizarContadorResenas();
+                mostrarToast('Resena enviada con éxito.');
+                textarea.value = '';
+                document.getElementById('resena-form-' + recursoId).style.display = 'none';
+            } catch(err) {
+                mostrarToast('Error al guardar: ' + (err.message || err));
+            } finally {
+                btn.innerHTML = orig;
+                btn.disabled = false;
             }
-        }
+        };
+
+        window.verResenasLibro = async function(recursoId, btnEl) {
+            var lista = document.getElementById('resenas-lista-' + recursoId);
+            if (!lista) return;
+            if (lista.style.display === 'block') {
+                lista.style.display = 'none';
+                btnEl.innerHTML = '<i class="fa-regular fa-comments"></i> Ver resenas';
+                return;
+            }
+            lista.style.display = 'block';
+            btnEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Cargando...';
+            try {
+                var { data, error } = await db.from('resenas').select('texto, fecha').eq('recurso_id', recursoId).order('fecha', { ascending: false });
+                if (error) throw error;
+                if (!data || data.length === 0) {
+                    lista.innerHTML = '<p style="font-size:12px;color:#9ca3af;font-style:italic;padding:8px 0;">Sé el primero en dejar una resena.</p>';
+                } else {
+                    lista.innerHTML = '<p style="font-size:10px;font-weight:700;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;letter-spacing:0.5px;">Resenas anónimas de la comunidad</p>' +
+                        data.map(r => '<div style="background:#f9fafb;border-left:3px solid #16a34a;padding:8px 10px;border-radius:6px;margin-bottom:6px;font-size:12px;color:#374151;font-style:italic;">"' + r.texto + '"</div>').join('');
+                }
+            } catch(err) {
+                lista.innerHTML = '<p style="font-size:12px;color:#ef4444;">Error cargando resenas.</p>';
+            }
+            btnEl.innerHTML = '<i class="fa-regular fa-eye-slash"></i> Ocultar resenas';
+        };
 
         function actualizarContadorResenas() {
             const total = bibPdfs.length || 5;
@@ -394,222 +1675,378 @@
             if (el) el.innerText = Math.max(0, pending);
         }
 
-        async function enviarForo() {
-    var val = document.getElementById("input-foro").value.trim();
-    if (val) {
-        var nube = document.getElementById("nube-palabras");
-        var span = document.createElement("span");
-        var size = Math.floor(Math.random() * 12 + 12);
-        span.className = "nube-palabra font-medium text-red-800 mx-1";
-        span.style.fontSize = size + "px";
-        span.innerText = val;
-        nube.appendChild(span);
-        document.getElementById("input-foro").value = "";
-        mostrarToast(val + " se suma a la identidad colectiva");
-        db.from("nube_palabras").insert([{ palabra: val }]).then(function() {}).catch(function(e) { console.warn(e); });
-    }
-}
 
-        function responderForo(foco, inputId) {
-            const respuesta = document.getElementById(inputId).value.trim();
-            if (respuesta) {
-                mostrarToast('Respuesta registrada en el ágora.');
+        window.enviarPalabraNube = async function (id_modulo, inputId) {
+            var val = document.getElementById(inputId).value.trim();
+            if (val) {
                 document.getElementById(inputId).value = '';
+                var nubeBox = document.getElementById('nube-dinamica-' + id_modulo);
+                if (nubeBox) {
+                    var span = document.createElement('span');
+                    var size = Math.floor(Math.random() * 12 + 12);
+                    span.className = 'nube-palabra';
+                    span.style.cssText = 'font-size:' + size + 'px;font-weight:600;color:var(--primary);';
+                    span.innerText = val;
+                    nubeBox.appendChild(span);
+                }
+                mostrarToast(val + ' aóadido a la nube.');
+                db.from('nube_palabras').insert([{ palabra: val, id_modulo: id_modulo }]).then(({error}) => { if(error) console.error(error); });
             }
         }
 
-        function enviarDiagnostico() {
-            const texto = document.getElementById('diagnostico-info').value;
-            if (texto) { agregarPropuestaAlMuro(texto, 'Diagnóstico'); document.getElementById('diagnostico-info').value = ''; }
-        }
+        window.responderFoco = async function (id_pregunta, inputId) {
+            var val = document.getElementById(inputId).value.trim();
+            if (val) {
+                document.getElementById(inputId).value = '';
+                mostrarToast('Registrando respuesta...');
+                var user = JSON.parse(localStorage.getItem('vyd_user') || '{}');
+                try {
+                    var userObj = JSON.parse(localStorage.getItem('vyd_user') || '{}');
+                if (!userObj || !userObj.id) throw new Error('Debes iniciar sesión para responder.');
+                await db.from('respuestas_foro').insert([{
+                    id_pregunta: id_pregunta,
+                    respuesta: val,
+                    id_usuario: userObj.id
+                }]);
+                    mostrarToast('Respuesta registrada en el óÁgora.', 'success');
+                } catch (e) { console.warn(e); }
+            }
+        } // Cierra responderFoco
 
-        function enviarConversacion() {
-            const texto = document.getElementById('conversaciones-faltantes').value;
-            if (texto) { agregarPropuestaAlMuro(texto, 'Conversación'); document.getElementById('conversaciones-faltantes').value = ''; }
-        }
-
+        window.verRespuestasFoco = async function(preguntaId, btnEl) {
+            var lista = document.getElementById('respuestas-foco-' + preguntaId);
+            if (!lista) return;
+            if (lista.style.display === 'block') {
+                lista.style.display = 'none';
+                btnEl.innerHTML = '<i class="fa-regular fa-eye"></i> Ver respuestas';
+                return;
+            }
+            lista.style.display = 'block';
+            btnEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Cargando...';
+            try {
+                var { data, error } = await db.from('respuestas_foro').select('respuesta, fecha').eq('id_pregunta', preguntaId).order('fecha', { ascending: false });
+                if (error) throw error;
+                if (!data || data.length === 0) {
+                    lista.innerHTML = '<p style="font-size:12px;color:#9ca3af;font-style:italic;padding:6px 0;">Aún no hay respuestas. Sé el primero.</p>';
+                } else {
+                    lista.innerHTML = '<p style="font-size:10px;font-weight:700;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;letter-spacing:0.5px;">Respuestas anónimas (' + data.length + ')</p>' +
+                        data.map(r => '<div style="background:#fffbeb;border-left:3px solid var(--gold);padding:8px 10px;border-radius:6px;margin-bottom:5px;font-size:12px;color:#374151;">" ' + r.respuesta + '</div>').join('');
+                }
+            } catch(err) {
+                lista.innerHTML = '<p style="font-size:12px;color:#ef4444;">Error: ' + (err.message || err) + '</p>';
+            }
+            btnEl.innerHTML = '<i class="fa-regular fa-eye-slash"></i> Ocultar respuestas';
+        };
+        
         function agregarPropuestaAlMuro(texto, tipo = 'Propuesta') {
-            const muro = document.getElementById('muro-actividades');
-            const card = document.createElement('div');
-            card.className = 'bg-white p-4 rounded shadow border';
-            card.innerHTML = `
-                <p class="font-bold mb-2 text-xs uppercase text-gray-500">${tipo} de Integrante:</p>
-                <p class="text-gray-700 italic border-l-4 border-gray-300 pl-2 mb-3">"${texto.replace(/</g, '&lt;')}"</p>
-                <div class="comentario-critico p-2 rounded mt-2">
-                    <p class="text-[10px] uppercase font-bold text-amber-700">Comentario crítico (obligatorio):</p>
-                    <input type="text" placeholder="Aporta una crítica constructiva..." class="text-xs w-full bg-transparent border-b outline-none p-1">
-                    <button onclick="agregarComentarioCritico(this)" class="text-[10px] bg-amber-100 px-2 py-0.5 rounded mt-1">Enviar crítica</button>
-                </div>
-                <div class="comentarios-lista mt-2 text-[11px] text-gray-500"></div>
-            `;
-            muro.prepend(card);
-            mostrarToast('Nueva propuesta publicada.');
-        }
+                const muro = document.getElementById('muro-actividades');
+                const card = document.createElement('div');
+                card.style.cssText = 'background:white;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #e5e7eb;';
+                card.setAttribute('data-propuesta-id', prop ? prop.id : '');
+                card.innerHTML = `
+            <p style="font-weight:700;font-size:10px;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;">${tipo}:</p>
+            <p style="color:#374151;font-style:italic;border-left:4px solid #d1d5db;padding-left:10px;margin-bottom:12px;">"${texto.replace(/</g, '&lt;')}"</p>
+            <div class="comentario-critico" style="padding:10px;border-radius:6px;">
+                <p style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px;">Comentario crítico (obligatorio):</p>
+                <input type="text" placeholder="Aporta una crítica constructiva..." style="font-size:12px;width:100%;background:transparent;border-bottom:1px solid #d1d5db;outline:none;padding:4px;font-family:'Inter',sans-serif;">
+                <button onclick="agregarComentarioCritico(this)" style="font-size:10px;background:#fef9c3;padding:3px 10px;border-radius:6px;margin-top:6px;border:none;cursor:pointer;font-family:'Inter',sans-serif;color:#7a6212;font-weight:600;">Enviar crítica</button>
+            </div>
+            <div class="comentarios-lista" style="margin-top:8px;font-size:11px;color:#6b7280;"></div>
+        `;
+                muro.prepend(card);
+                mostrarToast('Nueva propuesta publicada.');
+            }
 
-        async function subirPropuesta() {
-    var text = document.getElementById("propuesta-texto").value.trim();
-    if (!text) return;
-    try {
-        await db.from("propuestas").insert([{ texto: text, tipo: "Propuesta" }]);
-    } catch(err) {
-        console.warn("No se guardo propuesta:", err);
-    }
-    agregarPropuestaAlMuro(text, "Propuesta / Envio Colectivo");
-    document.getElementById("propuesta-texto").value = "";
-}
+            async function subirPropuesta() {
+                var text = document.getElementById('propuesta-texto').value.trim();
+                if (!text) return;
+                try { const { error } = await db.from('propuestas').insert([{ texto: text, tipo: 'Propuesta' }]); if(error) console.error(error); } catch(e) { console.error(e); }
+                agregarPropuestaAlMuro(text, 'Propuesta');
+                document.getElementById('propuesta-texto').value = '';
+            }
 
-        function agregarComentarioCritico(btn) {
-            const container = btn.closest('.comentario-critico');
-            const input = container.querySelector('input');
-            const comentarioTexto = input.value.trim();
-            if (!comentarioTexto || comentarioTexto.length < 10) { mostrarToast('La crítica debe tener al menos 10 caracteres.'); return; }
-            const lista = container.parentElement.querySelector('.comentarios-lista');
-            const p = document.createElement('p');
-            p.className = 'text-[11px] border-t border-gray-100 pt-1 mt-1';
-            p.innerHTML = `<i class="fa-regular fa-comment-dots"></i> <strong>Crítica:</strong> "${comentarioTexto}"`;
-            lista.appendChild(p);
-            input.value = '';
-            contadorComentariosUsuario++;
-            actualizarContadorUI();
-            if (contadorComentariosUsuario >= 2) mostrarToast('🎉 ¡Completaste los 2 comentarios! Puedes solicitar certificación.');
-            else mostrarToast(`Comentario registrado. ${contadorComentariosUsuario}/2 para certificar.`);
-        }
+            async function agregarComentarioCritico(btn) {
+                const container = btn.closest('.comentario-critico');
+                const input = container.querySelector('input');
+                const comentario = input.value.trim();
+                if (!comentario || comentario.length < 10) { mostrarToast('La crótica debe tener al menos 10 caracteres.'); return; }
+                btn.disabled = true;
+                btn.textContent = '...';
+                try {
+                    var userLog = JSON.parse(localStorage.getItem('vyd_user') || '{}');
+                    // propuesta_id stored in the card
+                    var card = btn.closest('[data-propuesta-id]');
+                    var propuestaId = card ? card.getAttribute('data-propuesta-id') : null;
+                    await db.from('comentarios_muro').insert([{
+                        comentario: comentario,
+                        propuesta_id: propuestaId,
+                        usuario_nombre: userLog.nombre || 'Anónimo'
+                    }]);
+                } catch(e) { console.warn('Error guardando crótica:', e); }
+                const lista = container.parentElement.querySelector('.comentarios-lista');
+                const p = document.createElement('p');
+                p.style.cssText = 'border-top:1px solid #f0f0f0;padding-top:4px;margin-top:4px;font-size:11px;';
+                p.innerHTML = '<i class="fa-regular fa-comment-dots"></i> <strong>Crótica:</strong> "' + comentario + '"';
+                lista.appendChild(p);
+                input.value = '';
+                btn.disabled = false;
+                btn.textContent = 'Enviar crótica';
+                contadorComentariosUsuario++;
+                actualizarContadorUI();
+                if (contadorComentariosUsuario >= 2) mostrarToast('<ó ó2 comentarios completos! Puedes solicitar certificación.');
+                else mostrarToast('Comentario registrado. ' + contadorComentariosUsuario + '/2 para certificar.');
+            }
 
-        function actualizarContadorUI() {
-            const el = document.getElementById('mis-comentarios-count');
-            if (el) el.innerText = contadorComentariosUsuario;
-            const bar = document.getElementById('status-bar');
-            if (bar) bar.innerHTML = contadorComentariosUsuario >= 2 ? '✅ Certificación lista' : `Módulo: Críticas ${contadorComentariosUsuario}/2`;
-        }
+            function actualizarContadorUI() {
+                const el = document.getElementById('mis-comentarios-count');
+                if (el) el.innerText = contadorComentariosUsuario;
+                const bar = document.getElementById('status-bar');
+                if (bar) bar.innerHTML = contadorComentariosUsuario >= 2 ? 'â Certificación lista' : `Módulo: Críticas ${contadorComentariosUsuario}/2`;
+            }
 
-        function simularVideo(msg) { mostrarToast(`📺 ${msg}`); }
+            // âââââââââââââââ CHATBOT âââââââââââââââ
+            var BOT_KB = [
+                { keys: ['linea de masas', 'metodo de direccion'], resp: 'La <strong>línea de masas</strong> consiste en recoger las ideas dispersas del pueblo, sintetizarlas y devolverlas organizadas como acción colectiva. Es el método central del texto <em>Sobre los métodos de dirección</em>.' },
+                { keys: ['identidad colectiva'], resp: 'La <strong>identidad colectiva</strong> se construye sobre bienes comunes y trabajo compartido. No es una marca, es el resultado de la reproducción social y la autonomía del pueblo.' },
+                { keys: ['procomun', 'bien comun'], resp: 'El <strong>Procomún</strong> son los bienes que pertenecen al pueblo: tierra, agua, conocimiento, espacios públicos. La identidad colectiva se ancla en su defensa.' },
+                { keys: ['soberania tecnologica', 'tecnologia'], resp: 'La <strong>soberanía tecnológica</strong> significa tener infraestructuras digitales propias para no depender de plataformas que pueden silenciar causas populares.' },
+                { keys: ['municipalismo'], resp: 'El <strong>municipalismo</strong> propone construir el cambio desde las comunidades locales, con gestión directa y poder ciudadano.' },
+                { keys: ['movilizar', 'convocatoria'], resp: 'Una causa moviliza cuando: 1) expresa una necesidad <strong>real y sentida</strong> del territorio, 2) los líderes practican la escucha activa, y 3) la organización convierte la indignación en acción concreta.' },
+                { keys: ['hola', 'buenos dias', 'buenas'], resp: 'Â¡Hola! Soy el <strong>LiderazgoBot</strong>. Puedo responder preguntas sobre los textos de formación y la metodología política de la escuela. Â¿Qué quieres saber?' },
+                { keys: ['quien eres', 'que eres'], resp: 'Soy el <strong>LiderazgoBot</strong>, asistente de la Escuela Vanguardia y Desarrollo.' }
+            ];
 
-        function addMsg(who, text) {
-            var box = document.getElementById('chat-box');
-            var d = document.createElement('div');
-            d.className = who === 'user' ? 'flex justify-end mb-1' : 'flex justify-start mb-1';
-            var bubble = document.createElement('div');
-            bubble.className = who === 'user'
-                ? 'bg-critico text-white text-sm px-4 py-2.5 rounded-2xl rounded-tr-sm max-w-xs leading-relaxed shadow-sm'
-                : 'bg-gray-100 text-gray-800 text-sm px-4 py-2.5 rounded-2xl rounded-tl-sm max-w-sm leading-relaxed shadow-sm';
-            bubble.innerHTML = text;
-            d.appendChild(bubble);
-            box.appendChild(d);
-            box.scrollTop = box.scrollHeight;
-            return d;
-        }
+            function getBotResp(q) {
+                var lo = q.toLowerCase();
+                for (var i = 0; i < BOT_KB.length; i++) {
+                    for (var j = 0; j < BOT_KB[i].keys.length; j++) {
+                        if (lo.indexOf(BOT_KB[i].keys[j]) >= 0) return BOT_KB[i].resp;
+                    }
+                }
+                return 'Interesante. Ese tema aún está siendo integrado. Te sugiero revisar los textos de la <strong>Biblioteca</strong> o plantearlo en el <strong>Foro ÍÁgora</strong>.';
+            }
 
-        function showTyping() {
-            var box = document.getElementById('chat-box');
-            var d = document.createElement('div');
-            d.className = 'flex justify-start mb-1';
-            var bubble = document.createElement('div');
-            bubble.className = 'bg-gray-100 px-4 py-3 rounded-2xl rounded-tl-sm';
-            bubble.innerHTML = '<span class="inline-flex gap-1 items-center"><span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay:0s"></span><span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay:0.15s"></span><span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay:0.3s"></span></span>';
-            d.appendChild(bubble);
-            box.appendChild(d);
-            box.scrollTop = box.scrollHeight;
-            return d;
-        }
+            function addMsg(who, text) {
+                var box = document.getElementById('chat-box');
+                var d = document.createElement('div');
+                d.style.cssText = 'display:flex;' + (who === 'user' ? 'justify-content:flex-end;' : 'justify-content:flex-start;');
+                var bubble = document.createElement('div');
+                bubble.style.cssText = who === 'user'
+                    ? 'background:var(--primary);color:white;font-size:13px;padding:10px 16px;border-radius:18px 18px 4px 18px;max-width:75%;line-height:1.5;box-shadow:0 2px 6px rgba(139,0,0,0.3);'
+                    : 'background:#f3f4f6;color:#1a1a1a;font-size:13px;padding:10px 16px;border-radius:18px 18px 18px 4px;max-width:80%;line-height:1.5;';
+                bubble.innerHTML = text;
+                d.appendChild(bubble);
+                box.appendChild(d);
+                box.scrollTop = box.scrollHeight;
+                return d;
+            }
 
-        var BOT_KB = [
-            { keys: ['linea de masas', 'metodo de direccion'], resp: 'La <strong>linea de masas</strong> consiste en recoger las ideas dispersas del pueblo, sintetizarlas y devolverlas organizadas como accion colectiva. Es el metodo central del texto <em>Sobre los metodos de direccion</em>. Liderazgo que escucha, sintetiza y devuelve.' },
-            { keys: ['masas'], resp: 'La <strong>linea de masas</strong> es el metodo que sintetiza las ideas del pueblo y las devuelve como accion organizada. El lider no impone: traduce.' },
-            { keys: ['identidad colectiva'], resp: 'La <strong>identidad colectiva</strong> se construye sobre bienes comunes y trabajo compartido. No es una marca, es el resultado de la reproduccion social y la autonomia del pueblo. Ver <em>La construccion del Procomun</em>.' },
-            { keys: ['procomun', 'bien comun'], resp: 'El <strong>Procomun</strong> son los bienes que pertenecen al pueblo: tierra, agua, conocimiento, espacios publicos. La identidad colectiva se ancla en su defensa. Revisar a Silvia Federici en la Biblioteca.' },
-            { keys: ['soberania tecnologica', 'tecnologia'], resp: 'La <strong>soberania tecnologica</strong> significa tener infraestructuras digitales propias para no depender de plataformas que pueden silenciar causas populares. La tecnologia no es neutral.' },
-            { keys: ['soberania'], resp: 'La <strong>soberania</strong> puede ser tecnologica, territorial o alimentaria. Todas comparten: el pueblo como sujeto activo de su propio destino, no objeto de decisiones externas.' },
-            { keys: ['eficiencia', 'organizacion'], resp: 'La <strong>eficiencia organizacional avanzada</strong> no es jerarquia: es transparencia radical y flujo de informacion descentralizado hacia todos los nodos del colectivo.' },
-            { keys: ['municipalismo'], resp: 'El <strong>municipalismo</strong> propone construir el cambio desde las comunidades locales, con gestion directa y poder ciudadano. Ver <em>La Proxima Revolucion</em> de Murray Bookchin en la Biblioteca.' },
-            { keys: ['movilizar', 'convocatoria'], resp: 'Una causa moviliza cuando: 1) expresa una necesidad <strong>real y sentida</strong> del territorio, 2) los lideres practican la escucha activa, y 3) la organizacion convierte la indignacion en accion concreta.' },
-            { keys: ['convencer', 'persuadir'], resp: 'Convencer no es marketing: es <strong>traducir las necesidades dispersas del pueblo</strong> en un lenguaje que las organice y devuelva como propuesta. El liderazgo autentico surge de la investigacion profunda.' },
-            { keys: ['biblioteca', 'textos', 'libros'], resp: 'La biblioteca contiene: textos de <strong>metodos de direccion, procomun, municipalismo y soberania tecnologica</strong>, ademas de videos y podcasts. Accede desde la pestana Biblioteca.' },
-            { keys: ['foro', 'agora'], resp: 'El <strong>Foro Agora</strong> es el espacio de preguntas eje. Cada respuesta alimenta la nube de ideas colectiva. Es el corazon deliberativo de la escuela.' },
-            { keys: ['muro', 'propuesta'], resp: 'El <strong>Muro Critico</strong> es donde los participantes suben propuestas y diagnosticos, y otros les dejan comentarios criticos constructivos. Es obligatorio para la certificacion.' },
-            { keys: ['certificar', 'certificacion'], resp: 'Para certificar el modulo necesitas: 1) Completar resenas criticas de los textos, y 2) realizar al menos 2 comentarios criticos en el Muro de Propuestas.' },
-            { keys: ['fajardo', 'sergio'], resp: 'El modulo sobre <strong>Sergio Fajardo</strong> esta en construccion. Pronto podras preguntar sobre su propuesta politica, trayectoria y vision sobre educacion y transformacion social en Colombia.' },
-            { keys: ['hola', 'buenos dias', 'buenas'], resp: 'Hola! Soy el <strong>LiderazgoBot</strong>. Puedo responder preguntas sobre los textos de formacion y la metodologia politica de la escuela. Que quieres saber?' },
-            { keys: ['quien eres', 'que eres', 'como te llamas'], resp: 'Soy el <strong>LiderazgoBot</strong>, asistente de la Escuela Vanguardia y Desarrollo. Estoy siendo entrenado para responder sobre el proyecto politico. Por ahora respondo sobre textos y metodologia.' }
-        ];
+            function showTyping() {
+                var box = document.getElementById('chat-box');
+                var d = document.createElement('div');
+                d.style.cssText = 'display:flex;justify-content:flex-start;';
+                var b = document.createElement('div');
+                b.style.cssText = 'background:#f3f4f6;padding:12px 16px;border-radius:18px 18px 18px 4px;';
+                b.innerHTML = '<span style="display:inline-flex;gap:4px;align-items:center;"><span style="width:7px;height:7px;background:#9ca3af;border-radius:50%;animation:bounce 0.6s infinite;"></span><span style="width:7px;height:7px;background:#9ca3af;border-radius:50%;animation:bounce 0.6s 0.15s infinite;"></span><span style="width:7px;height:7px;background:#9ca3af;border-radius:50%;animation:bounce 0.6s 0.3s infinite;"></span></span>';
+                d.appendChild(b);
+                box.appendChild(d);
+                box.scrollTop = box.scrollHeight;
+                return d;
+            }
 
-        function getBotResp(q) {
-            var lo = q.toLowerCase();
-            for (var i = 0; i < BOT_KB.length; i++) {
-                for (var j = 0; j < BOT_KB[i].keys.length; j++) {
-                    if (lo.indexOf(BOT_KB[i].keys[j]) >= 0) return BOT_KB[i].resp;
+            function preguntaSugerida(txt) {
+                document.getElementById('chat-input').value = txt;
+                preguntarBot();
+            }
+
+            function preguntarBot() {
+                var inp = document.getElementById('chat-input');
+                var q = inp.value.trim();
+                if (!q) return;
+                inp.value = '';
+                var sug = document.getElementById('chat-suggestions');
+                if (sug) sug.style.display = 'none';
+                addMsg('user', q);
+                var typing = showTyping();
+                setTimeout(function () { typing.remove(); addMsg('bot', getBotResp(q)); }, 700 + Math.random() * 400);
+            }
+
+            function initBot() {
+                var box = document.getElementById('chat-box');
+                if (box && box.children.length === 0) {
+                    setTimeout(function () {
+                        addMsg('bot', 'Â¡Hola! Soy el <strong>LiderazgoBot</strong> de la Escuela Vanguardia y Desarrollo. Puedo responder preguntas sobre los textos de formación y la metodología política. Usa las sugerencias o escribe tu consulta.');
+                    }, 400);
                 }
             }
-            return 'Interesante pregunta. Ese tema aun esta siendo integrado en mi base de conocimientos. Te sugiero revisar los textos de la <strong>Biblioteca</strong> o plantearlo en el <strong>Foro Agora</strong>. El bot sobre Fajardo y el proyecto politico pronto estara disponible.';
-        }
 
-        function preguntaSugerida(txt) {
-            document.getElementById('chat-input').value = txt;
-            preguntarBot();
-        }
-
-        function preguntarBot() {
-            var inp = document.getElementById('chat-input');
-            var q = inp.value.trim();
-            if (!q) return;
-            inp.value = '';
-            var sug = document.getElementById('chat-suggestions');
-            if (sug) sug.style.display = 'none';
-            addMsg('user', q);
-            var typing = showTyping();
-            var delay = 600 + Math.floor(Math.random() * 500);
-            setTimeout(function() { typing.remove(); addMsg('bot', getBotResp(q)); }, delay);
-        }
-
-        setTimeout(function() {
-            addMsg('bot', 'Hola! Soy el <strong>LiderazgoBot</strong> de la Escuela Vanguardia y Desarrollo. Puedo responder preguntas sobre los textos de formacion y la metodologia politica. Usa las sugerencias de arriba o escribe tu consulta directamente.');
-        }, 350);
-
-        
-        let horasRestantes = 23;
-        setInterval(() => { if (horasRestantes > 0) horasRestantes--; const el = document.getElementById('cuenta-foro'); if(el) el.innerText = horasRestantes; }, 3600000);
-
-        async function cargarNube() {
-            var res = await db.from("nube_palabras").select("palabra").order("fecha", { ascending: true });
-            if (res.data) {
-                var nube = document.getElementById("nube-palabras");
-                nube.innerHTML = "";
-                res.data.forEach(function(row) {
-                    var span = document.createElement("span");
-                    var size = Math.floor(Math.random() * 12 + 12);
-                    span.className = "nube-palabra font-medium text-red-800 mx-1";
-                    span.style.fontSize = size + "px";
-                    span.innerText = row.palabra;
-                    nube.appendChild(span);
-                });
+            // âââââââââââââââ NUBE Y MURO DINÍMICOS âââââââââââââââ
+            async function cargarNube() {
+                var res = await db.from('nube_palabras').select('palabra').order('fecha', { ascending: true }).then(r => r);
+                if (res && res.data) {
+                    var nube = document.getElementById('nube-palabras');
+                    if (!nube) return;
+                    nube.innerHTML = '';
+                    res.data.forEach(function (row) {
+                        var span = document.createElement('span');
+                        var size = Math.floor(Math.random() * 12 + 12);
+                        span.className = 'nube-palabra';
+                        span.style.cssText = 'font-size:' + size + 'px;font-weight:600;color:var(--primary);';
+                        span.innerText = row.palabra;
+                        nube.appendChild(span);
+                    });
+                }
             }
-        }
 
-        async function cargarPropuestasMuro() {
-            var res = await db.from("propuestas").select("*").order("fecha", { ascending: false });
-            if (res.data && res.data.length > 0) {
-                var muro = document.getElementById("muro-actividades");
-                muro.innerHTML = "";
-                res.data.forEach(function(prop) {
-                    var card = document.createElement("div");
-                    card.className = "bg-white p-4 rounded shadow border";
-                    var fecha = new Date(prop.fecha).toLocaleDateString("es-CO", { day:"2-digit", month:"short", year:"numeric" });
-                    card.innerHTML = "<p class='font-bold mb-1 text-xs uppercase text-gray-500'>" + prop.tipo + " <span class='font-normal text-gray-400 ml-2'>" + fecha + "</span></p>" +
-                        "<p class='text-gray-700 italic border-l-4 border-gray-300 pl-2 mb-3'>\"" + prop.texto + "\"</p>" +
-                        "<div class='comentario-critico p-2 rounded mt-2'>" +
-                        "<p class='text-[10px] uppercase font-bold text-amber-700'>Comentario critico (obligatorio):</p>" +
-                        "<input type='text' placeholder='Aporta una critica soberana constructiva...' class='text-xs w-full bg-transparent border-b outline-none p-1'>" +
-                        "<button onclick='agregarComentarioCritico(this)' class='text-[10px] bg-amber-100 px-2 py-0.5 rounded mt-1'>Enviar critica</button>" +
-                        "</div>" +
-                        "<div class='comentarios-lista mt-2 text-[11px] text-gray-500'></div>";
-                    muro.appendChild(card);
-                });
+            async function cargarPropuestasMuro() {
+                var res = await db.from('propuestas').select('*').order('fecha', { ascending: false }).then(r => r);
+                if (res && res.data && res.data.length > 0) {
+                    var muro = document.getElementById('muro-actividades');
+                    muro.innerHTML = '';
+                    res.data.forEach(function (prop) {
+                        var card = document.createElement('div');
+                        card.style.cssText = 'background:white;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #e5e7eb;';
+                card.setAttribute('data-propuesta-id', prop ? prop.id : '');
+                        var fecha = new Date(prop.fecha).toLocaleDateString('es-CO', { day: '2-digit', month: 'short', year: 'numeric' });
+                        card.innerHTML = '<p style="font-weight:700;font-size:10px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px;">' + prop.tipo + ' <span style="font-weight:400;color:#d1d5db;margin-left:6px;">' + fecha + '</span></p>' +
+                            '<p style="color:#374151;font-style:italic;border-left:4px solid #d1d5db;padding-left:10px;margin-bottom:12px;">"' + prop.texto + '"</p>' +
+                            '<div class="comentario-critico" style="padding:10px;border-radius:6px;">' +
+                            '<p style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px;">Comentario crítico (obligatorio):</p>' +
+                            '<input type="text" placeholder="Aporta una crítica constructiva..." style="font-size:12px;width:100%;background:transparent;border-bottom:1px solid #d1d5db;outline:none;padding:4px;font-family:\'Inter\',sans-serif;">' +
+                            '<button onclick="agregarComentarioCritico(this)" style="font-size:10px;background:#fef9c3;padding:3px 10px;border-radius:6px;margin-top:6px;border:none;cursor:pointer;font-family:\'Inter\',sans-serif;color:#7a6212;font-weight:600;">Enviar crítica</button>' +
+                            '</div><div class="comentarios-lista" style="margin-top:8px;font-size:11px;color:#6b7280;"></div>';
+                        muro.appendChild(card);
+                    });
+                }
             }
-        }
 
-        // Cargar biblioteca al iniciar
-        cargarBiblioteca();
-        cargarNube();
-        cargarPropuestasMuro();
-        actualizarContadorUI();
+            let horasRestantes = 23;
+            setInterval(() => {
+                if (horasRestantes > 0) horasRestantes--;
+                const el = document.getElementById('cuenta-foro');
+                if (el) el.innerText = horasRestantes;
+            }, 3600000);
+
+
+            async function cargarDatosForo() {
+                try {
+                    // Cargar modulos
+                    var resMod = await db.from('modulos').select('id, nombre');
+                    if (resMod.data) modulosForo = resMod.data;
+
+                    // Llenar selectores
+                    var filter = document.getElementById('foro-modulo-filter');
+                    if (filter) {
+                        filter.innerHTML = '<option value="all">Ver Todos los Módulos</option>';
+                        modulosForo.forEach(m => {
+                            filter.innerHTML += '<option value="' + m.id + '">' + m.nombre + '</option>';
+                        });
+                    }
+
+                    // Cargar preguntas activas
+                    var resPreg = await db.from('preguntas_foro').select('*').eq('activa', true).order('id');
+                    if (resPreg.data) preguntasForo = resPreg.data;
+
+                    // Cargar nubes (palabras)
+                    var resNube = await db.from('nube_palabras').select('*');
+                    if (resNube.data) nubesForo = resNube.data;
+
+                    renderForoDinamico();
+                } catch (e) { console.warn(e); }
+            }
+
+            window.renderForoDinamico = function () {
+                var container = document.getElementById('foro-dinamico-container');
+                if (!container) return;
+                var fId = document.getElementById('foro-modulo-filter')?.value || 'all';
+
+                var moShow = modulosForo;
+                if (fId !== 'all') moShow = modulosForo.filter(m => String(m.id) === fId);
+
+                container.innerHTML = '';
+                if (moShow.length === 0 || preguntasForo.length === 0) {
+                    container.innerHTML = '<div style="text-align:center;padding:40px;color:#9ca3af;font-size:13px;">No hay preguntas disponibles ahora.</div>';
+                    return;
+                }
+
+                moShow.forEach(mod => {
+                    // Preguntas para este módulo
+                    let pregs = preguntasForo.filter(p => p.id_modulo === mod.id);
+                    if (pregs.length === 0) return; // Si no hay preguntas, no mostrar modulo
+
+                    let htmlMod = '<div style="background:white;padding:20px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.1);border-left:4px solid var(--primary);"><h3 style="font-weight:900;font-size:15px;margin-bottom:16px;text-transform:uppercase;color:var(--primary);">' + mod.nombre + '</h3>';
+
+                    // Clasificar
+                    let focos = pregs.filter(p => p.tipo === 'foco');
+                    let nubep = pregs.filter(p => p.tipo === 'nube');
+
+                    // Focos
+                    focos.forEach((f, idx) => {
+                        htmlMod += '<div style="margin-bottom:16px;"><p style="font-weight:700;font-size:13px;"><span style="background:#fef9c3;padding:2px 8px;border-radius:4px;color:black;">Foco ' + (idx+1) + ':</span> ' + f.pregunta + '</p>';
+                        htmlMod += '<div style="display:flex;margin-top:8px;gap:8px;">';
+                        htmlMod += '<input type="text" id="resp-foco-' + f.id + '" placeholder="Tu respuesta breve..." style="flex:1;border:1px solid #d1d5db;padding:8px 12px;border-radius:8px;font-size:13px;font-family:\'Inter\',sans-serif;outline:none;">';
+                        htmlMod += '<button onclick="responderFoco(' + f.id + ', \'resp-foco-' + f.id + '\')" style="background:var(--primary);color:white;padding:8px 14px;border-radius:8px;font-size:13px;border:none;cursor:pointer;font-weight:600;">Enviar</button>';
+                        htmlMod += '</div></div>';
+                        htmlMod += '<div style="margin-top:6px;">';
+                        htmlMod += '<button onclick="verRespuestasFoco(' + f.id + ', this)" style="font-size:11px;color:#6b7280;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:5px 12px;cursor:pointer;font-family:\'Inter\',sans-serif;display:inline-flex;align-items:center;gap:5px;"><i class=\"fa-regular fa-eye\"></i> Ver respuestas</button>';
+                        htmlMod += '<div id="respuestas-foco-' + f.id + '" style="display:none;margin-top:8px;"></div>';
+                        htmlMod += '</div>';
+                    });
+
+                    // Nubes
+                    nubep.forEach(n => {
+                        htmlMod += '<div style="background:#1a1a1a;color:white;padding:20px;border-radius:10px;text-align:center;margin-top:20px;">';
+                        htmlMod += '<p style="font-size:1.05rem;margin-bottom:12px;font-weight:300;font-style:italic;">"' + n.pregunta + '"</p>';
+                        htmlMod += '<input type="text" id="input-nube-' + mod.id + '" placeholder="Tu respuesta en una palabra..." style="width:100%;padding:10px;color:black;border-radius:8px;margin-bottom:10px;font-size:13px;outline:none;border:none;">';
+                        htmlMod += '<button onclick="enviarPalabraNube(' + mod.id + ', \'input-nube-' + mod.id + '\')" style="background:var(--primary);color:white;width:100%;padding:11px;border-radius:8px;font-size:13px;font-weight:700;text-transform:uppercase;border:none;cursor:pointer;">Contribuir a Nube</button>';
+
+                        htmlMod += '<div style="background:#2a2a2a;padding:16px;border-radius:10px;margin-top:16px;">';
+                        htmlMod += '<p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:#a3a3a3;">Identidad colectiva</p>';
+                        htmlMod += '<div id="nube-dinamica-' + mod.id + '" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;min-height:60px;">';
+
+                        let palabrasMod = nubesForo.filter(np => np.id_modulo === mod.id);
+                        palabrasMod.forEach(pw => {
+                            let sz = Math.floor(Math.random() * 8 + 12);
+                            htmlMod += '<span class="nube-palabra" style="font-size:' + sz + 'px;font-weight:600;color:#fca5a5;">' + pw.palabra + '</span>';
+                        });
+
+                        htmlMod += '</div></div></div>';
+                    });
+
+                    htmlMod += '</div>';
+                    container.innerHTML += htmlMod;
+                });
+
+            }
     </script>
-</body></html>
+
+
+    <style>
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-4px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+    </style>
+
+</body>
+
+</html>
