@@ -1,4 +1,6 @@
-﻿<html lang="es"><head>
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Vanguardia y Desarrollo | Escuela de Liderazgo</title>
@@ -27,10 +29,10 @@
         <div class="flex justify-between items-center max-w-4xl mx-auto">
             <div>
                 <h1 class="text-xl font-bold tracking-tighter uppercase">VANGUARDIA Y DESARROLLO</h1>
-                <p class="text-[10px] opacity-80">Escuela de Liderazgo | Del individuo al procomÃºn</p>
+                <p class="text-[10px] opacity-80">Escuela de Liderazgo | Del individuo al procomún</p>
             </div>
             <div class="flex items-center gap-3">
-                <div id="status-bar" class="text-xs bg-black/20 px-2 py-1 rounded hidden sm:block">MÃ³dulo A: CrÃ­ticas: 0/2</div>
+                <div id="status-bar" class="text-xs bg-black/20 px-2 py-1 rounded hidden sm:block">Módulo A: Críticas: 0/2</div>
                 <a href="admin/index.html" class="text-xs bg-white text-red-800 px-3 py-1 rounded font-bold hover:bg-gray-200 transition shadow">
                     <i class="fa-solid fa-lock"></i> Admin
                 </a>
@@ -40,12 +42,12 @@
 
     <main class="max-w-4xl mx-auto p-4 space-y-6">
 
-        <!-- BIBLIOTECA: Textos y videos con reseÃ±as crÃ­ticas -->
+        <!-- BIBLIOTECA: Textos y videos con reseñas críticas -->
         <section id="biblioteca" class="tab-content">
             <h2 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fa-solid fa-landmark"></i> Biblioteca de Liderazgo</h2>
             
             <div class="mb-6 bg-amber-50 p-3 rounded border-l-4 border-amber-600 text-sm">
-                <i class="fa-solid fa-triangle-exclamation text-amber-700"></i> <strong>Praxis de formaciÃ³n:</strong> Cada recurso requiere una <strong>reseÃ±a crÃ­tica</strong> que conecte la teorÃ­a con la pregunta problematizadora. La reseÃ±a habilita el avance en el calendario de formaciÃ³n.
+                <i class="fa-solid fa-triangle-exclamation text-amber-700"></i> <strong>Praxis de formación:</strong> Cada recurso requiere una <strong>reseña crítica</strong> que conecte la teoría con la pregunta problematizadora. La reseña habilita el avance en el calendario de formación.
             </div>
 
             <!-- Filtros -->
@@ -73,23 +75,23 @@
 
             <!-- Calendario formativo -->
             <div class="mt-6 bg-white p-3 rounded shadow text-xs" id="calendario-alertas">
-                <p class="font-bold"><i class="fa-regular fa-calendar"></i> Ruta de formaciÃ³n autÃ³noma:</p>
+                <p class="font-bold"><i class="fa-regular fa-calendar"></i> Ruta de formación autónoma:</p>
                 <ul class="list-disc pl-5 mt-1 text-gray-600">
-                    <li>ðŸ“˜ ReseÃ±as pendientes: <span id="resenas-pendientes">0</span> textos/videos sin reseÃ±a</li>
-                    <li>â³ Foro "Identidad colectiva" cierra en <span id="cuenta-foro">23</span> horas</li>
-                    <li>âš¡ Para certificar mÃ³dulo: realizar al menos 2 comentarios crÃ­ticos en el Muro de Propuestas</li>
+                    <li>📘 Reseñas pendientes: <span id="resenas-pendientes">0</span> textos/videos sin reseña</li>
+                    <li>⏳ Foro "Identidad colectiva" cierra en <span id="cuenta-foro">23</span> horas</li>
+                    <li>⚡ Para certificar módulo: realizar al menos 2 comentarios críticos en el Muro de Propuestas</li>
                 </ul>
             </div>
         </section>
 
         <!-- FORO INTERACTIVO: Preguntas problematizadoras originales + nube de conceptos -->
         <section id="foro" class="tab-content">
-            <h2 class="text-2xl font-bold mb-4 italic flex items-center gap-2"><i class="fa-solid fa-users-viewfinder"></i> Ãgora: Preguntas Eje</h2>
+            <h2 class="text-2xl font-bold mb-4 italic flex items-center gap-2"><i class="fa-solid fa-users-viewfinder"></i> Ágora: Preguntas Eje</h2>
             
             <div class="space-y-6">
                 <!-- Pregunta 1 -->
                 <div class="bg-white p-5 rounded-lg shadow">
-                    <p class="font-bold text-gray-800">ðŸ” <span class="bg-yellow-100 px-2">Foco 1:</span> Â¿Por quÃ© crees que muchas personas tienen buenas ideas, pero no logran convencer?</p>
+                    <p class="font-bold text-gray-800">🔍 <span class="bg-yellow-100 px-2">Foco 1:</span> ¿Por qué crees que muchas personas tienen buenas ideas, pero no logran convencer?</p>
                     <div class="flex mt-2 gap-2">
                         <input type="text" id="respuesta-foco1" placeholder="Tu respuesta breve..." class="flex-1 border p-2 rounded text-sm">
                         <button onclick="responderForo('foco1', 'respuesta-foco1')" class="bg-red-700 text-white px-3 rounded text-sm">Enviar al colectivo</button>
@@ -97,7 +99,7 @@
                 </div>
 
                 <div class="bg-white p-5 rounded-lg shadow">
-                    <p class="font-bold text-gray-800">ðŸŒ <span class="bg-yellow-100 px-2">Foco 2:</span> Â¿Por quÃ© algunas causas logran movilizar gente y otras no?</p>
+                    <p class="font-bold text-gray-800">🌍 <span class="bg-yellow-100 px-2">Foco 2:</span> ¿Por qué algunas causas logran movilizar gente y otras no?</p>
                     <div class="flex mt-2 gap-2">
                         <input type="text" id="respuesta-foco2" placeholder="Tu respuesta..." class="flex-1 border p-2 rounded text-sm">
                         <button onclick="responderForo('foco2', 'respuesta-foco2')" class="bg-red-700 text-white px-3 rounded text-sm">Enviar</button>
@@ -106,67 +108,67 @@
 
                 <!-- Pregunta Central ORIGINAL -->
                 <div class="bg-black text-white p-6 rounded-lg shadow-xl text-center">
-                    <p id="pregunta-activa" class="text-xl mb-4 font-light">"Â¿QuÃ© causa nos une? Â¿CuÃ¡l es nuestra identidad colectiva?"</p>
+                    <p id="pregunta-activa" class="text-xl mb-4 font-light">"¿Qué causa nos une? ¿Cuál es nuestra identidad colectiva?"</p>
                     <input type="text" id="input-foro" placeholder="Tu respuesta en una palabra o frase corta..." class="w-full p-2 text-black rounded mb-2">
-                    <button onclick="enviarForo()" class="bg-red-700 w-full py-2 rounded font-bold uppercase hover:bg-red-800 transition">Enviar â†’ Nube de identidad</button>
+                    <button onclick="enviarForo()" class="bg-red-700 w-full py-2 rounded font-bold uppercase hover:bg-red-800 transition">Enviar → Nube de identidad</button>
                 </div>
 
-                <!-- NUBE DE PALABRAS (construcciÃ³n colectiva) -->
+                <!-- NUBE DE PALABRAS (construcción colectiva) -->
                 <div class="bg-gray-50 p-4 rounded-lg">
-                    <p class="text-sm font-bold mb-2 uppercase tracking-wide">Identidad colectiva en construcciÃ³n (nube dinÃ¡mica)</p>
+                    <p class="text-sm font-bold mb-2 uppercase tracking-wide">Identidad colectiva en construcción (nube dinámica)</p>
                     <div id="nube-palabras" class="flex flex-wrap gap-2 justify-center items-center min-h-[100px]">
-                        <span class="nube-palabra text-lg font-semibold text-red-800">SoberanÃ­a</span>
+                        <span class="nube-palabra text-lg font-semibold text-red-800">Soberanía</span>
                         <span class="nube-palabra text-2xl text-red-700">Territorio</span>
-                        <span class="nube-palabra text-base">AutonomÃ­a</span>
+                        <span class="nube-palabra text-base">Autonomía</span>
                         <span class="nube-palabra text-xl">Justicia</span>
-                        <span class="nube-palabra text-md">ProcomÃºn</span>
+                        <span class="nube-palabra text-md">Procomún</span>
                     </div>
-                    <p class="text-[10px] text-gray-400 mt-2 italic">Cada palabra nueva es un ladrillo de la causa comÃºn</p>
+                    <p class="text-[10px] text-gray-400 mt-2 italic">Cada palabra nueva es un ladrillo de la causa común</p>
                 </div>
             </div>
 
-            <!-- Preguntas MÃ³dulo B -->
+            <!-- Preguntas Módulo B -->
             <div class="mt-8 pt-4 border-t-2 border-dashed">
-                <h3 class="font-bold">ðŸ“Š DiagnÃ³stico del flujo de informaciÃ³n (MÃ³dulo B)</h3>
+                <h3 class="font-bold">📊 Diagnóstico del flujo de información (Módulo B)</h3>
                 <div class="grid md:grid-cols-2 gap-3 mt-2">
                     <div class="bg-white p-3 rounded">
-                        <p class="text-sm font-bold">Â¿CÃ³mo afecta un bajo flujo de informaciÃ³n la capacidad de gestiÃ³n y la identidad colectiva?</p>
-                        <textarea id="diagnostico-info" rows="2" class="w-full border text-sm mt-1 p-1 rounded" placeholder="Tu anÃ¡lisis..."></textarea>
+                        <p class="text-sm font-bold">¿Cómo afecta un bajo flujo de información la capacidad de gestión y la identidad colectiva?</p>
+                        <textarea id="diagnostico-info" rows="2" class="w-full border text-sm mt-1 p-1 rounded" placeholder="Tu análisis..."></textarea>
                         <button onclick="enviarDiagnostico()" class="text-xs bg-gray-800 text-white px-3 py-1 rounded mt-1">Publicar en muro</button>
                     </div>
                     <div class="bg-white p-3 rounded">
-                        <p class="text-sm font-bold">Â¿QuÃ© conversaciones faltan en el territorio? Â¿QuÃ© silencios debemos romper?</p>
-                        <textarea id="conversaciones-faltantes" rows="2" class="w-full border text-sm mt-1 p-1 rounded" placeholder="AportÃ¡ tu diagnÃ³stico..."></textarea>
+                        <p class="text-sm font-bold">¿Qué conversaciones faltan en el territorio? ¿Qué silencios debemos romper?</p>
+                        <textarea id="conversaciones-faltantes" rows="2" class="w-full border text-sm mt-1 p-1 rounded" placeholder="Aportá tu diagnóstico..."></textarea>
                         <button onclick="enviarConversacion()" class="text-xs bg-gray-800 text-white px-3 py-1 rounded mt-1">Aportar al debate</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MURO DE PROPUESTAS Y CRÃTICA (con comentarios crÃ­ticos obligatorios) -->
+        <!-- MURO DE PROPUESTAS Y CRÍTICA (con comentarios críticos obligatorios) -->
         <section id="actividades" class="tab-content active">
-            <h2 class="text-2xl font-bold mb-4">Muro de Propuestas y CrÃ­tica Colectiva</h2>
+            <h2 class="text-2xl font-bold mb-4">Muro de Propuestas y Crítica Colectiva</h2>
             <div class="bg-white p-4 rounded-t-lg border-b">
-                <textarea id="propuesta-texto" placeholder="Carga aquÃ­ tu respuesta efectiva desde el liderazgo (propuesta, diagnÃ³stico o declaraciÃ³n de intenciones)..." class="w-full border p-2 rounded" rows="3"></textarea>
-                <button onclick="subirPropuesta()" class="mt-2 bg-black text-white px-4 py-2 rounded text-sm"><i class="fa-regular fa-paper-plane"></i> Publicar Propuesta / EnvÃ­o Colectivo</button>
-                <p class="text-[10px] text-gray-400 mt-1 italic">âš ï¸ Para certificar mÃ³dulo: cada lÃ­der debe realizar al menos 2 comentarios crÃ­ticos constructivos en propuestas ajenas.</p>
+                <textarea id="propuesta-texto" placeholder="Carga aquí tu respuesta efectiva desde el liderazgo (propuesta, diagnóstico o declaración de intenciones)..." class="w-full border p-2 rounded" rows="3"></textarea>
+                <button onclick="subirPropuesta()" class="mt-2 bg-black text-white px-4 py-2 rounded text-sm"><i class="fa-regular fa-paper-plane"></i> Publicar Propuesta / Envío Colectivo</button>
+                <p class="text-[10px] text-gray-400 mt-1 italic">⚠️ Para certificar módulo: cada líder debe realizar al menos 2 comentarios críticos constructivos en propuestas ajenas.</p>
             </div>
             <div id="muro-actividades" class="space-y-4 mt-4 text-sm max-h-[500px] overflow-y-auto">
                 <!-- Ejemplo inicial de propuesta -->
                 <div class="bg-white p-4 rounded shadow border" data-propuesta-id="1">
                     <p class="font-bold mb-2 text-xs uppercase text-gray-500">Propuesta de Integrante:</p>
-                    <p class="text-gray-700 italic border-l-4 border-gray-300 pl-2 mb-3">"DeclaraciÃ³n de intenciones: Necesitamos un canal semanal de asamblea lÃ­quida para romper el silencio informativo."</p>
+                    <p class="text-gray-700 italic border-l-4 border-gray-300 pl-2 mb-3">"Declaración de intenciones: Necesitamos un canal semanal de asamblea líquida para romper el silencio informativo."</p>
                     <div class="comentario-critico p-2 rounded mt-2">
-                        <p class="text-[10px] uppercase font-bold text-amber-700">Comentario crÃ­tico (obligatorio para certificaciÃ³n):</p>
-                        <input type="text" placeholder="Aporta una crÃ­tica soberana constructiva (ej: 'Falta definir cÃ³mo se toman acuerdos, propongo rotaciÃ³n de vocerÃ­as')" class="text-xs w-full bg-transparent border-b outline-none p-1">
-                        <button onclick="agregarComentarioCritico(this)" class="text-[10px] bg-amber-100 px-2 py-0.5 rounded mt-1">Enviar crÃ­tica</button>
+                        <p class="text-[10px] uppercase font-bold text-amber-700">Comentario crítico (obligatorio para certificación):</p>
+                        <input type="text" placeholder="Aporta una crítica soberana constructiva (ej: 'Falta definir cómo se toman acuerdos, propongo rotación de vocerías')" class="text-xs w-full bg-transparent border-b outline-none p-1">
+                        <button onclick="agregarComentarioCritico(this)" class="text-[10px] bg-amber-100 px-2 py-0.5 rounded mt-1">Enviar crítica</button>
                     </div>
                     <div class="comentarios-lista mt-2 text-[11px] text-gray-500"></div>
                 </div>
             </div>
-            <!-- Contador de comentarios para certificaciÃ³n -->
+            <!-- Contador de comentarios para certificación -->
             <div class="fixed bottom-20 right-4 bg-white p-2 rounded-full shadow-lg text-xs font-mono border" id="contador-certificacion">
-                ðŸŽ“ Mis comentarios crÃ­ticos: <span id="mis-comentarios-count">0</span> / 2
+                🎓 Mis comentarios críticos: <span id="mis-comentarios-count">0</span> / 2
             </div>
         </section>
 
@@ -229,8 +231,8 @@
 
     <nav class="fixed bottom-0 w-full bg-white border-t flex justify-around p-2 text-gray-500 z-50">
         <button onclick="showTab('biblioteca')" class="flex flex-col items-center"><i class="fa-solid fa-book"></i><span class="text-[10px]">Biblioteca</span></button>
-        <button onclick="showTab('foro')" class="flex flex-col items-center"><i class="fa-solid fa-users-viewfinder"></i><span class="text-[10px]">Foro Ãgora</span></button>
-        <button onclick="showTab('actividades')" class="flex flex-col items-center"><i class="fa-solid fa-pen-to-square"></i><span class="text-[10px]">Muro CrÃ­tico</span></button>
+        <button onclick="showTab('foro')" class="flex flex-col items-center"><i class="fa-solid fa-users-viewfinder"></i><span class="text-[10px]">Foro Ágora</span></button>
+        <button onclick="showTab('actividades')" class="flex flex-col items-center"><i class="fa-solid fa-pen-to-square"></i><span class="text-[10px]">Muro Crítico</span></button>
         <button onclick="showTab('chatbot')" class="flex flex-col items-center"><i class="fa-solid fa-robot"></i><span class="text-[10px]">Bot</span></button>
     </nav>
 
@@ -243,7 +245,7 @@
         const SUPA_KEY = 'sb_publishable__L83VhIUpHNGakYyPSNWHA_R5nlmBFB';
         const db = window.supabase.createClient(SUPA_URL, SUPA_KEY);
 
-        // ============ CARGAR BIBLIOTECA DINÃMICA ============
+        // ============ CARGAR BIBLIOTECA DINÁMICA ============
         let bibPdfs = [];
         let resenasCompletadas = new Set();
         let contadorComentariosUsuario = 0;
@@ -289,7 +291,7 @@
             }
 
             if (filtrados.length === 0) {
-                grid.innerHTML = '<div class="text-center py-10 text-gray-400"><i class="fa-solid fa-book-open text-4xl mb-3"></i><p class="text-sm">' + (searchQ || filterType !== 'all' ? 'No se encontraron contenidos.' : 'La biblioteca esta vacia. El administrador puede añadir contenidos desde el panel admin.') + '</p></div>';
+                grid.innerHTML = '<div class="text-center py-10 text-gray-400"><i class="fa-solid fa-book-open text-4xl mb-3"></i><p class="text-sm">' + (searchQ || filterType !== 'all' ? 'No se encontraron contenidos.' : 'La biblioteca esta vacia. El administrador puede a�adir contenidos desde el panel admin.') + '</p></div>';
                 return;
             }
 
@@ -323,7 +325,7 @@
 
                 return '<div class="bg-white p-4 rounded-lg shadow card-soberana" data-recurso="' + recursoId + '">' +
                     '<div class="flex items-start justify-between gap-2 mb-1">' +
-                    '<span class="text-xs font-bold uppercase px-2 py-0.5 rounded ' + badgeClass + '"><i class="fa-solid ' + badgeIcon + ' mr-1"></i>' + modNombre + ' · ' + badgeLabel + '</span>' +
+                    '<span class="text-xs font-bold uppercase px-2 py-0.5 rounded ' + badgeClass + '"><i class="fa-solid ' + badgeIcon + ' mr-1"></i>' + modNombre + ' � ' + badgeLabel + '</span>' +
                     '</div>' +
                     '<h3 class="font-bold text-lg mt-2 leading-tight">' + item.titulo + '</h3>' +
                     (desc ? '<p class="text-sm text-gray-600 mt-1">' + desc + '</p>' : '') +
@@ -359,7 +361,7 @@
         }
 
         function descargarTexto(id, nombre) {
-            mostrarToast(`ðŸ“„ Descargando "${nombre}"`);
+            mostrarToast(`📄 Descargando "${nombre}"`);
         }
 
         async function abrirResena(recursoId, titulo) {
@@ -411,19 +413,19 @@
         function responderForo(foco, inputId) {
             const respuesta = document.getElementById(inputId).value.trim();
             if (respuesta) {
-                mostrarToast('Respuesta registrada en el Ã¡gora.');
+                mostrarToast('Respuesta registrada en el ágora.');
                 document.getElementById(inputId).value = '';
             }
         }
 
         function enviarDiagnostico() {
             const texto = document.getElementById('diagnostico-info').value;
-            if (texto) { agregarPropuestaAlMuro(texto, 'DiagnÃ³stico'); document.getElementById('diagnostico-info').value = ''; }
+            if (texto) { agregarPropuestaAlMuro(texto, 'Diagnóstico'); document.getElementById('diagnostico-info').value = ''; }
         }
 
         function enviarConversacion() {
             const texto = document.getElementById('conversaciones-faltantes').value;
-            if (texto) { agregarPropuestaAlMuro(texto, 'ConversaciÃ³n'); document.getElementById('conversaciones-faltantes').value = ''; }
+            if (texto) { agregarPropuestaAlMuro(texto, 'Conversación'); document.getElementById('conversaciones-faltantes').value = ''; }
         }
 
         function agregarPropuestaAlMuro(texto, tipo = 'Propuesta') {
@@ -434,9 +436,9 @@
                 <p class="font-bold mb-2 text-xs uppercase text-gray-500">${tipo} de Integrante:</p>
                 <p class="text-gray-700 italic border-l-4 border-gray-300 pl-2 mb-3">"${texto.replace(/</g, '&lt;')}"</p>
                 <div class="comentario-critico p-2 rounded mt-2">
-                    <p class="text-[10px] uppercase font-bold text-amber-700">Comentario crÃ­tico (obligatorio):</p>
-                    <input type="text" placeholder="Aporta una crÃ­tica constructiva..." class="text-xs w-full bg-transparent border-b outline-none p-1">
-                    <button onclick="agregarComentarioCritico(this)" class="text-[10px] bg-amber-100 px-2 py-0.5 rounded mt-1">Enviar crÃ­tica</button>
+                    <p class="text-[10px] uppercase font-bold text-amber-700">Comentario crítico (obligatorio):</p>
+                    <input type="text" placeholder="Aporta una crítica constructiva..." class="text-xs w-full bg-transparent border-b outline-none p-1">
+                    <button onclick="agregarComentarioCritico(this)" class="text-[10px] bg-amber-100 px-2 py-0.5 rounded mt-1">Enviar crítica</button>
                 </div>
                 <div class="comentarios-lista mt-2 text-[11px] text-gray-500"></div>
             `;
@@ -460,16 +462,16 @@
             const container = btn.closest('.comentario-critico');
             const input = container.querySelector('input');
             const comentarioTexto = input.value.trim();
-            if (!comentarioTexto || comentarioTexto.length < 10) { mostrarToast('La crÃ­tica debe tener al menos 10 caracteres.'); return; }
+            if (!comentarioTexto || comentarioTexto.length < 10) { mostrarToast('La crítica debe tener al menos 10 caracteres.'); return; }
             const lista = container.parentElement.querySelector('.comentarios-lista');
             const p = document.createElement('p');
             p.className = 'text-[11px] border-t border-gray-100 pt-1 mt-1';
-            p.innerHTML = `<i class="fa-regular fa-comment-dots"></i> <strong>CrÃ­tica:</strong> "${comentarioTexto}"`;
+            p.innerHTML = `<i class="fa-regular fa-comment-dots"></i> <strong>Crítica:</strong> "${comentarioTexto}"`;
             lista.appendChild(p);
             input.value = '';
             contadorComentariosUsuario++;
             actualizarContadorUI();
-            if (contadorComentariosUsuario >= 2) mostrarToast('ðŸŽ‰ Â¡Completaste los 2 comentarios! Puedes solicitar certificaciÃ³n.');
+            if (contadorComentariosUsuario >= 2) mostrarToast('🎉 ¡Completaste los 2 comentarios! Puedes solicitar certificación.');
             else mostrarToast(`Comentario registrado. ${contadorComentariosUsuario}/2 para certificar.`);
         }
 
@@ -477,10 +479,10 @@
             const el = document.getElementById('mis-comentarios-count');
             if (el) el.innerText = contadorComentariosUsuario;
             const bar = document.getElementById('status-bar');
-            if (bar) bar.innerHTML = contadorComentariosUsuario >= 2 ? 'âœ… CertificaciÃ³n lista' : `MÃ³dulo: CrÃ­ticas ${contadorComentariosUsuario}/2`;
+            if (bar) bar.innerHTML = contadorComentariosUsuario >= 2 ? '✅ Certificación lista' : `Módulo: Críticas ${contadorComentariosUsuario}/2`;
         }
 
-        function simularVideo(msg) { mostrarToast(`ðŸ“º ${msg}`); }
+        function simularVideo(msg) { mostrarToast(`📺 ${msg}`); }
 
         function addMsg(who, text) {
             var box = document.getElementById('chat-box');

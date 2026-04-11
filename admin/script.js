@@ -1,5 +1,5 @@
-// ============================================================
-// CONFIGURACIÓN SUPABASE
+﻿// ============================================================
+// CONFIGURACI�N SUPABASE
 // ============================================================
 const SUPABASE_URL = 'https://daaiqgwumsswbknxdfeu.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable__L83VhIUpHNGakYyPSNWHA_R5nlmBFB';
@@ -65,14 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================================
-// AUTENTICACIÓN
+// AUTENTICACI�N
 // ============================================================
 function checkAuthSession() {
     const saved = localStorage.getItem('adminUser');
     if (saved) {
         currentUser = JSON.parse(saved);
         if (currentUser.rol !== 'admin') {
-            // Sesión guardada de un usuario no-admin: limpiar y no dar acceso
+            // Sesi�n guardada de un usuario no-admin: limpiar y no dar acceso
             localStorage.removeItem('adminUser');
             currentUser = null;
             return;
@@ -127,14 +127,14 @@ function setupAuthForms() {
                 .eq('password', hashed)
                 .single();
 
-            if (error || !data) throw new Error('Usuario o contraseña incorrectos');
+            if (error || !data) throw new Error('Usuario o contrase�a incorrectos');
 
             if (data.rol !== 'admin') throw new Error('Acceso denegado: no tienes permisos de administrador.');
 
             currentUser = data;
             localStorage.setItem('adminUser', JSON.stringify(currentUser));
             document.getElementById('current-username').textContent = currentUser.username;
-            showToast('¡Bienvenido! Acceso concedido.', 'success');
+            showToast('�Bienvenido! Acceso concedido.', 'success');
             showDashboard();
         } catch (err) {
             document.getElementById('login-error').textContent = err.message;
@@ -164,14 +164,14 @@ function setupAuthForms() {
                 .single();
 
             if (error) {
-                if (error.code === '23505') throw new Error('Este teléfono ya está registrado.');
+                if (error.code === '23505') throw new Error('Este tel�fono ya est� registrado.');
                 throw new Error(`Error BD: ${error.message}`);
             }
 
             currentUser = data;
             localStorage.setItem('adminUser', JSON.stringify(currentUser));
             document.getElementById('current-username').textContent = currentUser.username;
-            showToast('¡Registro exitoso! Bienvenido.', 'success');
+            showToast('�Registro exitoso! Bienvenido.', 'success');
             showDashboard();
         } catch (err) {
             document.getElementById('register-error').textContent = err.message;
@@ -203,7 +203,7 @@ function showDashboard() {
 }
 
 // ============================================================
-// NAVEGACIÓN
+// NAVEGACI�N
 // ============================================================
 function setupNavigation() {
     const navBtns = document.querySelectorAll('.nav-btn');
@@ -247,7 +247,7 @@ async function loadModulos() {
         renderModulosTable();
         populateModuloSelects();
     } catch (err) {
-        showToast('Error cargando módulos: ' + err.message, 'error');
+        showToast('Error cargando m�dulos: ' + err.message, 'error');
     }
 }
 
@@ -298,7 +298,7 @@ function populateModuloSelects() {
         const isFilter = id === 'filter-pdf-modulo';
         el.innerHTML = isFilter
             ? '<option value="all">Todos</option>'
-            : '<option value="">Selecciona módulo...</option>';
+            : '<option value="">Selecciona m�dulo...</option>';
         modulos.forEach(m => {
             el.innerHTML += `<option value="${m.id}">${m.nombre}</option>`;
         });
@@ -316,7 +316,7 @@ function populateModuloSelects() {
 }
 
 // ============================================================
-// SECCIÓN: BIBLIOTECA PDFs
+// SECCI�N: BIBLIOTECA PDFs
 // ============================================================
 
 // -- Subir PDF --
@@ -329,7 +329,7 @@ function setupPdfForm() {
             dropZone.querySelector('.file-label').textContent = fileInput.files[0].name;
             dropZone.classList.add('border-critico', 'bg-red-50');
         } else {
-            dropZone.querySelector('.file-label').textContent = 'Arrastra el PDF aquí o haz clic';
+            dropZone.querySelector('.file-label').textContent = 'Arrastra el PDF aqu� o haz clic';
             dropZone.classList.remove('border-critico', 'bg-red-50');
         }
     });
@@ -366,7 +366,7 @@ function setupPdfForm() {
 
             if (uploadErr) throw new Error('Error al subir archivo: ' + uploadErr.message);
 
-            // 2. Obtener URL pública
+            // 2. Obtener URL p�blica
             const { data: urlData } = supabaseClient.storage.from('Biblioteca').getPublicUrl(fileName);
             const urlFinal = urlData.publicUrl;
 
@@ -383,9 +383,9 @@ function setupPdfForm() {
 
             if (dbErr) throw new Error('Error en BD: ' + dbErr.message);
 
-            showToast(`✅ "${titulo}" subido a la Biblioteca`, 'success');
+            showToast(`? "${titulo}" subido a la Biblioteca`, 'success');
             e.target.reset();
-            dropZone.querySelector('.file-label').textContent = 'Arrastra el PDF aquí o haz clic';
+            dropZone.querySelector('.file-label').textContent = 'Arrastra el PDF aqu� o haz clic';
             dropZone.classList.remove('border-critico', 'bg-red-50');
             wrap.classList.add('hidden');
             await loadPdfs();
@@ -438,7 +438,7 @@ function renderPdfTable() {
 
     tbody.innerHTML = '';
     filtrados.forEach(pdf => {
-        const modNombre = pdf.modulos?.nombre || '—';
+        const modNombre = pdf.modulos?.nombre || '�';
         const tr = document.createElement('tr');
         tr.className = 'hover:bg-gray-50 transition group';
         tr.innerHTML = `
@@ -447,7 +447,7 @@ function renderPdfTable() {
                     <i class="fa-solid fa-file-pdf text-red-500 text-lg mt-0.5 shrink-0"></i>
                     <div>
                         <p class="font-bold text-sm text-gray-800 leading-tight">${pdf.titulo}</p>
-                        <p class="text-[11px] text-gray-400 mt-0.5 line-clamp-1">${pdf.descripcion || '—'}</p>
+                        <p class="text-[11px] text-gray-400 mt-0.5 line-clamp-1">${pdf.descripcion || '�'}</p>
                     </div>
                 </div>
             </td>
@@ -484,9 +484,9 @@ window.abrirEditPdf = function (id) {
     document.getElementById('edit-pdf-titulo').value = pdf.titulo;
     document.getElementById('edit-pdf-desc').value = pdf.descripcion || '';
 
-    // Poblar select de módulos en el modal
+    // Poblar select de m�dulos en el modal
     const sel = document.getElementById('edit-pdf-modulo');
-    sel.innerHTML = '<option value="">Sin módulo</option>';
+    sel.innerHTML = '<option value="">Sin m�dulo</option>';
     modulos.forEach(m => {
         sel.innerHTML += `<option value="${m.id}" ${m.id == pdf.id_modulo ? 'selected' : ''}>${m.nombre}</option>`;
     });
@@ -530,7 +530,7 @@ function setupEditPdfForm() {
 
 // -- Eliminar PDF --
 window.eliminarPdf = async function (id) {
-    if (!confirm('¿Seguro que quieres eliminar este PDF de la Biblioteca?')) return;
+    if (!confirm('�Seguro que quieres eliminar este PDF de la Biblioteca?')) return;
     try {
         const { error } = await supabaseClient.from('contenidos').delete().eq('id', id);
         if (error) throw error;
@@ -543,7 +543,7 @@ window.eliminarPdf = async function (id) {
 };
 
 // ============================================================
-// SECCIÓN: MÓDULOS
+// SECCI�N: M�DULOS
 // ============================================================
 function setupModuloForm() {
     document.getElementById('modulo-form').addEventListener('submit', async (e) => {
@@ -559,7 +559,7 @@ function setupModuloForm() {
         try {
             const { error } = await supabaseClient.from('modulos').insert([{ nombre, descripcion }]);
             if (error) throw error;
-            showToast('Módulo creado', 'success');
+            showToast('M�dulo creado', 'success');
             e.target.reset();
             await loadModulos();
         } catch (err) {
@@ -577,7 +577,7 @@ function renderModulosTable() {
     tbody.innerHTML = '';
 
     if (modulos.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="4" class="px-4 py-8 text-center text-gray-400 text-xs">No hay módulos creados.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="4" class="px-4 py-8 text-center text-gray-400 text-xs">No hay m�dulos creados.</td></tr>';
         return;
     }
 
@@ -587,7 +587,7 @@ function renderModulosTable() {
         tr.innerHTML = `
             <td class="px-4 py-3 text-xs font-mono text-gray-400">#${m.id}</td>
             <td class="px-4 py-3 font-bold text-sm">${m.nombre}</td>
-            <td class="px-4 py-3 text-xs text-gray-500">${m.descripcion || '—'}</td>
+            <td class="px-4 py-3 text-xs text-gray-500">${m.descripcion || '�'}</td>
             <td class="px-4 py-3 text-right">
                 <button onclick="eliminarModulo(${m.id})" class="text-red-500 hover:bg-red-50 p-1.5 rounded-lg transition" title="Eliminar">
                     <i class="fa-solid fa-trash text-sm"></i>
@@ -599,11 +599,11 @@ function renderModulosTable() {
 }
 
 window.eliminarModulo = async function (id) {
-    if (!confirm('¿Eliminar este módulo? Los contenidos asociados quedarán sin módulo.')) return;
+    if (!confirm('�Eliminar este m�dulo? Los contenidos asociados quedar�n sin m�dulo.')) return;
     try {
         const { error } = await supabaseClient.from('modulos').delete().eq('id', id);
         if (error) throw error;
-        showToast('Módulo eliminado', 'success');
+        showToast('M�dulo eliminado', 'success');
         await loadAll();
     } catch (err) {
         showToast('Error: ' + err.message, 'error');
@@ -611,7 +611,7 @@ window.eliminarModulo = async function (id) {
 };
 
 // ============================================================
-// SECCIÓN: VIDEO / PODCAST
+// SECCI�N: VIDEO / PODCAST
 // ============================================================
 function setupContenidoForm() {
     document.getElementById('contenido-form').addEventListener('submit', async (e) => {
@@ -660,7 +660,7 @@ function renderContenidosTable() {
 
     tbody.innerHTML = '';
     filtrados.forEach(cont => {
-        const modNombre = cont.modulos?.nombre || '—';
+        const modNombre = cont.modulos?.nombre || '�';
         const isVideo = cont.tipo === 'video';
         const badge = isVideo
             ? 'bg-purple-100 text-purple-700'
@@ -698,7 +698,7 @@ function renderContenidosTable() {
 }
 
 window.eliminarContenido = async function (id) {
-    if (!confirm('¿Eliminar este contenido multimedia?')) return;
+    if (!confirm('�Eliminar este contenido multimedia?')) return;
     try {
         const { error } = await supabaseClient.from('contenidos').delete().eq('id', id);
         if (error) throw error;
