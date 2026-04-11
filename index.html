@@ -1,4 +1,5 @@
-ï»¿<!DOCTYPE html>
+﻿ï»¿
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -1051,7 +1052,8 @@
             <section id="biblioteca" class="tab-content">
                 <h2
                     style="font-size:1.3rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;">
-                    <i class="fa-solid fa-landmark"></i> Biblioteca de Liderazgo</h2>
+                    <i class="fa-solid fa-landmark"></i> Biblioteca de Liderazgo
+                </h2>
                 <div
                     style="margin-bottom:20px;background:#fffbeb;padding:12px;border-radius:8px;border-left:4px solid var(--gold);font-size:13px;">
                     <i class="fa-solid fa-triangle-exclamation" style="color:var(--gold);"></i> <strong>Praxis de
@@ -1084,9 +1086,9 @@
                     id="calendario-alertas">
                     <p style="font-weight:700;"><i class="fa-regular fa-calendar"></i> Ruta de formación autónoma:</p>
                     <ul style="list-style:disc;padding-left:20px;margin-top:6px;color:#4b5563;">
-                        <li>ð Reseñas pendientes: <span id="resenas-pendientes">0</span> textos/videos sin reseña</li>
-                        <li>â³ Foro "Identidad colectiva" cierra en <span id="cuenta-foro">23</span> horas</li>
-                        <li>â¡ Para certificar módulo: al menos 2 comentarios críticos en el Muro</li>
+                        <li> Reseñas pendientes: <span id="resenas-pendientes">0</span> textos/videos sin reseña</li>
+                        <li> Foro "Identidad colectiva" cierra en <span id="cuenta-foro">23</span> horas</li>
+                        <li> Para certificar módulo: al menos 2 comentarios críticos en el Muro</li>
                     </ul>
                 </div>
             </section>
@@ -1097,7 +1099,8 @@
                     style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
                     <h2
                         style="font-size:1.3rem;font-weight:700;font-style:italic;display:flex;align-items:center;gap:8px;">
-                        <i class="fa-solid fa-users-viewfinder"></i> óÁgora: Preguntas Eje</h2>
+                        <i class="fa-solid fa-users-viewfinder"></i> óÁgora: Preguntas Eje
+                    </h2>
                     <select id="foro-modulo-filter"
                         style="padding:8px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:12px;background:white;font-family:'Inter',sans-serif;outline:none;"
                         onchange="renderForoDinamico()">
@@ -1126,7 +1129,8 @@
                     <button onclick="subirPropuesta()"
                         style="margin-top:8px;background:#1a1a1a;color:white;padding:10px 18px;border-radius:8px;font-size:13px;border:none;cursor:pointer;font-family:'Inter',sans-serif;"><i
                             class="fa-regular fa-paper-plane"></i> Publicar Propuesta</button>
-                    <p style="font-size:10px;color:#9ca3af;margin-top:6px;font-style:italic;">â ï¸ Para certificar módulo:
+                    <p style="font-size:10px;color:#9ca3af;margin-top:6px;font-style:italic;">â ï¸ Para certificar
+                        módulo:
                         al menos 2 comentarios críticos en propuestas ajenas.</p>
                 </div>
                 <div id="muro-actividades"
@@ -1155,7 +1159,7 @@
                 </div>
                 <div style="position:fixed;bottom:80px;right:16px;background:white;padding:8px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,0.15);font-size:12px;font-family:monospace;border:1px solid #e5e7eb;"
                     id="contador-certificación">
-                    ð Comentarios: <span id="mis-comentarios-count">0</span> / 2
+                    Comentarios: <span id="mis-comentarios-count">0</span> / 2
                 </div>
             </section>
 
@@ -1182,7 +1186,8 @@
                         </div>
                         <div style="flex:1;">
                             <p style="font-weight:700;font-size:14px;">LiderazgoBot</p>
-                            <p style="font-size:10px;opacity:0.7;">Escuela Vanguardia y Desarrollo â¢ Asistente de Praxis
+                            <p style="font-size:10px;opacity:0.7;">Escuela Vanguardia y Desarrollo â¢ Asistente de
+                                Praxis
                             </p>
                         </div>
                         <span
@@ -1574,13 +1579,13 @@
                     (item.descripcion ? '<p style="font-size:13px;color:#6b7280;margin-top:4px;">' + item.descripcion + '</p>' : '') +
                     mediaHtml +
                     '<div style="margin-top:12px;padding-top:12px;border-top:1px solid #f0f0f0;display:flex;flex-wrap:wrap;gap:8px;">' +
-                    '<button onclick="toggleResenaForm(\'item-' + item.id + '\')" style="background:#f0fff4;color:#16a34a;font-size:12px;font-weight:600;border:1.5px solid #bbf7d0;border-radius:8px;padding:7px 14px;cursor:pointer;font-family:\'Inter\',sans-serif;display:inline-flex;align-items:center;gap:6px;"><i class="fa-regular fa-pen-to-square"></i>Dar mi reseóa</button>' +
-                    '<button onclick="verResenasLibro(\'item-' + item.id + '\', this)" style="background:#f3f4f6;color:#6b7280;font-size:12px;font-weight:600;border:1.5px solid #e5e7eb;border-radius:8px;padding:7px 14px;cursor:pointer;font-family:\'Inter\',sans-serif;display:inline-flex;align-items:center;gap:6px;"><i class="fa-regular fa-comments"></i>Ver reseóas</button>' +
+                    '<button onclick="toggleResenaForm(\'item-' + item.id + '\')" style="background:#f0fff4;color:#16a34a;font-size:12px;font-weight:600;border:1.5px solid #bbf7d0;border-radius:8px;padding:7px 14px;cursor:pointer;font-family:\'Inter\',sans-serif;display:inline-flex;align-items:center;gap:6px;"><i class="fa-regular fa-pen-to-square"></i>Dar mi reseña</button>' +
+                    '<button onclick="verResenasLibro(\'item-' + item.id + '\', this)" style="background:#f3f4f6;color:#6b7280;font-size:12px;font-weight:600;border:1.5px solid #e5e7eb;border-radius:8px;padding:7px 14px;cursor:pointer;font-family:\'Inter\',sans-serif;display:inline-flex;align-items:center;gap:6px;"><i class="fa-regular fa-comments"></i>Ver reseñas</button>' +
                     '</div>' +
                     '<div id="resena-form-item-' + item.id + '" style="display:none;margin-top:12px;">' +
-                    '<textarea id="resena-txt-item-' + item.id + '" data-titulo="' + item.titulo.replace(/'/g, "&#39;") + '" placeholder="Escribe tu reseóa crótica (mónimo 20 caracteres)..." rows="3" style="width:100%;border:1.5px solid #d1d5db;border-radius:8px;padding:10px;font-size:13px;font-family:\'Inter\',sans-serif;outline:none;resize:vertical;transition:border-color 0.2s;box-sizing:border-box;"></textarea>' +
+                    '<textarea id="resena-txt-item-' + item.id + '" data-titulo="' + item.titulo.replace(/'/g, "&#39;") + '" placeholder="Escribe tu reseña crótica (mónimo 20 caracteres)..." rows="3" style="width:100%;border:1.5px solid #d1d5db;border-radius:8px;padding:10px;font-size:13px;font-family:\'Inter\',sans-serif;outline:none;resize:vertical;transition:border-color 0.2s;box-sizing:border-box;"></textarea>' +
                     '<div style="display:flex;gap:8px;margin-top:8px;">' +
-                    '<button onclick="enviarResenaLibro(\'item-' + item.id + '\')" style="background:#16a34a;color:white;padding:8px 16px;border-radius:8px;font-size:13px;border:none;cursor:pointer;font-weight:600;font-family:\'Inter\',sans-serif;">Enviar reseóa</button>' +
+                    '<button onclick="enviarResenaLibro(\'item-' + item.id + '\')" style="background:#16a34a;color:white;padding:8px 16px;border-radius:8px;font-size:13px;border:none;cursor:pointer;font-weight:600;font-family:\'Inter\',sans-serif;">Enviar reseña</button>' +
                     '<button onclick="toggleResenaForm(\'item-' + item.id + '\', true)" style="background:#f3f4f6;color:#6b7280;padding:8px 12px;border-radius:8px;font-size:13px;border:none;cursor:pointer;font-family:\'Inter\',sans-serif;">Cancelar</button>' +
                     '</div></div>' +
                     '<div id="resenas-lista-item-' + item.id + '" style="display:none;margin-top:10px;"></div>' +
@@ -1602,20 +1607,20 @@
             actualizarContadorUI();
         }
 
-        function descargarTexto(id, nombre) { mostrarToast('ð Descargando "' + nombre + '"'); }
+        function descargarTexto(id, nombre) { mostrarToast(' Descargando "' + nombre + '"'); }
 
-        window.toggleResenaForm = function(recursoId, close) {
+        window.toggleResenaForm = function (recursoId, close) {
             var form = document.getElementById('resena-form-' + recursoId);
             if (!form) return;
             form.style.display = (close || form.style.display === 'block') ? 'none' : 'block';
         };
 
-        window.enviarResenaLibro = async function(recursoId) {
+        window.enviarResenaLibro = async function (recursoId) {
             var textarea = document.getElementById('resena-txt-' + recursoId);
             if (!textarea) return;
             var titulo = textarea.getAttribute('data-titulo') || recursoId;
             var resena = textarea.value.trim();
-            if (resena.length < 20) { mostrarToast('La reseóa debe tener al menos 20 caracteres.'); return; }
+            if (resena.length < 20) { mostrarToast('La reseña debe tener al menos 20 caracteres.'); return; }
             var btn = document.querySelector('#resena-form-' + recursoId + ' button');
             var orig = btn.innerHTML;
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
@@ -1635,7 +1640,7 @@
                 mostrarToast('Resena enviada con éxito.');
                 textarea.value = '';
                 document.getElementById('resena-form-' + recursoId).style.display = 'none';
-            } catch(err) {
+            } catch (err) {
                 mostrarToast('Error al guardar: ' + (err.message || err));
             } finally {
                 btn.innerHTML = orig;
@@ -1643,7 +1648,7 @@
             }
         };
 
-        window.verResenasLibro = async function(recursoId, btnEl) {
+        window.verResenasLibro = async function (recursoId, btnEl) {
             var lista = document.getElementById('resenas-lista-' + recursoId);
             if (!lista) return;
             if (lista.style.display === 'block') {
@@ -1662,7 +1667,7 @@
                     lista.innerHTML = '<p style="font-size:10px;font-weight:700;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;letter-spacing:0.5px;">Resenas anónimas de la comunidad</p>' +
                         data.map(r => '<div style="background:#f9fafb;border-left:3px solid #16a34a;padding:8px 10px;border-radius:6px;margin-bottom:6px;font-size:12px;color:#374151;font-style:italic;">"' + r.texto + '"</div>').join('');
                 }
-            } catch(err) {
+            } catch (err) {
                 lista.innerHTML = '<p style="font-size:12px;color:#ef4444;">Error cargando resenas.</p>';
             }
             btnEl.innerHTML = '<i class="fa-regular fa-eye-slash"></i> Ocultar resenas';
@@ -1690,7 +1695,7 @@
                     nubeBox.appendChild(span);
                 }
                 mostrarToast(val + ' aóadido a la nube.');
-                db.from('nube_palabras').insert([{ palabra: val, id_modulo: id_modulo }]).then(({error}) => { if(error) console.error(error); });
+                db.from('nube_palabras').insert([{ palabra: val, id_modulo: id_modulo }]).then(({ error }) => { if (error) console.error(error); });
             }
         }
 
@@ -1702,18 +1707,18 @@
                 var user = JSON.parse(localStorage.getItem('vyd_user') || '{}');
                 try {
                     var userObj = JSON.parse(localStorage.getItem('vyd_user') || '{}');
-                if (!userObj || !userObj.id) throw new Error('Debes iniciar sesión para responder.');
-                await db.from('respuestas_foro').insert([{
-                    id_pregunta: id_pregunta,
-                    respuesta: val,
-                    id_usuario: userObj.id
-                }]);
+                    if (!userObj || !userObj.id) throw new Error('Debes iniciar sesión para responder.');
+                    await db.from('respuestas_foro').insert([{
+                        id_pregunta: id_pregunta,
+                        respuesta: val,
+                        id_usuario: userObj.id
+                    }]);
                     mostrarToast('Respuesta registrada en el óÁgora.', 'success');
                 } catch (e) { console.warn(e); }
             }
         } // Cierra responderFoco
 
-        window.verRespuestasFoco = async function(preguntaId, btnEl) {
+        window.verRespuestasFoco = async function (preguntaId, btnEl) {
             var lista = document.getElementById('respuestas-foco-' + preguntaId);
             if (!lista) return;
             if (lista.style.display === 'block') {
@@ -1732,18 +1737,18 @@
                     lista.innerHTML = '<p style="font-size:10px;font-weight:700;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;letter-spacing:0.5px;">Respuestas anónimas (' + data.length + ')</p>' +
                         data.map(r => '<div style="background:#fffbeb;border-left:3px solid var(--gold);padding:8px 10px;border-radius:6px;margin-bottom:5px;font-size:12px;color:#374151;">" ' + r.respuesta + '</div>').join('');
                 }
-            } catch(err) {
+            } catch (err) {
                 lista.innerHTML = '<p style="font-size:12px;color:#ef4444;">Error: ' + (err.message || err) + '</p>';
             }
             btnEl.innerHTML = '<i class="fa-regular fa-eye-slash"></i> Ocultar respuestas';
         };
-        
+
         function agregarPropuestaAlMuro(texto, tipo = 'Propuesta') {
-                const muro = document.getElementById('muro-actividades');
-                const card = document.createElement('div');
-                card.style.cssText = 'background:white;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #e5e7eb;';
-                card.setAttribute('data-propuesta-id', prop ? prop.id : '');
-                card.innerHTML = `
+            const muro = document.getElementById('muro-actividades');
+            const card = document.createElement('div');
+            card.style.cssText = 'background:white;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #e5e7eb;';
+            card.setAttribute('data-propuesta-id', prop ? prop.id : '');
+            card.innerHTML = `
             <p style="font-weight:700;font-size:10px;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;">${tipo}:</p>
             <p style="color:#374151;font-style:italic;border-left:4px solid #d1d5db;padding-left:10px;margin-bottom:12px;">"${texto.replace(/</g, '&lt;')}"</p>
             <div class="comentario-critico" style="padding:10px;border-radius:6px;">
@@ -1753,271 +1758,271 @@
             </div>
             <div class="comentarios-lista" style="margin-top:8px;font-size:11px;color:#6b7280;"></div>
         `;
-                muro.prepend(card);
-                mostrarToast('Nueva propuesta publicada.');
-            }
+            muro.prepend(card);
+            mostrarToast('Nueva propuesta publicada.');
+        }
 
-            async function subirPropuesta() {
-                var text = document.getElementById('propuesta-texto').value.trim();
-                if (!text) return;
-                try { const { error } = await db.from('propuestas').insert([{ texto: text, tipo: 'Propuesta' }]); if(error) console.error(error); } catch(e) { console.error(e); }
-                agregarPropuestaAlMuro(text, 'Propuesta');
-                document.getElementById('propuesta-texto').value = '';
-            }
+        async function subirPropuesta() {
+            var text = document.getElementById('propuesta-texto').value.trim();
+            if (!text) return;
+            try { const { error } = await db.from('propuestas').insert([{ texto: text, tipo: 'Propuesta' }]); if (error) console.error(error); } catch (e) { console.error(e); }
+            agregarPropuestaAlMuro(text, 'Propuesta');
+            document.getElementById('propuesta-texto').value = '';
+        }
 
-            async function agregarComentarioCritico(btn) {
-                const container = btn.closest('.comentario-critico');
-                const input = container.querySelector('input');
-                const comentario = input.value.trim();
-                if (!comentario || comentario.length < 10) { mostrarToast('La crótica debe tener al menos 10 caracteres.'); return; }
-                btn.disabled = true;
-                btn.textContent = '...';
-                try {
-                    var userLog = JSON.parse(localStorage.getItem('vyd_user') || '{}');
-                    // propuesta_id stored in the card
-                    var card = btn.closest('[data-propuesta-id]');
-                    var propuestaId = card ? card.getAttribute('data-propuesta-id') : null;
-                    await db.from('comentarios_muro').insert([{
-                        comentario: comentario,
-                        propuesta_id: propuestaId,
-                        usuario_nombre: userLog.nombre || 'Anónimo'
-                    }]);
-                } catch(e) { console.warn('Error guardando crótica:', e); }
-                const lista = container.parentElement.querySelector('.comentarios-lista');
-                const p = document.createElement('p');
-                p.style.cssText = 'border-top:1px solid #f0f0f0;padding-top:4px;margin-top:4px;font-size:11px;';
-                p.innerHTML = '<i class="fa-regular fa-comment-dots"></i> <strong>Crótica:</strong> "' + comentario + '"';
-                lista.appendChild(p);
-                input.value = '';
-                btn.disabled = false;
-                btn.textContent = 'Enviar crótica';
-                contadorComentariosUsuario++;
-                actualizarContadorUI();
-                if (contadorComentariosUsuario >= 2) mostrarToast('<ó ó2 comentarios completos! Puedes solicitar certificación.');
-                else mostrarToast('Comentario registrado. ' + contadorComentariosUsuario + '/2 para certificar.');
-            }
+        async function agregarComentarioCritico(btn) {
+            const container = btn.closest('.comentario-critico');
+            const input = container.querySelector('input');
+            const comentario = input.value.trim();
+            if (!comentario || comentario.length < 10) { mostrarToast('La crótica debe tener al menos 10 caracteres.'); return; }
+            btn.disabled = true;
+            btn.textContent = '...';
+            try {
+                var userLog = JSON.parse(localStorage.getItem('vyd_user') || '{}');
+                // propuesta_id stored in the card
+                var card = btn.closest('[data-propuesta-id]');
+                var propuestaId = card ? card.getAttribute('data-propuesta-id') : null;
+                await db.from('comentarios_muro').insert([{
+                    comentario: comentario,
+                    propuesta_id: propuestaId,
+                    usuario_nombre: userLog.nombre || 'Anónimo'
+                }]);
+            } catch (e) { console.warn('Error guardando crótica:', e); }
+            const lista = container.parentElement.querySelector('.comentarios-lista');
+            const p = document.createElement('p');
+            p.style.cssText = 'border-top:1px solid #f0f0f0;padding-top:4px;margin-top:4px;font-size:11px;';
+            p.innerHTML = '<i class="fa-regular fa-comment-dots"></i> <strong>Crótica:</strong> "' + comentario + '"';
+            lista.appendChild(p);
+            input.value = '';
+            btn.disabled = false;
+            btn.textContent = 'Enviar crótica';
+            contadorComentariosUsuario++;
+            actualizarContadorUI();
+            if (contadorComentariosUsuario >= 2) mostrarToast('<ó ó2 comentarios completos! Puedes solicitar certificación.');
+            else mostrarToast('Comentario registrado. ' + contadorComentariosUsuario + '/2 para certificar.');
+        }
 
-            function actualizarContadorUI() {
-                const el = document.getElementById('mis-comentarios-count');
-                if (el) el.innerText = contadorComentariosUsuario;
-                const bar = document.getElementById('status-bar');
-                if (bar) bar.innerHTML = contadorComentariosUsuario >= 2 ? 'â Certificación lista' : `Módulo: Críticas ${contadorComentariosUsuario}/2`;
-            }
+        function actualizarContadorUI() {
+            const el = document.getElementById('mis-comentarios-count');
+            if (el) el.innerText = contadorComentariosUsuario;
+            const bar = document.getElementById('status-bar');
+            if (bar) bar.innerHTML = contadorComentariosUsuario >= 2 ? 'â Certificación lista' : `Módulo: Críticas ${contadorComentariosUsuario}/2`;
+        }
 
-            // âââââââââââââââ CHATBOT âââââââââââââââ
-            var BOT_KB = [
-                { keys: ['linea de masas', 'metodo de direccion'], resp: 'La <strong>línea de masas</strong> consiste en recoger las ideas dispersas del pueblo, sintetizarlas y devolverlas organizadas como acción colectiva. Es el método central del texto <em>Sobre los métodos de dirección</em>.' },
-                { keys: ['identidad colectiva'], resp: 'La <strong>identidad colectiva</strong> se construye sobre bienes comunes y trabajo compartido. No es una marca, es el resultado de la reproducción social y la autonomía del pueblo.' },
-                { keys: ['procomun', 'bien comun'], resp: 'El <strong>Procomún</strong> son los bienes que pertenecen al pueblo: tierra, agua, conocimiento, espacios públicos. La identidad colectiva se ancla en su defensa.' },
-                { keys: ['soberania tecnologica', 'tecnologia'], resp: 'La <strong>soberanía tecnológica</strong> significa tener infraestructuras digitales propias para no depender de plataformas que pueden silenciar causas populares.' },
-                { keys: ['municipalismo'], resp: 'El <strong>municipalismo</strong> propone construir el cambio desde las comunidades locales, con gestión directa y poder ciudadano.' },
-                { keys: ['movilizar', 'convocatoria'], resp: 'Una causa moviliza cuando: 1) expresa una necesidad <strong>real y sentida</strong> del territorio, 2) los líderes practican la escucha activa, y 3) la organización convierte la indignación en acción concreta.' },
-                { keys: ['hola', 'buenos dias', 'buenas'], resp: 'Â¡Hola! Soy el <strong>LiderazgoBot</strong>. Puedo responder preguntas sobre los textos de formación y la metodología política de la escuela. Â¿Qué quieres saber?' },
-                { keys: ['quien eres', 'que eres'], resp: 'Soy el <strong>LiderazgoBot</strong>, asistente de la Escuela Vanguardia y Desarrollo.' }
-            ];
+        // âââââââââââââââ CHATBOT âââââââââââââââ
+        var BOT_KB = [
+            { keys: ['linea de masas', 'metodo de direccion'], resp: 'La <strong>línea de masas</strong> consiste en recoger las ideas dispersas del pueblo, sintetizarlas y devolverlas organizadas como acción colectiva. Es el método central del texto <em>Sobre los métodos de dirección</em>.' },
+            { keys: ['identidad colectiva'], resp: 'La <strong>identidad colectiva</strong> se construye sobre bienes comunes y trabajo compartido. No es una marca, es el resultado de la reproducción social y la autonomía del pueblo.' },
+            { keys: ['procomun', 'bien comun'], resp: 'El <strong>Procomún</strong> son los bienes que pertenecen al pueblo: tierra, agua, conocimiento, espacios públicos. La identidad colectiva se ancla en su defensa.' },
+            { keys: ['soberania tecnologica', 'tecnologia'], resp: 'La <strong>soberanía tecnológica</strong> significa tener infraestructuras digitales propias para no depender de plataformas que pueden silenciar causas populares.' },
+            { keys: ['municipalismo'], resp: 'El <strong>municipalismo</strong> propone construir el cambio desde las comunidades locales, con gestión directa y poder ciudadano.' },
+            { keys: ['movilizar', 'convocatoria'], resp: 'Una causa moviliza cuando: 1) expresa una necesidad <strong>real y sentida</strong> del territorio, 2) los líderes practican la escucha activa, y 3) la organización convierte la indignación en acción concreta.' },
+            { keys: ['hola', 'buenos dias', 'buenas'], resp: 'Â¡Hola! Soy el <strong>LiderazgoBot</strong>. Puedo responder preguntas sobre los textos de formación y la metodología política de la escuela. Â¿Qué quieres saber?' },
+            { keys: ['quien eres', 'que eres'], resp: 'Soy el <strong>LiderazgoBot</strong>, asistente de la Escuela Vanguardia y Desarrollo.' }
+        ];
 
-            function getBotResp(q) {
-                var lo = q.toLowerCase();
-                for (var i = 0; i < BOT_KB.length; i++) {
-                    for (var j = 0; j < BOT_KB[i].keys.length; j++) {
-                        if (lo.indexOf(BOT_KB[i].keys[j]) >= 0) return BOT_KB[i].resp;
-                    }
-                }
-                return 'Interesante. Ese tema aún está siendo integrado. Te sugiero revisar los textos de la <strong>Biblioteca</strong> o plantearlo en el <strong>Foro ÍÁgora</strong>.';
-            }
-
-            function addMsg(who, text) {
-                var box = document.getElementById('chat-box');
-                var d = document.createElement('div');
-                d.style.cssText = 'display:flex;' + (who === 'user' ? 'justify-content:flex-end;' : 'justify-content:flex-start;');
-                var bubble = document.createElement('div');
-                bubble.style.cssText = who === 'user'
-                    ? 'background:var(--primary);color:white;font-size:13px;padding:10px 16px;border-radius:18px 18px 4px 18px;max-width:75%;line-height:1.5;box-shadow:0 2px 6px rgba(139,0,0,0.3);'
-                    : 'background:#f3f4f6;color:#1a1a1a;font-size:13px;padding:10px 16px;border-radius:18px 18px 18px 4px;max-width:80%;line-height:1.5;';
-                bubble.innerHTML = text;
-                d.appendChild(bubble);
-                box.appendChild(d);
-                box.scrollTop = box.scrollHeight;
-                return d;
-            }
-
-            function showTyping() {
-                var box = document.getElementById('chat-box');
-                var d = document.createElement('div');
-                d.style.cssText = 'display:flex;justify-content:flex-start;';
-                var b = document.createElement('div');
-                b.style.cssText = 'background:#f3f4f6;padding:12px 16px;border-radius:18px 18px 18px 4px;';
-                b.innerHTML = '<span style="display:inline-flex;gap:4px;align-items:center;"><span style="width:7px;height:7px;background:#9ca3af;border-radius:50%;animation:bounce 0.6s infinite;"></span><span style="width:7px;height:7px;background:#9ca3af;border-radius:50%;animation:bounce 0.6s 0.15s infinite;"></span><span style="width:7px;height:7px;background:#9ca3af;border-radius:50%;animation:bounce 0.6s 0.3s infinite;"></span></span>';
-                d.appendChild(b);
-                box.appendChild(d);
-                box.scrollTop = box.scrollHeight;
-                return d;
-            }
-
-            function preguntaSugerida(txt) {
-                document.getElementById('chat-input').value = txt;
-                preguntarBot();
-            }
-
-            function preguntarBot() {
-                var inp = document.getElementById('chat-input');
-                var q = inp.value.trim();
-                if (!q) return;
-                inp.value = '';
-                var sug = document.getElementById('chat-suggestions');
-                if (sug) sug.style.display = 'none';
-                addMsg('user', q);
-                var typing = showTyping();
-                setTimeout(function () { typing.remove(); addMsg('bot', getBotResp(q)); }, 700 + Math.random() * 400);
-            }
-
-            function initBot() {
-                var box = document.getElementById('chat-box');
-                if (box && box.children.length === 0) {
-                    setTimeout(function () {
-                        addMsg('bot', 'Â¡Hola! Soy el <strong>LiderazgoBot</strong> de la Escuela Vanguardia y Desarrollo. Puedo responder preguntas sobre los textos de formación y la metodología política. Usa las sugerencias o escribe tu consulta.');
-                    }, 400);
+        function getBotResp(q) {
+            var lo = q.toLowerCase();
+            for (var i = 0; i < BOT_KB.length; i++) {
+                for (var j = 0; j < BOT_KB[i].keys.length; j++) {
+                    if (lo.indexOf(BOT_KB[i].keys[j]) >= 0) return BOT_KB[i].resp;
                 }
             }
+            return 'Interesante. Ese tema aún está siendo integrado. Te sugiero revisar los textos de la <strong>Biblioteca</strong> o plantearlo en el <strong>Foro ÍÁgora</strong>.';
+        }
 
-            // âââââââââââââââ NUBE Y MURO DINÍMICOS âââââââââââââââ
-            async function cargarNube() {
-                var res = await db.from('nube_palabras').select('palabra').order('fecha', { ascending: true }).then(r => r);
-                if (res && res.data) {
-                    var nube = document.getElementById('nube-palabras');
-                    if (!nube) return;
-                    nube.innerHTML = '';
-                    res.data.forEach(function (row) {
-                        var span = document.createElement('span');
-                        var size = Math.floor(Math.random() * 12 + 12);
-                        span.className = 'nube-palabra';
-                        span.style.cssText = 'font-size:' + size + 'px;font-weight:600;color:var(--primary);';
-                        span.innerText = row.palabra;
-                        nube.appendChild(span);
+        function addMsg(who, text) {
+            var box = document.getElementById('chat-box');
+            var d = document.createElement('div');
+            d.style.cssText = 'display:flex;' + (who === 'user' ? 'justify-content:flex-end;' : 'justify-content:flex-start;');
+            var bubble = document.createElement('div');
+            bubble.style.cssText = who === 'user'
+                ? 'background:var(--primary);color:white;font-size:13px;padding:10px 16px;border-radius:18px 18px 4px 18px;max-width:75%;line-height:1.5;box-shadow:0 2px 6px rgba(139,0,0,0.3);'
+                : 'background:#f3f4f6;color:#1a1a1a;font-size:13px;padding:10px 16px;border-radius:18px 18px 18px 4px;max-width:80%;line-height:1.5;';
+            bubble.innerHTML = text;
+            d.appendChild(bubble);
+            box.appendChild(d);
+            box.scrollTop = box.scrollHeight;
+            return d;
+        }
+
+        function showTyping() {
+            var box = document.getElementById('chat-box');
+            var d = document.createElement('div');
+            d.style.cssText = 'display:flex;justify-content:flex-start;';
+            var b = document.createElement('div');
+            b.style.cssText = 'background:#f3f4f6;padding:12px 16px;border-radius:18px 18px 18px 4px;';
+            b.innerHTML = '<span style="display:inline-flex;gap:4px;align-items:center;"><span style="width:7px;height:7px;background:#9ca3af;border-radius:50%;animation:bounce 0.6s infinite;"></span><span style="width:7px;height:7px;background:#9ca3af;border-radius:50%;animation:bounce 0.6s 0.15s infinite;"></span><span style="width:7px;height:7px;background:#9ca3af;border-radius:50%;animation:bounce 0.6s 0.3s infinite;"></span></span>';
+            d.appendChild(b);
+            box.appendChild(d);
+            box.scrollTop = box.scrollHeight;
+            return d;
+        }
+
+        function preguntaSugerida(txt) {
+            document.getElementById('chat-input').value = txt;
+            preguntarBot();
+        }
+
+        function preguntarBot() {
+            var inp = document.getElementById('chat-input');
+            var q = inp.value.trim();
+            if (!q) return;
+            inp.value = '';
+            var sug = document.getElementById('chat-suggestions');
+            if (sug) sug.style.display = 'none';
+            addMsg('user', q);
+            var typing = showTyping();
+            setTimeout(function () { typing.remove(); addMsg('bot', getBotResp(q)); }, 700 + Math.random() * 400);
+        }
+
+        function initBot() {
+            var box = document.getElementById('chat-box');
+            if (box && box.children.length === 0) {
+                setTimeout(function () {
+                    addMsg('bot', 'Â¡Hola! Soy el <strong>LiderazgoBot</strong> de la Escuela Vanguardia y Desarrollo. Puedo responder preguntas sobre los textos de formación y la metodología política. Usa las sugerencias o escribe tu consulta.');
+                }, 400);
+            }
+        }
+
+        // âââââââââââââââ NUBE Y MURO DINÍMICOS âââââââââââââââ
+        async function cargarNube() {
+            var res = await db.from('nube_palabras').select('palabra').order('fecha', { ascending: true }).then(r => r);
+            if (res && res.data) {
+                var nube = document.getElementById('nube-palabras');
+                if (!nube) return;
+                nube.innerHTML = '';
+                res.data.forEach(function (row) {
+                    var span = document.createElement('span');
+                    var size = Math.floor(Math.random() * 12 + 12);
+                    span.className = 'nube-palabra';
+                    span.style.cssText = 'font-size:' + size + 'px;font-weight:600;color:var(--primary);';
+                    span.innerText = row.palabra;
+                    nube.appendChild(span);
+                });
+            }
+        }
+
+        async function cargarPropuestasMuro() {
+            var res = await db.from('propuestas').select('*').order('fecha', { ascending: false }).then(r => r);
+            if (res && res.data && res.data.length > 0) {
+                var muro = document.getElementById('muro-actividades');
+                muro.innerHTML = '';
+                res.data.forEach(function (prop) {
+                    var card = document.createElement('div');
+                    card.style.cssText = 'background:white;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #e5e7eb;';
+                    card.setAttribute('data-propuesta-id', prop ? prop.id : '');
+                    var fecha = new Date(prop.fecha).toLocaleDateString('es-CO', { day: '2-digit', month: 'short', year: 'numeric' });
+                    card.innerHTML = '<p style="font-weight:700;font-size:10px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px;">' + prop.tipo + ' <span style="font-weight:400;color:#d1d5db;margin-left:6px;">' + fecha + '</span></p>' +
+                        '<p style="color:#374151;font-style:italic;border-left:4px solid #d1d5db;padding-left:10px;margin-bottom:12px;">"' + prop.texto + '"</p>' +
+                        '<div class="comentario-critico" style="padding:10px;border-radius:6px;">' +
+                        '<p style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px;">Comentario crítico (obligatorio):</p>' +
+                        '<input type="text" placeholder="Aporta una crítica constructiva..." style="font-size:12px;width:100%;background:transparent;border-bottom:1px solid #d1d5db;outline:none;padding:4px;font-family:\'Inter\',sans-serif;">' +
+                        '<button onclick="agregarComentarioCritico(this)" style="font-size:10px;background:#fef9c3;padding:3px 10px;border-radius:6px;margin-top:6px;border:none;cursor:pointer;font-family:\'Inter\',sans-serif;color:#7a6212;font-weight:600;">Enviar crítica</button>' +
+                        '</div><div class="comentarios-lista" style="margin-top:8px;font-size:11px;color:#6b7280;"></div>';
+                    muro.appendChild(card);
+                });
+            }
+        }
+
+        let horasRestantes = 23;
+        setInterval(() => {
+            if (horasRestantes > 0) horasRestantes--;
+            const el = document.getElementById('cuenta-foro');
+            if (el) el.innerText = horasRestantes;
+        }, 3600000);
+
+
+        async function cargarDatosForo() {
+            try {
+                // Cargar modulos
+                var resMod = await db.from('modulos').select('id, nombre');
+                if (resMod.data) modulosForo = resMod.data;
+
+                // Llenar selectores
+                var filter = document.getElementById('foro-modulo-filter');
+                if (filter) {
+                    filter.innerHTML = '<option value="all">Ver Todos los Módulos</option>';
+                    modulosForo.forEach(m => {
+                        filter.innerHTML += '<option value="' + m.id + '">' + m.nombre + '</option>';
                     });
                 }
+
+                // Cargar preguntas activas
+                var resPreg = await db.from('preguntas_foro').select('*').eq('activa', true).order('id');
+                if (resPreg.data) preguntasForo = resPreg.data;
+
+                // Cargar nubes (palabras)
+                var resNube = await db.from('nube_palabras').select('*');
+                if (resNube.data) nubesForo = resNube.data;
+
+                renderForoDinamico();
+            } catch (e) { console.warn(e); }
+        }
+
+        window.renderForoDinamico = function () {
+            var container = document.getElementById('foro-dinamico-container');
+            if (!container) return;
+            var fId = document.getElementById('foro-modulo-filter')?.value || 'all';
+
+            var moShow = modulosForo;
+            if (fId !== 'all') moShow = modulosForo.filter(m => String(m.id) === fId);
+
+            container.innerHTML = '';
+            if (moShow.length === 0 || preguntasForo.length === 0) {
+                container.innerHTML = '<div style="text-align:center;padding:40px;color:#9ca3af;font-size:13px;">No hay preguntas disponibles ahora.</div>';
+                return;
             }
 
-            async function cargarPropuestasMuro() {
-                var res = await db.from('propuestas').select('*').order('fecha', { ascending: false }).then(r => r);
-                if (res && res.data && res.data.length > 0) {
-                    var muro = document.getElementById('muro-actividades');
-                    muro.innerHTML = '';
-                    res.data.forEach(function (prop) {
-                        var card = document.createElement('div');
-                        card.style.cssText = 'background:white;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #e5e7eb;';
-                card.setAttribute('data-propuesta-id', prop ? prop.id : '');
-                        var fecha = new Date(prop.fecha).toLocaleDateString('es-CO', { day: '2-digit', month: 'short', year: 'numeric' });
-                        card.innerHTML = '<p style="font-weight:700;font-size:10px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px;">' + prop.tipo + ' <span style="font-weight:400;color:#d1d5db;margin-left:6px;">' + fecha + '</span></p>' +
-                            '<p style="color:#374151;font-style:italic;border-left:4px solid #d1d5db;padding-left:10px;margin-bottom:12px;">"' + prop.texto + '"</p>' +
-                            '<div class="comentario-critico" style="padding:10px;border-radius:6px;">' +
-                            '<p style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px;">Comentario crítico (obligatorio):</p>' +
-                            '<input type="text" placeholder="Aporta una crítica constructiva..." style="font-size:12px;width:100%;background:transparent;border-bottom:1px solid #d1d5db;outline:none;padding:4px;font-family:\'Inter\',sans-serif;">' +
-                            '<button onclick="agregarComentarioCritico(this)" style="font-size:10px;background:#fef9c3;padding:3px 10px;border-radius:6px;margin-top:6px;border:none;cursor:pointer;font-family:\'Inter\',sans-serif;color:#7a6212;font-weight:600;">Enviar crítica</button>' +
-                            '</div><div class="comentarios-lista" style="margin-top:8px;font-size:11px;color:#6b7280;"></div>';
-                        muro.appendChild(card);
-                    });
-                }
-            }
+            moShow.forEach(mod => {
+                // Preguntas para este módulo
+                let pregs = preguntasForo.filter(p => p.id_modulo === mod.id);
+                if (pregs.length === 0) return; // Si no hay preguntas, no mostrar modulo
 
-            let horasRestantes = 23;
-            setInterval(() => {
-                if (horasRestantes > 0) horasRestantes--;
-                const el = document.getElementById('cuenta-foro');
-                if (el) el.innerText = horasRestantes;
-            }, 3600000);
+                let htmlMod = '<div style="background:white;padding:20px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.1);border-left:4px solid var(--primary);"><h3 style="font-weight:900;font-size:15px;margin-bottom:16px;text-transform:uppercase;color:var(--primary);">' + mod.nombre + '</h3>';
 
+                // Clasificar
+                let focos = pregs.filter(p => p.tipo === 'foco');
+                let nubep = pregs.filter(p => p.tipo === 'nube');
 
-            async function cargarDatosForo() {
-                try {
-                    // Cargar modulos
-                    var resMod = await db.from('modulos').select('id, nombre');
-                    if (resMod.data) modulosForo = resMod.data;
-
-                    // Llenar selectores
-                    var filter = document.getElementById('foro-modulo-filter');
-                    if (filter) {
-                        filter.innerHTML = '<option value="all">Ver Todos los Módulos</option>';
-                        modulosForo.forEach(m => {
-                            filter.innerHTML += '<option value="' + m.id + '">' + m.nombre + '</option>';
-                        });
-                    }
-
-                    // Cargar preguntas activas
-                    var resPreg = await db.from('preguntas_foro').select('*').eq('activa', true).order('id');
-                    if (resPreg.data) preguntasForo = resPreg.data;
-
-                    // Cargar nubes (palabras)
-                    var resNube = await db.from('nube_palabras').select('*');
-                    if (resNube.data) nubesForo = resNube.data;
-
-                    renderForoDinamico();
-                } catch (e) { console.warn(e); }
-            }
-
-            window.renderForoDinamico = function () {
-                var container = document.getElementById('foro-dinamico-container');
-                if (!container) return;
-                var fId = document.getElementById('foro-modulo-filter')?.value || 'all';
-
-                var moShow = modulosForo;
-                if (fId !== 'all') moShow = modulosForo.filter(m => String(m.id) === fId);
-
-                container.innerHTML = '';
-                if (moShow.length === 0 || preguntasForo.length === 0) {
-                    container.innerHTML = '<div style="text-align:center;padding:40px;color:#9ca3af;font-size:13px;">No hay preguntas disponibles ahora.</div>';
-                    return;
-                }
-
-                moShow.forEach(mod => {
-                    // Preguntas para este módulo
-                    let pregs = preguntasForo.filter(p => p.id_modulo === mod.id);
-                    if (pregs.length === 0) return; // Si no hay preguntas, no mostrar modulo
-
-                    let htmlMod = '<div style="background:white;padding:20px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.1);border-left:4px solid var(--primary);"><h3 style="font-weight:900;font-size:15px;margin-bottom:16px;text-transform:uppercase;color:var(--primary);">' + mod.nombre + '</h3>';
-
-                    // Clasificar
-                    let focos = pregs.filter(p => p.tipo === 'foco');
-                    let nubep = pregs.filter(p => p.tipo === 'nube');
-
-                    // Focos
-                    focos.forEach((f, idx) => {
-                        htmlMod += '<div style="margin-bottom:16px;"><p style="font-weight:700;font-size:13px;"><span style="background:#fef9c3;padding:2px 8px;border-radius:4px;color:black;">Foco ' + (idx+1) + ':</span> ' + f.pregunta + '</p>';
-                        htmlMod += '<div style="display:flex;margin-top:8px;gap:8px;">';
-                        htmlMod += '<input type="text" id="resp-foco-' + f.id + '" placeholder="Tu respuesta breve..." style="flex:1;border:1px solid #d1d5db;padding:8px 12px;border-radius:8px;font-size:13px;font-family:\'Inter\',sans-serif;outline:none;">';
-                        htmlMod += '<button onclick="responderFoco(' + f.id + ', \'resp-foco-' + f.id + '\')" style="background:var(--primary);color:white;padding:8px 14px;border-radius:8px;font-size:13px;border:none;cursor:pointer;font-weight:600;">Enviar</button>';
-                        htmlMod += '</div></div>';
-                        htmlMod += '<div style="margin-top:6px;">';
-                        htmlMod += '<button onclick="verRespuestasFoco(' + f.id + ', this)" style="font-size:11px;color:#6b7280;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:5px 12px;cursor:pointer;font-family:\'Inter\',sans-serif;display:inline-flex;align-items:center;gap:5px;"><i class=\"fa-regular fa-eye\"></i> Ver respuestas</button>';
-                        htmlMod += '<div id="respuestas-foco-' + f.id + '" style="display:none;margin-top:8px;"></div>';
-                        htmlMod += '</div>';
-                    });
-
-                    // Nubes
-                    nubep.forEach(n => {
-                        htmlMod += '<div style="background:#1a1a1a;color:white;padding:20px;border-radius:10px;text-align:center;margin-top:20px;">';
-                        htmlMod += '<p style="font-size:1.05rem;margin-bottom:12px;font-weight:300;font-style:italic;">"' + n.pregunta + '"</p>';
-                        htmlMod += '<input type="text" id="input-nube-' + mod.id + '" placeholder="Tu respuesta en una palabra..." style="width:100%;padding:10px;color:black;border-radius:8px;margin-bottom:10px;font-size:13px;outline:none;border:none;">';
-                        htmlMod += '<button onclick="enviarPalabraNube(' + mod.id + ', \'input-nube-' + mod.id + '\')" style="background:var(--primary);color:white;width:100%;padding:11px;border-radius:8px;font-size:13px;font-weight:700;text-transform:uppercase;border:none;cursor:pointer;">Contribuir a Nube</button>';
-
-                        htmlMod += '<div style="background:#2a2a2a;padding:16px;border-radius:10px;margin-top:16px;">';
-                        htmlMod += '<p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:#a3a3a3;">Identidad colectiva</p>';
-                        htmlMod += '<div id="nube-dinamica-' + mod.id + '" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;min-height:60px;">';
-
-                        let palabrasMod = nubesForo.filter(np => np.id_modulo === mod.id);
-                        palabrasMod.forEach(pw => {
-                            let sz = Math.floor(Math.random() * 8 + 12);
-                            htmlMod += '<span class="nube-palabra" style="font-size:' + sz + 'px;font-weight:600;color:#fca5a5;">' + pw.palabra + '</span>';
-                        });
-
-                        htmlMod += '</div></div></div>';
-                    });
-
+                // Focos
+                focos.forEach((f, idx) => {
+                    htmlMod += '<div style="margin-bottom:16px;"><p style="font-weight:700;font-size:13px;"><span style="background:#fef9c3;padding:2px 8px;border-radius:4px;color:black;">Foco ' + (idx + 1) + ':</span> ' + f.pregunta + '</p>';
+                    htmlMod += '<div style="display:flex;margin-top:8px;gap:8px;">';
+                    htmlMod += '<input type="text" id="resp-foco-' + f.id + '" placeholder="Tu respuesta breve..." style="flex:1;border:1px solid #d1d5db;padding:8px 12px;border-radius:8px;font-size:13px;font-family:\'Inter\',sans-serif;outline:none;">';
+                    htmlMod += '<button onclick="responderFoco(' + f.id + ', \'resp-foco-' + f.id + '\')" style="background:var(--primary);color:white;padding:8px 14px;border-radius:8px;font-size:13px;border:none;cursor:pointer;font-weight:600;">Enviar</button>';
+                    htmlMod += '</div></div>';
+                    htmlMod += '<div style="margin-top:6px;">';
+                    htmlMod += '<button onclick="verRespuestasFoco(' + f.id + ', this)" style="font-size:11px;color:#6b7280;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:5px 12px;cursor:pointer;font-family:\'Inter\',sans-serif;display:inline-flex;align-items:center;gap:5px;"><i class=\"fa-regular fa-eye\"></i> Ver respuestas</button>';
+                    htmlMod += '<div id="respuestas-foco-' + f.id + '" style="display:none;margin-top:8px;"></div>';
                     htmlMod += '</div>';
-                    container.innerHTML += htmlMod;
                 });
 
-            }
+                // Nubes
+                nubep.forEach(n => {
+                    htmlMod += '<div style="background:#1a1a1a;color:white;padding:20px;border-radius:10px;text-align:center;margin-top:20px;">';
+                    htmlMod += '<p style="font-size:1.05rem;margin-bottom:12px;font-weight:300;font-style:italic;">"' + n.pregunta + '"</p>';
+                    htmlMod += '<input type="text" id="input-nube-' + mod.id + '" placeholder="Tu respuesta en una palabra..." style="width:100%;padding:10px;color:black;border-radius:8px;margin-bottom:10px;font-size:13px;outline:none;border:none;">';
+                    htmlMod += '<button onclick="enviarPalabraNube(' + mod.id + ', \'input-nube-' + mod.id + '\')" style="background:var(--primary);color:white;width:100%;padding:11px;border-radius:8px;font-size:13px;font-weight:700;text-transform:uppercase;border:none;cursor:pointer;">Contribuir a Nube</button>';
+
+                    htmlMod += '<div style="background:#2a2a2a;padding:16px;border-radius:10px;margin-top:16px;">';
+                    htmlMod += '<p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:#a3a3a3;">Identidad colectiva</p>';
+                    htmlMod += '<div id="nube-dinamica-' + mod.id + '" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;min-height:60px;">';
+
+                    let palabrasMod = nubesForo.filter(np => np.id_modulo === mod.id);
+                    palabrasMod.forEach(pw => {
+                        let sz = Math.floor(Math.random() * 8 + 12);
+                        htmlMod += '<span class="nube-palabra" style="font-size:' + sz + 'px;font-weight:600;color:#fca5a5;">' + pw.palabra + '</span>';
+                    });
+
+                    htmlMod += '</div></div></div>';
+                });
+
+                htmlMod += '</div>';
+                container.innerHTML += htmlMod;
+            });
+
+        }
     </script>
 
 
