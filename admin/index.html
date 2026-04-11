@@ -1,0 +1,646 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Vanguardia y Desarrollo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        :root { 
+            --primary: #8b0000; 
+            --secondary: #1a1a1a; 
+            --gold: #b8860b;
+        }
+        .bg-critico { background-color: var(--primary); }
+        .text-critico { color: var(--primary); }
+        .border-critico { border-color: var(--primary); }
+
+        body { background-color: #f3f4f6; font-family: ui-sans-serif, system-ui, sans-serif; }
+
+        /* Auth Overlay */
+        #auth-overlay {
+            position: fixed; inset: 0; z-index: 1000;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s;
+        }
+        #auth-overlay.active { opacity: 1; pointer-events: all; }
+
+        /* Content sections */
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+
+        /* Nav buttons active */
+        .nav-btn.active-nav {
+            background-color: #fef2f2;
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+
+        /* Toast */
+        .toast-notify {
+            position: fixed; bottom: 20px; right: 20px;
+            background: #1a1a1a; color: white; padding: 12px 20px;
+            border-radius: 8px; font-size: 14px; z-index: 9999;
+            transform: translateX(120%); transition: transform 0.3s;
+            display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            max-width: 360px;
+        }
+        .toast-notify.show { transform: translateX(0); }
+        .toast-notify.error { background-color: #991b1b; }
+        .toast-notify.success { border-left: 4px solid var(--gold); }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 10px; }
+
+        /* Modal overlay */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.75);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 2000; opacity: 0; pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+        /* Upload zone */
+        .upload-zone {
+            border: 2px dashed #d1d5db; border-radius: 8px;
+            padding: 24px; text-align: center;
+            cursor: pointer; transition: all 0.2s;
+            background: #f9fafb; position: relative;
+        }
+        .upload-zone:hover, .upload-zone.dragover {
+            border-color: var(--primary);
+            background: #fef2f2;
+        }
+        .upload-zone input[type="file"] {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            opacity: 0; cursor: pointer;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- ===================== AUTH OVERLAY ===================== -->
+    <div id="auth-overlay" class="active">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl mx-4 flex flex-col md:flex-row overflow-hidden">
+            
+            <!-- Left: Branding -->
+            <div class="md:w-5/12 flex flex-col items-center justify-center p-8 bg-gray-900 text-white">
+                <div class="w-20 h-20 rounded-full bg-red-900 flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-landmark text-4xl"></i>
+                </div>
+                <h2 class="text-xl font-bold tracking-tighter uppercase text-center mb-1">VANGUARDIA Y DESARROLLO</h2>
+                <p class="text-xs text-gray-400 text-center mb-6">Panel de Administración</p>
+                <a href="../index.html" class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full text-xs font-bold transition text-white">
+                    <i class="fa-solid fa-arrow-left"></i> Volver a la App
+                </a>
+            </div>
+
+            <!-- Right: Forms -->
+            <div class="md:w-7/12 p-8">
+                <!-- Tabs -->
+                <div class="flex border-b mb-6">
+                    <button id="tab-login" class="flex-1 pb-3 font-bold text-sm text-critico border-b-2 border-critico" onclick="switchAuthTab('login')">
+                        <i class="fa-solid fa-lock mr-1"></i> Ingresar
+                    </button>
+                    <button id="tab-register" class="flex-1 pb-3 font-bold text-sm text-gray-400 border-b-2 border-transparent hover:text-gray-600" onclick="switchAuthTab('register')">
+                        <i class="fa-solid fa-user-plus mr-1"></i> Registrarse
+                    </button>
+                </div>
+
+                <!-- LOGIN -->
+                <form id="login-form" class="space-y-4">
+                    <p class="text-xs text-gray-500 bg-gray-50 p-3 rounded border-l-4 border-yellow-400">
+                        <i class="fa-solid fa-circle-info text-yellow-500"></i> Ingresa con el número de teléfono que usaste al registrarte.
+                    </p>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Usuario / Teléfono</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-user absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                            <input type="text" id="login-username" required
+                                class="w-full pl-9 pr-3 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-red-800 focus:ring-1 focus:ring-red-800 transition"
+                                placeholder="Ej: 3001234567">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Contraseña</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                            <input type="password" id="login-password" required
+                                class="w-full pl-9 pr-3 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-red-800 focus:ring-1 focus:ring-red-800 transition"
+                                placeholder="Tu número de teléfono">
+                        </div>
+                    </div>
+                    <div id="login-error" class="text-red-600 text-xs font-bold min-h-[18px]"></div>
+                    <button type="submit" id="btn-login"
+                        class="w-full bg-critico hover:bg-red-900 text-white font-bold py-2.5 rounded-lg transition text-sm uppercase tracking-wide">
+                        Acceder al Panel
+                    </button>
+                </form>
+
+                <!-- REGISTRO -->
+                <form id="register-form" class="space-y-4 hidden">
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-xs text-blue-800">
+                        <i class="fa-solid fa-shield-halved text-blue-600"></i>
+                        Tu número de teléfono funcionará como <strong>usuario y contraseña</strong>. Se encripta automáticamente para mayor seguridad.
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Número de Celular</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-phone absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                            <input type="tel" id="reg-phone" required
+                                class="w-full pl-9 pr-3 py-2.5 border rounded-lg text-sm focus:outline-none focus:border-red-800 focus:ring-1 focus:ring-red-800 transition"
+                                placeholder="Ej: 3001234567" pattern="[0-9]{8,15}">
+                        </div>
+                    </div>
+                    <div id="register-error" class="text-red-600 text-xs font-bold min-h-[18px]"></div>
+                    <button type="submit" id="btn-register"
+                        class="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-2.5 rounded-lg transition text-sm uppercase tracking-wide">
+                        <i class="fa-solid fa-lock mr-1"></i> Crear Acceso Seguro
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MAIN APP ===================== -->
+    <div id="app-container" class="hidden flex-col h-screen">
+
+        <!-- Header -->
+        <header class="bg-critico text-white px-4 py-3 sticky top-0 z-50 shadow-lg shrink-0">
+            <div class="flex justify-between items-center max-w-7xl mx-auto">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-landmark text-2xl hidden md:block"></i>
+                    <div>
+                        <h1 class="text-lg font-bold tracking-tighter uppercase leading-none">VANGUARDIA Y DESARROLLO</h1>
+                        <p class="text-[10px] opacity-70">Panel de Administración</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="text-xs bg-black/20 px-3 py-1.5 rounded-lg hidden sm:flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span id="current-username" class="font-bold">Admin</span>
+                    </div>
+                    <a href="../index.html" class="text-xs border border-white/50 hover:bg-white hover:text-red-800 text-white px-3 py-1.5 rounded-lg font-bold transition">
+                        <i class="fa-solid fa-home"></i> <span class="hidden sm:inline">App</span>
+                    </a>
+                    <button id="logout-btn" class="text-xs bg-white text-red-800 px-3 py-1.5 rounded-lg font-bold hover:bg-gray-100 transition">
+                        <i class="fa-solid fa-right-from-bracket"></i> <span class="hidden sm:inline">Salir</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex flex-1 overflow-hidden max-w-7xl w-full mx-auto">
+
+            <!-- Sidebar Desktop -->
+            <aside class="w-56 bg-white border-r shadow-sm hidden md:flex flex-col shrink-0">
+                <nav class="p-3 space-y-1 flex-1 pt-5">
+                    <button class="nav-btn active-nav w-full flex items-center gap-3 px-3 py-2.5 text-sm font-bold rounded-lg text-left transition border-l-4" data-target="dashboard-section">
+                        <i class="fa-solid fa-gauge-high w-4 text-center"></i> General
+                    </button>
+                    <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 text-sm font-bold text-gray-500 rounded-lg text-left transition hover:bg-gray-50 border-l-4 border-transparent" data-target="biblioteca-section">
+                        <i class="fa-solid fa-book-open w-4 text-center"></i> Biblioteca PDFs
+                    </button>
+                    <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 text-sm font-bold text-gray-500 rounded-lg text-left transition hover:bg-gray-50 border-l-4 border-transparent" data-target="modulos-section">
+                        <i class="fa-solid fa-layer-group w-4 text-center"></i> Módulos
+                    </button>
+                    <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 text-sm font-bold text-gray-500 rounded-lg text-left transition hover:bg-gray-50 border-l-4 border-transparent" data-target="contenidos-section">
+                        <i class="fa-solid fa-file-video w-4 text-center"></i> Video / Podcast
+                    </button>
+                    <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 text-sm font-bold text-gray-500 rounded-lg text-left transition hover:bg-gray-50 border-l-4 border-transparent" data-target="moderacion-section">
+                        <i class="fa-solid fa-shield-halved w-4 text-center"></i> Moderacion
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Mobile Nav -->
+            <nav class="md:hidden fixed bottom-0 w-full bg-white border-t flex justify-around p-2 text-gray-500 z-50">
+                <button class="nav-btn flex flex-col items-center text-xs gap-0.5 text-critico" data-target="dashboard-section">
+                    <i class="fa-solid fa-gauge-high text-base"></i><span>General</span>
+                </button>
+                <button class="nav-btn flex flex-col items-center text-xs gap-0.5" data-target="biblioteca-section">
+                    <i class="fa-solid fa-book-open text-base"></i><span>Biblioteca</span>
+                </button>
+                <button class="nav-btn flex flex-col items-center text-xs gap-0.5" data-target="modulos-section">
+                    <i class="fa-solid fa-layer-group text-base"></i><span>Módulos</span>
+                </button>
+                <button class="nav-btn flex flex-col items-center text-xs gap-0.5" data-target="contenidos-section">
+                    <i class="fa-solid fa-video text-base"></i><span>Multimedia</span>
+                </button>
+                <button class="nav-btn flex flex-col items-center text-xs gap-0.5" data-target="moderacion-section">
+                    <i class="fa-solid fa-shield-halved text-base"></i><span>Moderar</span>
+                </button>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="flex-1 overflow-y-auto p-4 md:p-6 pb-24 md:pb-6 bg-gray-100">
+
+                <!-- GENERAL -->
+                <section id="dashboard-section" class="content-section active">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-gauge-high text-critico"></i> Resumen del Sistema
+                    </h2>
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-critico">
+                            <p class="text-xs font-bold text-gray-400 uppercase">PDFs</p>
+                            <h3 class="text-4xl font-black text-gray-800 mt-1" id="total-pdfs">0</h3>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-purple-500">
+                            <p class="text-xs font-bold text-gray-400 uppercase">Videos</p>
+                            <h3 class="text-4xl font-black text-gray-800 mt-1" id="total-videos">0</h3>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-blue-500">
+                            <p class="text-xs font-bold text-gray-400 uppercase">Podcasts</p>
+                            <h3 class="text-4xl font-black text-gray-800 mt-1" id="total-podcasts">0</h3>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-gray-800">
+                            <p class="text-xs font-bold text-gray-400 uppercase">Módulos</p>
+                            <h3 class="text-4xl font-black text-gray-800 mt-1" id="total-modulos">0</h3>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-5 border">
+                        <p class="font-bold text-sm mb-2"><i class="fa-solid fa-circle-info text-blue-500 mr-1"></i> Centro de control</p>
+                        <p class="text-xs text-gray-500">Desde este panel puedes gestionar todos los contenidos que aparecen en la Biblioteca pública de la plataforma. Los cambios son inmediatos.</p>
+                        <ul class="mt-3 space-y-1.5 text-xs text-gray-600">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-book-open text-critico mt-0.5"></i> <strong>Biblioteca PDFs:</strong> Sube, edita, busca y elimina documentos PDF que aparecen en la sección Biblioteca.</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-layer-group text-blue-500 mt-0.5"></i> <strong>Módulos:</strong> Crea las categorías temáticas que agrupan el contenido.</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-video text-purple-500 mt-0.5"></i> <strong>Video / Podcast:</strong> Gestiona contenido multimedia con enlaces externos.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- BIBLIOTECA PDFs -->
+                <section id="biblioteca-section" class="content-section">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-book-open text-critico"></i> Gestión de Biblioteca (PDFs)
+                    </h2>
+
+                    <div class="grid xl:grid-cols-5 gap-5">
+                        <!-- Formulario Subir PDF -->
+                        <div class="xl:col-span-2">
+                            <div class="bg-white rounded-xl shadow-sm border p-5">
+                                <h3 class="font-bold text-sm uppercase pb-2 mb-4 border-b flex items-center gap-2">
+                                    <i class="fa-solid fa-cloud-arrow-up text-critico"></i> Subir Nuevo PDF
+                                </h3>
+                                <form id="pdf-form" class="space-y-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Título del documento *</label>
+                                        <input type="text" id="pdf-titulo" required
+                                            class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none focus:ring-1 focus:ring-red-200"
+                                            placeholder="Ej: Sobre los métodos de dirección">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Descripción</label>
+                                        <textarea id="pdf-desc" rows="2"
+                                            class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none resize-none"
+                                            placeholder="Breve descripción del documento..."></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Módulo *</label>
+                                        <select id="pdf-modulo" required
+                                            class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none bg-white">
+                                            <option value="">Selecciona módulo...</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1.5">Archivo PDF *</label>
+                                        <div class="upload-zone" id="drop-zone">
+                                            <input type="file" id="pdf-file" accept="application/pdf" required>
+                                            <i class="fa-solid fa-file-pdf text-3xl text-gray-300 mb-2"></i>
+                                            <p class="text-xs font-bold text-gray-400 file-label">Arrastra el PDF aquí o haz clic</p>
+                                            <p class="text-[10px] text-gray-300 mt-1">Solo archivos .pdf</p>
+                                        </div>
+                                    </div>
+                                    <!-- Progress bar -->
+                                    <div id="upload-progress-wrap" class="hidden">
+                                        <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                            <span>Subiendo...</span>
+                                            <span id="upload-pct">0%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div id="upload-bar" class="bg-critico h-2 rounded-full transition-all" style="width:0%"></div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" id="btn-subir-pdf"
+                                        class="w-full bg-critico hover:bg-red-900 text-white font-bold py-2.5 rounded-lg text-sm transition flex items-center justify-center gap-2">
+                                        <i class="fa-solid fa-upload"></i> Subir a Biblioteca
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Lista PDFs -->
+                        <div class="xl:col-span-3">
+                            <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                                <!-- Barra de búsqueda y filtro -->
+                                <div class="p-4 border-b bg-gray-50 flex flex-wrap gap-2 items-center">
+                                    <h3 class="font-bold text-sm uppercase flex-1 flex items-center gap-2">
+                                        <i class="fa-regular fa-folder-open text-critico"></i> Lista de PDFs
+                                    </h3>
+                                    <div class="flex gap-2 w-full sm:w-auto">
+                                        <div class="relative">
+                                            <i class="fa-solid fa-search absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                                            <input type="text" id="search-pdf" placeholder="Buscar..."
+                                                class="pl-8 pr-3 py-1.5 text-xs border rounded-lg bg-white focus:outline-none focus:border-red-800 w-36">
+                                        </div>
+                                        <select id="filter-pdf-modulo"
+                                            class="p-1.5 text-xs border rounded-lg bg-white font-bold focus:outline-none">
+                                            <option value="all">Todos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Contador -->
+                                <div class="px-4 py-2 bg-gray-50 border-b text-xs text-gray-400" id="pdf-count">
+                                    Cargando PDFs...
+                                </div>
+                                <!-- Tabla -->
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm" id="pdf-table">
+                                        <thead class="text-[10px] text-gray-400 uppercase bg-gray-50 border-b">
+                                            <tr>
+                                                <th class="px-4 py-2 text-left">Documento</th>
+                                                <th class="px-4 py-2 text-left hidden sm:table-cell">Módulo</th>
+                                                <th class="px-4 py-2 text-left hidden md:table-cell">Fecha</th>
+                                                <th class="px-4 py-2 text-right">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="pdf-tbody" class="divide-y divide-gray-100">
+                                            <tr><td colspan="4" class="px-4 py-8 text-center text-gray-400 text-xs">Cargando...</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MÓDULOS -->
+                <section id="modulos-section" class="content-section">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-critico"></i> Gestión de Módulos
+                    </h2>
+                    <div class="grid md:grid-cols-3 gap-5">
+                        <div class="md:col-span-1">
+                            <div class="bg-white rounded-xl shadow-sm border p-5">
+                                <h3 class="font-bold text-sm uppercase pb-2 mb-4 border-b">Nuevo Módulo</h3>
+                                <form id="modulo-form" class="space-y-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Nombre *</label>
+                                        <input type="text" id="mod-nombre" required
+                                            class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none"
+                                            placeholder="Ej: Módulo A – Liderazgo">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Descripción</label>
+                                        <textarea id="mod-desc" rows="2"
+                                            class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none resize-none"
+                                            placeholder="Descripción breve..."></textarea>
+                                    </div>
+                                    <button type="submit"
+                                        class="w-full bg-gray-900 text-white font-bold py-2 rounded-lg text-sm hover:bg-gray-700 transition">
+                                        Crear Módulo
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2">
+                            <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                                <div class="p-4 bg-gray-50 border-b">
+                                    <h3 class="font-bold text-sm uppercase"><i class="fa-solid fa-list mr-2"></i>Módulos Existentes</h3>
+                                </div>
+                                <table class="w-full text-sm" id="modulos-table">
+                                    <thead class="text-[10px] text-gray-400 uppercase bg-gray-50 border-b">
+                                        <tr>
+                                            <th class="px-4 py-2 text-left">ID</th>
+                                            <th class="px-4 py-2 text-left">Nombre</th>
+                                            <th class="px-4 py-2 text-left">Descripción</th>
+                                            <th class="px-4 py-2 text-right">Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-100"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIDEO / PODCAST -->
+                <section id="contenidos-section" class="content-section">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-video text-critico"></i> Gestión Video / Podcast
+                    </h2>
+                    <div class="grid xl:grid-cols-5 gap-5">
+                        <div class="xl:col-span-2">
+                            <div class="bg-white rounded-xl shadow-sm border p-5">
+                                <h3 class="font-bold text-sm uppercase pb-2 mb-4 border-b">Agregar Multimedia</h3>
+                                <form id="contenido-form" class="space-y-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Tipo</label>
+                                        <div class="grid grid-cols-2 gap-2">
+                                            <label class="cursor-pointer">
+                                                <input type="radio" name="cont-tipo" value="video" checked class="peer sr-only">
+                                                <div class="text-center p-2.5 border rounded-lg text-xs peer-checked:bg-purple-50 peer-checked:border-purple-500 peer-checked:text-purple-700 peer-checked:font-bold hover:bg-gray-50 transition">
+                                                    <i class="fa-solid fa-video block mb-1 text-base"></i>Video
+                                                </div>
+                                            </label>
+                                            <label class="cursor-pointer">
+                                                <input type="radio" name="cont-tipo" value="podcast" class="peer sr-only">
+                                                <div class="text-center p-2.5 border rounded-lg text-xs peer-checked:bg-blue-50 peer-checked:border-blue-500 peer-checked:text-blue-700 peer-checked:font-bold hover:bg-gray-50 transition">
+                                                    <i class="fa-solid fa-podcast block mb-1 text-base"></i>Podcast
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Título *</label>
+                                        <input type="text" id="cont-titulo" required
+                                            class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none"
+                                            placeholder="Título del recurso">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Descripción</label>
+                                        <textarea id="cont-desc" rows="2"
+                                            class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none resize-none"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">Módulo *</label>
+                                        <select id="cont-modulo" required
+                                            class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none bg-white">
+                                            <option value="">Selecciona módulo...</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-600 mb-1">URL del recurso *</label>
+                                        <input type="url" id="cont-url" required
+                                            class="w-full p-2 border rounded-lg text-sm focus:border-purple-600 focus:outline-none"
+                                            placeholder="https://youtube.com/...">
+                                    </div>
+                                    <button type="submit" id="btn-save-content"
+                                        class="w-full bg-critico hover:bg-red-900 text-white font-bold py-2.5 rounded-lg text-sm transition flex items-center justify-center gap-2">
+                                        <i class="fa-solid fa-save"></i> Guardar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-3">
+                            <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                                <div class="p-4 bg-gray-50 border-b flex justify-between items-center gap-3 flex-wrap">
+                                    <h3 class="font-bold text-sm uppercase">Multimedia Registrada</h3>
+                                    <input type="text" id="search-contenido" placeholder="Buscar..."
+                                        class="p-1.5 text-xs border rounded-lg bg-white w-36 focus:outline-none focus:border-red-800">
+                                </div>
+                                <table class="w-full text-sm" id="contenidos-table">
+                                    <thead class="text-[10px] text-gray-400 uppercase bg-gray-50 border-b">
+                                        <tr>
+                                            <th class="px-4 py-2 text-left">Tipo</th>
+                                            <th class="px-4 py-2 text-left">Título</th>
+                                            <th class="px-4 py-2 text-left hidden sm:table-cell">Módulo</th>
+                                            <th class="px-4 py-2 text-right">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="contenidos-tbody" class="divide-y divide-gray-100"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MODERACION -->
+                <section id="moderacion-section" class="content-section">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-critico"></i> Moderacion del Foro y Muro
+                    </h2>
+
+                    <!-- Sub-tabs -->
+                    <div class="flex gap-2 mb-5 border-b">
+                        <button onclick="switchModTab('mod-resenas')" id="tab-resenas"
+                            class="mod-tab px-4 py-2 text-sm font-bold border-b-2 border-critico text-critico -mb-[2px]">
+                            <i class="fa-solid fa-pen-to-square mr-1"></i> Resenas
+                        </button>
+                        <button onclick="switchModTab('mod-nube')" id="tab-nube"
+                            class="mod-tab px-4 py-2 text-sm font-bold border-b-2 border-transparent text-gray-400 -mb-[2px]">
+                            <i class="fa-solid fa-cloud mr-1"></i> Nube de Ideas
+                        </button>
+                        <button onclick="switchModTab('mod-propuestas')" id="tab-propuestas"
+                            class="mod-tab px-4 py-2 text-sm font-bold border-b-2 border-transparent text-gray-400 -mb-[2px]">
+                            <i class="fa-solid fa-comments mr-1"></i> Propuestas Muro
+                        </button>
+                    </div>
+
+                    <!-- Vista Resenas -->
+                    <div id="mod-resenas">
+                        <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                            <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                                <h3 class="font-bold text-sm uppercase"><i class="fa-solid fa-pen-to-square text-critico mr-1"></i> Resenas de la Biblioteca</h3>
+                                <button onclick="loadResenas()" class="text-xs text-gray-400 hover:text-gray-700 flex items-center gap-1">
+                                    <i class="fa-solid fa-rotate-right"></i> Recargar
+                                </button>
+                            </div>
+                            <div id="resenas-container" class="divide-y divide-gray-100 max-h-[500px] overflow-y-auto">
+                                <div class="p-6 text-center text-gray-400 text-xs">Cargando resenas...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vista Nube -->
+                    <div id="mod-nube" class="hidden">
+                        <div class="bg-white rounded-xl shadow-sm border p-5">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="font-bold text-sm uppercase">Nube de Ideas del Foro Agora</h3>
+                                    <p class="text-xs text-gray-400 mt-0.5">Palabras enviadas por los participantes en el foro</p>
+                                </div>
+                                <button onclick="resetNube()" class="flex items-center gap-2 bg-red-50 hover:bg-red-100 text-critico font-bold text-xs px-4 py-2 rounded-lg transition border border-red-200">
+                                    <i class="fa-solid fa-trash-can"></i> Resetear Nube
+                                </button>
+                            </div>
+                            <div id="nube-admin-preview" class="min-h-[80px] bg-gray-50 p-4 rounded-lg border mb-4 leading-loose">
+                                <span class="text-gray-300 text-xs">Cargando palabras...</span>
+                            </div>
+                            <div class="bg-amber-50 border border-amber-200 p-3 rounded-lg text-xs text-amber-800">
+                                <i class="fa-solid fa-triangle-exclamation mr-1"></i>
+                                <strong>Atencion:</strong> Resetear la nube elimina TODAS las palabras del foro. Esta accion no se puede deshacer.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vista Propuestas Muro -->
+                    <div id="mod-propuestas" class="hidden">
+                        <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                            <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                                <h3 class="font-bold text-sm uppercase"><i class="fa-solid fa-comments text-critico mr-1"></i> Propuestas del Muro Critico</h3>
+                                <button onclick="loadPropuestasAdmin()" class="text-xs text-gray-400 hover:text-gray-700 flex items-center gap-1">
+                                    <i class="fa-solid fa-rotate-right"></i> Recargar
+                                </button>
+                            </div>
+                            <div id="propuestas-container" class="divide-y divide-gray-100 max-h-[500px] overflow-y-auto">
+                                <div class="p-6 text-center text-gray-400 text-xs">Cargando propuestas...</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- ====== MODAL EDICIÓN PDF ====== -->
+    <div id="modal-edit-pdf" class="modal-overlay">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 overflow-hidden">
+            <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                <h3 class="font-bold text-sm uppercase flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square text-critico"></i> Editar PDF
+                </h3>
+                <button onclick="closeModal('modal-edit-pdf')" class="text-gray-400 hover:text-red-600 transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <form id="edit-pdf-form" class="p-5 space-y-3">
+                <input type="hidden" id="edit-pdf-id">
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">Título *</label>
+                    <input type="text" id="edit-pdf-titulo" required
+                        class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">Descripción</label>
+                    <textarea id="edit-pdf-desc" rows="2"
+                        class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none resize-none"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 mb-1">Módulo *</label>
+                    <select id="edit-pdf-modulo" required
+                        class="w-full p-2 border rounded-lg text-sm focus:border-red-800 focus:outline-none bg-white">
+                    </select>
+                </div>
+                <div class="flex gap-2 pt-2">
+                    <button type="button" onclick="closeModal('modal-edit-pdf')"
+                        class="flex-1 py-2 bg-gray-100 text-gray-700 rounded-lg font-bold text-sm hover:bg-gray-200">
+                        Cancelar
+                    </button>
+                    <button type="submit" id="btn-save-edit-pdf"
+                        class="flex-1 py-2 bg-critico text-white rounded-lg font-bold text-sm hover:bg-red-900 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-save"></i> Actualizar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====== TOAST ====== -->
+    <div id="toast" class="toast-notify">
+        <i class="fa-solid fa-info-circle" id="toast-icon"></i>
+        <span id="toast-msg">Mensaje</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
