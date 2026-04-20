@@ -1,4 +1,4 @@
-﻿ï»¿
+ï»¿
 <!DOCTYPE html>
 <html lang="es">
 
@@ -866,111 +866,12 @@
                         </div>
                     </div>
 
-                    <!-- Perfil de Voluntario -->
-                    <p class="section-title">
-                        <i class="fa-solid fa-flag"></i> Perfil de Voluntario
-                    </p>
-
                     <div class="form-group">
-                        <label class="form-label">Bandera que más te motiva <span class="req">*</span></label>
+                        <label class="form-label">Universidad o Colegio <span class="req">*</span></label>
                         <div class="input-wrapper">
-                            <i class="fa-solid fa-star"></i>
-                            <select id="reg-bandera" required class="form-input with-icon">
-                                <option value="" disabled selected>Selecciona una opción...</option>
-                                <option value="educacion">Educación y Ciencia</option>
-                                <option value="corrupcion">Lucha contra la corrupción y Transparencia</option>
-                                <option value="medioambiente">Medio Ambiente y Sostenibilidad</option>
-                                <option value="seguridad">Seguridad Ciudadana</option>
-                                <option value="cultura">Cultura y Deporte</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" style="margin-bottom:10px;">
-                            Íreas donde te gustaría aportar <span class="req">*</span>
-                            <span style="font-weight:400;text-transform:none;font-size:10px;color:#9ca3af;"> (puedes
-                                elegir varias)</span>
-                        </label>
-
-                        <label class="checkbox-card">
-                            <input type="checkbox" class="custom-checkbox" value="redes">
-                            <div class="checkbox-card-body">
-                                <i class="fa-solid fa-mobile-screen"></i>
-                                <span><strong>Redes Sociales:</strong> Crear contenido, comentar, compartir.</span>
-                            </div>
-                        </label>
-                        <label class="checkbox-card">
-                            <input type="checkbox" class="custom-checkbox" value="logistica">
-                            <div class="checkbox-card-body">
-                                <i class="fa-solid fa-truck-fast"></i>
-                                <span><strong>Logística:</strong> Organizar eventos, transporte, distribución.</span>
-                            </div>
-                        </label>
-                        <label class="checkbox-card">
-                            <input type="checkbox" class="custom-checkbox" value="comunicacion">
-                            <div class="checkbox-card-body">
-                                <i class="fa-solid fa-bullhorn"></i>
-                                <span><strong>Comunicación:</strong> Escribir textos, hablar en público, diseño.</span>
-                            </div>
-                        </label>
-                        <label class="checkbox-card">
-                            <input type="checkbox" class="custom-checkbox" value="datos">
-                            <div class="checkbox-card-body">
-                                <i class="fa-solid fa-chart-pie"></i>
-                                <span><strong>Datos / Sistemas:</strong> Excel, bases de datos, automatización.</span>
-                            </div>
-                        </label>
-                        <label class="checkbox-card">
-                            <input type="checkbox" class="custom-checkbox" value="territorio">
-                            <div class="checkbox-card-body">
-                                <i class="fa-solid fa-shoe-prints"></i>
-                                <span><strong>Territorio:</strong> Puerta a puerta, diálogo con vecinos.</span>
-                            </div>
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Tiempo disponible semanal <span class="req">*</span></label>
-                        <div class="input-wrapper">
-                            <i class="fa-regular fa-clock"></i>
-                            <select id="reg-tiempo" required class="form-input with-icon">
-                                <option value="" disabled selected>Selecciona una opción...</option>
-                                <option value="1-3">1 a 3 horas</option>
-                                <option value="4-7">4 a 7 horas</option>
-                                <option value="8-15">8 a 15 horas</option>
-                                <option value="15+">Más de 15 horas</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" style="margin-bottom:10px;">
-                            Firmeza de apoyo <span class="req">*</span>
-                            <span style="font-weight:400;text-transform:none;font-size:10px;color:#9ca3af;"> (1 =
-                                explorando, 5 = totalmente comprometido/a)</span>
-                        </label>
-                        <div class="radio-group">
-                            <label class="radio-label">
-                                <input type="radio" name="apoyo" value="1" required>
-                                <div class="radio-body">1</div>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="apoyo" value="2">
-                                <div class="radio-body">2</div>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="apoyo" value="3">
-                                <div class="radio-body">3</div>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="apoyo" value="4">
-                                <div class="radio-body">4</div>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="apoyo" value="5">
-                                <div class="radio-body">5</div>
-                            </label>
+                            <i class="fa-solid fa-school"></i>
+                            <input type="text" id="reg-institucion" required
+                                placeholder="Ej: Universidad Industrial de Santander" class="form-input with-icon">
                         </div>
                     </div>
 
@@ -995,8 +896,7 @@
                     </div>
 
                     <button type="submit" id="btn-register" class="btn-gold">
-                        <span class="btn-text"><i class="fa-solid fa-check mr-2"></i>Crear mi cuenta de
-                            Voluntario</span>
+                        <span class="btn-text"><i class="fa-solid fa-check mr-2"></i>Crear mi cuenta</span>
                         <span class="btn-spinner"><i class="fa-solid fa-circle-notch fa-spin"></i> Registrando...</span>
                     </button>
 
@@ -1122,8 +1022,16 @@
                 <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:16px;">Muro de Propuestas y Crítica Colectiva
                 </h2>
                 <div style="background:white;padding:16px;border-radius:10px 10px 0 0;border-bottom:1px solid #e5e7eb;">
+                    <div style="margin-bottom:10px;">
+                        <label style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;display:block;margin-bottom:4px;">Tipo de Propuesta:</label>
+                        <select id="propuesta-tipo" style="width:100%;padding:8px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:13px;background:white;font-family:'Inter',sans-serif;outline:none;">
+                            <option value="Diagnóstico">Diagnóstico</option>
+                            <option value="Propuesta de Solución">Propuesta de Solución</option>
+                            <option value="Declaración de Intenciones">Declaración de Intenciones</option>
+                        </select>
+                    </div>
                     <textarea id="propuesta-texto"
-                        placeholder="Carga aquí tu respuesta efectiva desde el liderazgo (propuesta, diagnóstico o declaración de intenciones)..."
+                        placeholder="Escribe aquí tu aporte..."
                         style="width:100%;border:1px solid #d1d5db;padding:10px;border-radius:8px;font-size:13px;font-family:'Inter',sans-serif;resize:vertical;"
                         rows="3"></textarea>
                     <button onclick="subirPropuesta()"
@@ -1416,20 +1324,12 @@
             const ciudad = document.getElementById('input-ciudad').value.trim();
             const sector = document.getElementById('reg-sector').value.trim();
             const profesion = document.getElementById('reg-profesion').value.trim();
-            const bandera = document.getElementById('reg-bandera').value;
-            const tiempo = document.getElementById('reg-tiempo').value;
+            const institucion = document.getElementById('reg-institucion').value.trim();
             const pwd = document.getElementById('reg-password').value.trim();
-            const apoyo = document.querySelector('input[name="apoyo"]:checked')?.value;
-
-            const areas = Array.from(document.querySelectorAll('.custom-checkbox:checked')).map(c => c.value);
 
             // Validaciones
-            if (!nombre || !wpp || !edad || !dep || !ciudad || !sector || !profesion || !bandera || !tiempo || !pwd || !apoyo) {
+            if (!nombre || !wpp || !edad || !dep || !ciudad || !sector || !profesion || !institucion || !pwd) {
                 showAlert('register-alert', 'error', 'Por favor completa todos los campos obligatorios.');
-                return;
-            }
-            if (areas.length === 0) {
-                showAlert('register-alert', 'error', 'Selecciona al menos un área donde puedes aportar.');
                 return;
             }
             if (wpp.length < 7) {
@@ -1460,8 +1360,7 @@
                     .insert([{
                         username: wpp, nombre, whatsapp: wpp, edad: parseInt(edad),
                         departamento: dep, ciudad, sector, profesion,
-                        bandera, areas: areas, tiempo_disponible: tiempo,
-                        firmeza_apoyo: parseInt(apoyo), password: pwdHash, rol: 'usuario'
+                        institucion: institucion, password: pwdHash, rol: 'usuario'
                     }])
                     .select()
                     .single();
@@ -1492,7 +1391,7 @@
             cargarBiblioteca();
             cargarDatosForo();
             cargarPropuestasMuro();
-            actualizarContadorUI();
+            cargarProgresoComentarios();
             initBot();
         }
 
@@ -1659,13 +1558,21 @@
             lista.style.display = 'block';
             btnEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Cargando...';
             try {
-                var { data, error } = await db.from('resenas').select('texto, fecha').eq('recurso_id', recursoId).order('fecha', { ascending: false });
+                var { data, error } = await db.from('resenas').select('texto, fecha, usuario_nombre').eq('recurso_id', recursoId).order('fecha', { ascending: false });
                 if (error) throw error;
                 if (!data || data.length === 0) {
-                    lista.innerHTML = '<p style="font-size:12px;color:#9ca3af;font-style:italic;padding:8px 0;">Sé el primero en dejar una resena.</p>';
+                    lista.innerHTML = '<p style="font-size:12px;color:#9ca3af;font-style:italic;padding:8px 0;">Sé el primero en dejar una reseña.</p>';
                 } else {
-                    lista.innerHTML = '<p style="font-size:10px;font-weight:700;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;letter-spacing:0.5px;">Resenas anónimas de la comunidad</p>' +
-                        data.map(r => '<div style="background:#f9fafb;border-left:3px solid #16a34a;padding:8px 10px;border-radius:6px;margin-bottom:6px;font-size:12px;color:#374151;font-style:italic;">"' + r.texto + '"</div>').join('');
+                    lista.innerHTML = '<p style="font-size:10px;font-weight:700;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;letter-spacing:0.5px;">Reseñas de la comunidad</p>' +
+                        data.map(r => `
+                            <div style="background:#f9fafb;border-left:3px solid #16a34a;padding:8px 10px;border-radius:6px;margin-bottom:6px;font-size:12px;color:#374151;">
+                                <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                                    <span style="font-weight:700;font-size:11px;color:#16a34a;">${r.usuario_nombre || 'Integrante'}</span>
+                                    <span style="font-size:10px;color:#9ca3af;">${new Date(r.fecha).toLocaleDateString('es-CO')}</span>
+                                </div>
+                                <p style="font-style:italic;">"${r.texto}"</p>
+                            </div>
+                        `).join('');
                 }
             } catch (err) {
                 lista.innerHTML = '<p style="font-size:12px;color:#ef4444;">Error cargando resenas.</p>';
@@ -1711,7 +1618,8 @@
                     await db.from('respuestas_foro').insert([{
                         id_pregunta: id_pregunta,
                         respuesta: val,
-                        id_usuario: userObj.id
+                        id_usuario: userObj.id,
+                        usuario_nombre: userObj.nombre || 'Integrante'
                     }]);
                     mostrarToast('Respuesta registrada en el óÁgora.', 'success');
                 } catch (e) { console.warn(e); }
@@ -1729,13 +1637,18 @@
             lista.style.display = 'block';
             btnEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Cargando...';
             try {
-                var { data, error } = await db.from('respuestas_foro').select('respuesta, fecha').eq('id_pregunta', preguntaId).order('fecha', { ascending: false });
+                var { data, error } = await db.from('respuestas_foro').select('respuesta, fecha, usuario_nombre').eq('id_pregunta', preguntaId).order('fecha', { ascending: false });
                 if (error) throw error;
                 if (!data || data.length === 0) {
                     lista.innerHTML = '<p style="font-size:12px;color:#9ca3af;font-style:italic;padding:6px 0;">Aún no hay respuestas. Sé el primero.</p>';
                 } else {
-                    lista.innerHTML = '<p style="font-size:10px;font-weight:700;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;letter-spacing:0.5px;">Respuestas anónimas (' + data.length + ')</p>' +
-                        data.map(r => '<div style="background:#fffbeb;border-left:3px solid var(--gold);padding:8px 10px;border-radius:6px;margin-bottom:5px;font-size:12px;color:#374151;">" ' + r.respuesta + '</div>').join('');
+                    lista.innerHTML = '<p style="font-size:10px;font-weight:700;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;letter-spacing:0.5px;">Aportes de la comunidad (' + data.length + ')</p>' +
+                        data.map(r => `
+                            <div style="background:#fffbeb;border-left:3px solid var(--gold);padding:8px 10px;border-radius:6px;margin-bottom:5px;font-size:12px;color:#374151;">
+                                <p style="font-weight:600;font-size:11px;color:#7a6212;margin-bottom:4px;">${r.usuario_nombre || 'Integrante'}</p>
+                                <p>"${r.respuesta}"</p>
+                            </div>
+                        `).join('');
                 }
             } catch (err) {
                 lista.innerHTML = '<p style="font-size:12px;color:#ef4444;">Error: ' + (err.message || err) + '</p>';
@@ -1743,16 +1656,28 @@
             btnEl.innerHTML = '<i class="fa-regular fa-eye-slash"></i> Ocultar respuestas';
         };
 
-        function agregarPropuestaAlMuro(texto, tipo = 'Propuesta') {
+        function agregarPropuestaAlMuro(texto, tipo = 'Propuesta', nombre = 'Anónimo', fecha = null, id = null) {
             const muro = document.getElementById('muro-actividades');
             const card = document.createElement('div');
             card.style.cssText = 'background:white;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #e5e7eb;';
-            card.setAttribute('data-propuesta-id', prop ? prop.id : '');
+            if (id) card.setAttribute('data-propuesta-id', id);
+            
+            const displayFecha = fecha ? new Date(fecha).toLocaleDateString('es-CO', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Ahora';
             card.innerHTML = `
-            <p style="font-weight:700;font-size:10px;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;">${tipo}:</p>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+                <p style="font-weight:700;font-size:10px;text-transform:uppercase;color:var(--primary);">${tipo}</p>
+                <p style="font-size:10px;color:#9ca3af;">${displayFecha}</p>
+            </div>
+            <p style="color:#1a1a1a;font-weight:600;font-size:12px;margin-bottom:4px;">${nombre}</p>
             <p style="color:#374151;font-style:italic;border-left:4px solid #d1d5db;padding-left:10px;margin-bottom:12px;">"${texto.replace(/</g, '&lt;')}"</p>
-            <div class="comentario-critico" style="padding:10px;border-radius:6px;">
+            <div class="comentario-critico" style="padding:10px;border-radius:6px;background:#f9fafb;border:1px solid #f3f4f6;">
                 <p style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px;">Comentario crítico (obligatorio):</p>
+                <div style="display:flex;gap:4px;margin-bottom:6px;">
+                    <select class="select-perspectiva" style="font-size:10px;padding:2px 6px;border-radius:4px;border:1px solid #d1d5db;background:white;outline:none;">
+                        <option value="Analítica">Perspectiva Analítica</option>
+                        <option value="Propia">Perspectiva Propia</option>
+                    </select>
+                </div>
                 <input type="text" placeholder="Aporta una crítica constructiva..." style="font-size:12px;width:100%;background:transparent;border-bottom:1px solid #d1d5db;outline:none;padding:4px;font-family:'Inter',sans-serif;">
                 <button onclick="agregarComentarioCritico(this)" style="font-size:10px;background:#fef9c3;padding:3px 10px;border-radius:6px;margin-top:6px;border:none;cursor:pointer;font-family:'Inter',sans-serif;color:#7a6212;font-weight:600;">Enviar crítica</button>
             </div>
@@ -1764,9 +1689,23 @@
 
         async function subirPropuesta() {
             var text = document.getElementById('propuesta-texto').value.trim();
+            var tipo = document.getElementById('propuesta-tipo').value;
             if (!text) return;
-            try { const { error } = await db.from('propuestas').insert([{ texto: text, tipo: 'Propuesta' }]); if (error) console.error(error); } catch (e) { console.error(e); }
-            agregarPropuestaAlMuro(text, 'Propuesta');
+            var userLog = JSON.parse(localStorage.getItem('vyd_user') || '{}');
+            var nombre = userLog.nombre || 'Anónimo';
+            try {
+                const { data, error } = await db.from('propuestas').insert([{
+                    texto: text,
+                    tipo: tipo,
+                    nombre_usuario: nombre
+                }]).select().single();
+                if (error) throw error;
+                mostrarToast('Propuesta publicada con éxito.', 'success');
+                agregarPropuestaAlMuro(text, tipo, nombre, new Date(), data.id);
+            } catch (e) {
+                console.error(e);
+                mostrarToast('Error al publicar propuesta.', 'error');
+            }
             document.getElementById('propuesta-texto').value = '';
         }
 
@@ -1779,19 +1718,22 @@
             btn.textContent = '...';
             try {
                 var userLog = JSON.parse(localStorage.getItem('vyd_user') || '{}');
-                // propuesta_id stored in the card
                 var card = btn.closest('[data-propuesta-id]');
                 var propuestaId = card ? card.getAttribute('data-propuesta-id') : null;
+                const perspectiva = container.querySelector('.select-perspectiva').value;
                 await db.from('comentarios_muro').insert([{
                     comentario: comentario,
                     propuesta_id: propuestaId,
-                    usuario_nombre: userLog.nombre || 'Anónimo'
+                    usuario_nombre: userLog.nombre || 'Anónimo',
+                    perspectiva: perspectiva
                 }]);
+                mostrarToast('Crítica enviada correctamente.', 'success');
             } catch (e) { console.warn('Error guardando crótica:', e); }
+            const perspectiveTag = container.querySelector('.select-perspectiva').value;
             const lista = container.parentElement.querySelector('.comentarios-lista');
             const p = document.createElement('p');
             p.style.cssText = 'border-top:1px solid #f0f0f0;padding-top:4px;margin-top:4px;font-size:11px;';
-            p.innerHTML = '<i class="fa-regular fa-comment-dots"></i> <strong>Crótica:</strong> "' + comentario + '"';
+            p.innerHTML = `<i class="fa-regular fa-comment-dots"></i> <strong>Crítica (${perspectiveTag}):</strong> "${comentario}"`;
             lista.appendChild(p);
             input.value = '';
             btn.disabled = false;
@@ -1904,24 +1846,67 @@
         }
 
         async function cargarPropuestasMuro() {
-            var res = await db.from('propuestas').select('*').order('fecha', { ascending: false }).then(r => r);
-            if (res && res.data && res.data.length > 0) {
-                var muro = document.getElementById('muro-actividades');
+            try {
+                // 1. Cargar todas las propuestas
+                const { data: props, error: errP } = await db.from('propuestas').select('*').order('fecha', { ascending: false });
+                if (errP) throw errP;
+
+                // 2. Cargar todos los comentarios asociados al muro
+                const { data: comments, error: errC } = await db.from('comentarios_muro').select('*').order('fecha', { ascending: true });
+                if (errC) throw errC;
+
+                const muro = document.getElementById('muro-actividades');
+                if (!muro) return;
                 muro.innerHTML = '';
-                res.data.forEach(function (prop) {
+
+                if (!props || props.length === 0) {
+                    muro.innerHTML = '<p style="text-align:center;padding:20px;color:#9ca3af;font-size:12px;">No hay propuestas aún. ¡Sé el primero!</p>';
+                    return;
+                }
+
+                props.forEach(function (prop) {
                     var card = document.createElement('div');
                     card.style.cssText = 'background:white;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #e5e7eb;';
-                    card.setAttribute('data-propuesta-id', prop ? prop.id : '');
+                    card.setAttribute('data-propuesta-id', prop.id);
                     var fecha = new Date(prop.fecha).toLocaleDateString('es-CO', { day: '2-digit', month: 'short', year: 'numeric' });
-                    card.innerHTML = '<p style="font-weight:700;font-size:10px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px;">' + prop.tipo + ' <span style="font-weight:400;color:#d1d5db;margin-left:6px;">' + fecha + '</span></p>' +
-                        '<p style="color:#374151;font-style:italic;border-left:4px solid #d1d5db;padding-left:10px;margin-bottom:12px;">"' + prop.texto + '"</p>' +
-                        '<div class="comentario-critico" style="padding:10px;border-radius:6px;">' +
-                        '<p style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px;">Comentario crítico (obligatorio):</p>' +
-                        '<input type="text" placeholder="Aporta una crítica constructiva..." style="font-size:12px;width:100%;background:transparent;border-bottom:1px solid #d1d5db;outline:none;padding:4px;font-family:\'Inter\',sans-serif;">' +
-                        '<button onclick="agregarComentarioCritico(this)" style="font-size:10px;background:#fef9c3;padding:3px 10px;border-radius:6px;margin-top:6px;border:none;cursor:pointer;font-family:\'Inter\',sans-serif;color:#7a6212;font-weight:600;">Enviar crítica</button>' +
-                        '</div><div class="comentarios-lista" style="margin-top:8px;font-size:11px;color:#6b7280;"></div>';
+                    var autor = prop.nombre_usuario || 'Anónimo';
+
+                    // Filtrar comentarios para esta propuesta
+                    const propComments = (comments || []).filter(c => c.propuesta_id === prop.id);
+                    const commentsHtml = propComments.map(c => `
+                        <p style="border-top:1px solid #f0f0f0;padding-top:4px;margin-top:4px;font-size:11px;">
+                            <i class="fa-regular fa-comment-dots"></i> 
+                            <strong>Crítica (${c.perspectiva || 'Analítica'}):</strong> "${c.comentario}"
+                            <span style="display:block;font-size:9px;color:#9ca3af;margin-top:2px;">Por: ${c.usuario_nombre || 'Integrante'}</span>
+                        </p>
+                    `).join('');
+
+                    card.innerHTML = `
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+                            <p style="font-weight:700;font-size:10px;text-transform:uppercase;color:var(--primary);">${prop.tipo || 'Propuesta'}</p>
+                            <p style="font-size:10px;color:#9ca3af;">${fecha}</p>
+                        </div>
+                        <p style="color:#1a1a1a;font-weight:600;font-size:12px;margin-bottom:4px;">${autor}</p>
+                        <p style="color:#374151;font-style:italic;border-left:4px solid #d1d5db;padding-left:10px;margin-bottom:12px;">"${prop.texto}"</p>
+                        <div class="comentario-critico" style="padding:10px;border-radius:6px;background:#f9fafb;border:1px solid #f3f4f6;">
+                            <p style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px;">Comentario crítico (obligatorio):</p>
+                            <div style="display:flex;gap:4px;margin-bottom:6px;">
+                                <select class="select-perspectiva" style="font-size:10px;padding:2px 6px;border-radius:4px;border:1px solid #d1d5db;background:white;outline:none;">
+                                    <option value="Analítica">Perspectiva Analítica</option>
+                                    <option value="Propia">Perspectiva Propia</option>
+                                </select>
+                            </div>
+                            <input type="text" placeholder="Aporta una crítica constructiva..." style="font-size:12px;width:100%;background:transparent;border-bottom:1px solid #d1d5db;outline:none;padding:4px;font-family:'Inter',sans-serif;">
+                            <button onclick="agregarComentarioCritico(this)" style="font-size:10px;background:#fef9c3;padding:3px 10px;border-radius:6px;margin-top:6px;border:none;cursor:pointer;font-family:'Inter',sans-serif;color:#7a6212;font-weight:600;">Enviar crítica</button>
+                        </div>
+                        <div class="comentarios-lista" style="margin-top:8px;font-size:11px;color:#6b7280;">
+                            ${commentsHtml}
+                        </div>
+                    `;
                     muro.appendChild(card);
                 });
+            } catch (e) {
+                console.error('Error cargando el muro:', e);
             }
         }
 

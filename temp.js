@@ -164,20 +164,12 @@
             const ciudad = document.getElementById('input-ciudad').value.trim();
             const sector = document.getElementById('reg-sector').value.trim();
             const profesion = document.getElementById('reg-profesion').value.trim();
-            const bandera = document.getElementById('reg-bandera').value;
-            const tiempo = document.getElementById('reg-tiempo').value;
+            const institucion = document.getElementById('reg-institucion').value.trim();
             const pwd = document.getElementById('reg-password').value.trim();
-            const apoyo = document.querySelector('input[name="apoyo"]:checked')?.value;
-
-            const areas = Array.from(document.querySelectorAll('.custom-checkbox:checked')).map(c => c.value);
 
             // Validaciones
-            if (!nombre || !wpp || !edad || !dep || !ciudad || !sector || !profesion || !bandera || !tiempo || !pwd || !apoyo) {
+            if (!nombre || !wpp || !edad || !dep || !ciudad || !sector || !profesion || !institucion || !pwd) {
                 showAlert('register-alert', 'error', 'Por favor completa todos los campos obligatorios.');
-                return;
-            }
-            if (areas.length === 0) {
-                showAlert('register-alert', 'error', 'Selecciona al menos un Ã¡rea donde puedes aportar.');
                 return;
             }
             if (wpp.length < 7) {
@@ -208,8 +200,7 @@
                     .insert([{
                         username: wpp, nombre, whatsapp: wpp, edad: parseInt(edad),
                         departamento: dep, ciudad, sector, profesion,
-                        bandera, areas: areas, tiempo_disponible: tiempo,
-                        firmeza_apoyo: parseInt(apoyo), password: pwdHash, rol: 'usuario'
+                        institucion: institucion, password: pwdHash, rol: 'usuario'
                     }])
                     .select()
                     .single();
