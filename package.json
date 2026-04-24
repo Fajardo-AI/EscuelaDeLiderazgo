@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@supabase/supabase-js": "^2.104.1",
+    "assemblyai": "^4.30.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "ldapjs": "^3.0.7",
+    "mysql2": "^3.22.2"
+  }
+}
